@@ -1,0 +1,16 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": ["**/.env"],
+  "ui": "stream",
+  "tasks": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "dev": {
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
+      "persistent": true,
+      "cache": false
+    },
+    "lint": {}
+  }
+}
