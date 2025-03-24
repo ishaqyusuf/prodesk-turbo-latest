@@ -2,20 +2,29 @@
 
 # dependencies
 node_modules
-/.pnp
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 
-# database
-/prisma/db.sqlite
-/prisma/db.sqlite-journal
+ 
+
+# nitro
+.nitro/
+.output/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 next-env.d.ts
+
+# expo
+.expo/
+expo-env.d.ts
+apps/expo/.gitignore
+apps/expo/ios
+apps/expo/android
 
 # production
 /build
@@ -43,5 +52,8 @@ todo.md
 
 # typescript
 *.tsbuildinfo
-
+dist/
+.cache
 .trigger
+# turbo
+.turbo

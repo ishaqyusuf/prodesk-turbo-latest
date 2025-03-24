@@ -4,6 +4,7 @@
   "workspaces": [
     "packages/*",
     "apps/*",
+    "tools/*",
     "packages/email/*"
   ],
   "scripts": {
@@ -12,15 +13,15 @@
     "clean:workspaces": "turbo clean",
     "dev": "turbo dev --parallel",
     "test": "turbo test --parallel",
-    "start:dashboard": "turbo start --filter=@midday/dashboard",
-    "start:website": "turbo start --filter=@midday/website",
-    "dev:api": "turbo dev --filter=@midday/api",
-    "dev:dashboard": "turbo dev --filter=@midday/dashboard",
-    "build:dashboard": "turbo build --filter=@midday/dashboard",
-    "dev:engine": "turbo dev --filter=@midday/engine",
-    "dev:website": "turbo dev --filter=@midday/website ",
-    "dev:desktop": "turbo dev --filter=@midday/desktop",
-    "jobs:dashboard": "turbo jobs --filter=@midday/dashboard",
+    "start:dashboard": "turbo start --filter=@gnd/dashboard",
+    "start:website": "turbo start --filter=@gnd/website",
+    "dev:api": "turbo dev --filter=@gnd/api",
+    "dev:dashboard": "turbo dev --filter=@gnd/dashboard",
+    "build:dashboard": "turbo build --filter=@gnd/dashboard",
+    "dev:engine": "turbo dev --filter=@gnd/engine",
+    "dev:website": "turbo dev --filter=@gnd/website ",
+    "dev:desktop": "turbo dev --filter=@gnd/desktop",
+    "jobs:dashboard": "turbo jobs --filter=@gnd/dashboard",
     "format": "biome format --write .",
     "lint": "turbo lint && manypkg check",
     "typecheck": "turbo typecheck"
