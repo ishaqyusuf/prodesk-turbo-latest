@@ -27,6 +27,7 @@ export function CustomerOverviewSheet() {
             open={ctx.opened}
             rounded
             size="xl"
+            floating
             onOpenChange={ctx.close}
         >
             <Tabs
