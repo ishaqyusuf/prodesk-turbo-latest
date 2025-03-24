@@ -1,0 +1,34 @@
+{
+  "name": "gnd",
+  "private": true,
+  "workspaces": ["packages/*", "apps/*", "tooling/*", "packages/email/*"],
+  "scripts": {
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "dev": "turbo dev --parallel",
+    "test": "turbo test --parallel",
+    "start:dashboard": "turbo start --filter=@gnd/dashboard",
+    "start:website": "turbo start --filter=@gnd/website",
+    "dev:api": "turbo dev --filter=@gnd/api",
+    "dev:dashboard": "turbo dev --filter=@gnd/dashboard",
+    "build:dashboard": "turbo build --filter=@gnd/dashboard",
+    "dev:engine": "turbo dev --filter=@gnd/engine",
+    "dev:website": "turbo dev --filter=@gnd/website ",
+    "dev:desktop": "turbo dev --filter=@gnd/desktop",
+    "jobs:dashboard": "turbo jobs --filter=@gnd/dashboard",
+    "format": "biome format --write .",
+    "lint": "turbo lint && manypkg check",
+    "typecheck": "turbo typecheck"
+  },
+  "dependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@manypkg/cli": "^0.23.0",
+    "turbo": "2.3.3",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "bun@1.1.38",
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  }
+}
