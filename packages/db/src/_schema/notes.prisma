@@ -1,0 +1,86 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NotePad {
+  id              BigInt    @default(autoincrement())
+  note            String?   @db.VarChar(191)
+  createdById     BigInt?
+  deletedAt       DateTime? @db.Timestamptz(6)
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  headline        String?   @db.VarChar(191)
+  senderContactId BigInt
+  subject         String?   @db.VarChar(191)
+  color           String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NoteRecipients {
+  id               BigInt    @default(autoincrement())
+  deletedAt        DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  notePadId        BigInt
+  notePadContactId BigInt
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NotePadContacts {
+  id        BigInt    @default(autoincrement())
+  name      String    @db.VarChar(191)
+  email     String?   @db.VarChar(191)
+  phoneNo   String?   @db.VarChar(191)
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NoteTags {
+  id        BigInt    @default(autoincrement())
+  tagName   String    @db.VarChar(191)
+  tagValue  String    @db.VarChar(191)
+  notePadId BigInt?
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NoteComments {
+  id               BigInt    @default(autoincrement())
+  notePadId        BigInt?
+  commentNotePadId BigInt?
+  deletedAt        DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NotePadEvent {
+  id           BigInt    @default(autoincrement())
+  reminderType String?   @db.VarChar(191)
+  status       String?   @db.VarChar(191)
+  reminderDate DateTime? @db.Timestamptz(6)
+  remindedAt   DateTime? @db.Timestamptz(6)
+  eventDate    DateTime? @db.Timestamptz(6)
+  deletedAt    DateTime? @db.Timestamptz(6)
+  createdAt    DateTime? @default(now()) @db.Timestamptz(6)
+  notePadId    BigInt
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model NotePadReadReceipt {
+  id               BigInt    @default(autoincrement())
+  deletedAt        DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  notePadContactId BigInt
+  notePadId        BigInt
+
+  @@ignore
+}

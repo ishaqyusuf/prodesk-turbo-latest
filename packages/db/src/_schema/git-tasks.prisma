@@ -1,0 +1,44 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model GitTasks {
+  id          BigInt    @default(autoincrement())
+  description String    @db.VarChar(191)
+  deletedAt   DateTime? @db.Timestamptz(6)
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model GitTaskStatus {
+  id        BigInt    @default(autoincrement())
+  current   Boolean   @default(false)
+  status    String    @db.VarChar(191)
+  taskId    BigInt
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model GitTaskTags {
+  id        BigInt    @default(autoincrement())
+  tagId     BigInt
+  gitTaskId BigInt
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Tags {
+  id        BigInt    @default(autoincrement())
+  title     String    @db.VarChar(191)
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}

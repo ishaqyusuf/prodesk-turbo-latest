@@ -1,0 +1,50 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model OrderDelivery {
+  id           BigInt    @default(autoincrement())
+  salesOrderId BigInt
+  deliveredTo  String?   @db.VarChar(191)
+  deliveryMode String    @db.VarChar(191)
+  meta         String?
+  createdAt    DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime  @updatedAt @db.Timestamptz(6)
+  deletedAt    DateTime? @db.Timestamptz(6)
+  createdById  BigInt?
+  driverId     BigInt?
+  status       String?   @db.VarChar(191)
+  dueDate      DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model OrderItemDelivery {
+  id                          BigInt    @default(autoincrement())
+  orderItemId                 BigInt
+  orderId                     BigInt
+  createdAt                   DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt                   DateTime  @updatedAt @db.Timestamptz(6)
+  deletedAt                   DateTime? @db.Timestamptz(6)
+  meta                        String?
+  qty                         BigInt    @default(0)
+  orderDeliveryId             BigInt?
+  lhQty                       BigInt?   @default(0)
+  orderProductionSubmissionId BigInt?
+  rhQty                       BigInt?   @default(0)
+  status                      String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesPickup {
+  id               BigInt    @default(autoincrement())
+  pickupBy         String?   @db.VarChar(191)
+  pickupApprovedBy BigInt
+  meta             String?
+  pickupAt         DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt        DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}

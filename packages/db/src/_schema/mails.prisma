@@ -1,0 +1,67 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model MailGrids {
+  id        BigInt    @default(autoincrement())
+  title     String    @db.VarChar(255)
+  subject   String?   @db.VarChar(255)
+  html      String?
+  message   String?
+  design    String?
+  fromName  String?   @db.VarChar(255)
+  fromEmail String?   @db.VarChar(255)
+  meta      String?
+  status    String    @db.VarChar(255)
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  slug      String?   @db.VarChar(255)
+  type      String?   @db.VarChar(255)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model MailEventTrigger {
+  id         BigInt    @default(autoincrement())
+  when       String    @db.VarChar(191)
+  mailGridId BigInt?
+  authorId   BigInt
+  status     String    @db.VarChar(191)
+  deletedAt  DateTime? @db.Timestamptz(6)
+  createdAt  DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Inbox {
+  id        BigInt    @default(autoincrement())
+  clientId  BigInt?
+  senderId  BigInt
+  parentId  BigInt?
+  subject   String?
+  from      String
+  to        String
+  type      String
+  body      String
+  meta      String?
+  sentAt    DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model InboxAttachments {
+  id        BigInt    @default(autoincrement())
+  url       String    @db.VarChar(191)
+  title     String    @db.VarChar(191)
+  inboxId   BigInt
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}

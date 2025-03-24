@@ -1,0 +1,60 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Users {
+  id                BigInt    @default(autoincrement())
+  name              String?   @db.VarChar(255)
+  username          String?   @db.VarChar(255)
+  email             String    @db.VarChar(255)
+  phoneNo           String?   @db.VarChar(255)
+  phoneCode         String?   @db.VarChar(255)
+  country           String?   @db.VarChar(255)
+  emailVerifiedAt   DateTime? @db.Timestamptz(6)
+  password          String?   @db.VarChar(255)
+  rememberToken     String?   @db.VarChar(100)
+  meta              String?
+  deletedAt         DateTime? @db.Timestamptz(6)
+  createdAt         DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime? @updatedAt @db.Timestamptz(6)
+  employeeProfileId BigInt?
+  slug              String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Session {
+  id           String    @default(cuid()) @db.VarChar(191)
+  sessionToken String    @map("session_token") @db.VarChar(191)
+  userId       BigInt
+  expires      DateTime  @db.Timestamptz(6)
+  deletedAt    DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model EmployeeProfile {
+  id        BigInt    @default(autoincrement())
+  name      String    @db.VarChar(191)
+  discount  BigInt?
+  meta      String?
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model UserDocuments {
+  id          BigInt    @default(autoincrement())
+  title       String?   @db.VarChar(191)
+  description String?   @db.VarChar(191)
+  url         String    @db.VarChar(191)
+  userId      BigInt
+  meta        String?
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt   DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}

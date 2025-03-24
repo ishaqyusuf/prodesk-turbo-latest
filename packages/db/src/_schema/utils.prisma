@@ -1,0 +1,54 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model ExportConfig {
+  id          BigInt    @default(autoincrement())
+  title       String    @db.VarChar(191)
+  type        String    @db.VarChar(191)
+  meta        String
+  createdById BigInt
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt   DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model PageTabs {
+  id        BigInt    @default(autoincrement())
+  page      String    @db.VarChar(191)
+  userId    BigInt
+  private   Boolean?  @default(true)
+  title     String    @db.VarChar(191)
+  query     String    @db.VarChar(191)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model PageTabIndex {
+  id        String    @default(uuid()) @db.VarChar(191)
+  tabId     BigInt
+  tabIndex  BigInt
+  userId    BigInt
+  default   Boolean?  @default(false)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SearchParameters {
+  page      String    @db.VarChar(191)
+  key       String    @db.VarChar(191)
+  value     String    @db.VarChar(191)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
