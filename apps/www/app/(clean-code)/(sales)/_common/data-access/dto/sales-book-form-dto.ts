@@ -13,7 +13,7 @@ import {
     StepMeta,
     TypedDykeSalesDoor,
 } from "../../../types";
-import { generateRandomString, safeFormText, sum } from "@/lib/utils";
+import { generateRandomString, inToFt, safeFormText, sum } from "@/lib/utils";
 import { DykeStepMeta } from "@/app/(v2)/(loggedIn)/sales-v2/type";
 import { transformSalesStepMeta } from "./sales-step-dto";
 
@@ -52,14 +52,14 @@ export function typedSalesBookFormItems(data: SalesFormData) {
         } = {};
         // const isType = isComponentType(item.housePackageTool?.doorType as any);
         const deleteDoors = [];
+        let stepUID = item.housePackageTool?.door?.stepProducts?.[0]?.uid;
         item.housePackageTool?.doors
             ?.filter((d) => !d.deletedAt)
             .map((d) => {
                 // if (d.rhQty && !isType.multiHandles) d.rhQty = 0;
-                let dim = `${d.stepProduct?.uid}-${d.dimension?.replaceAll(
-                    '"',
-                    "in",
-                )}`;
+                let _dim = d.dimension?.replaceAll('"', "in");
+                if (_dim?.includes("in")) _dim = inToFt(_dim);
+                let dim = `${d.stepProduct?.uid || stepUID}-${_dim}`;
 
                 // d.stepProduct?.uid;
                 if (!d.priceId)

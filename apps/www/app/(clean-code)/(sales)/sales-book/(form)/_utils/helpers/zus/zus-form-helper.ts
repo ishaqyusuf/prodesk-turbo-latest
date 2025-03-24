@@ -190,6 +190,7 @@ export function zhInitializeState(data: GetSalesBookForm, copy = false) {
         )
             resp.kvFormItem[uid].groupItem = {
                 groupUid: item.multiComponent?.uid,
+                hptId: item.item.housePackageTool?.id,
                 itemType,
                 pricing: {
                     components: {
@@ -242,11 +243,12 @@ export function zhInitializeState(data: GetSalesBookForm, copy = false) {
 
                 const doorCount = Object.keys(data._doorForm).length;
 
+                resp.kvFormItem[uid].groupItem.hptId = copy
+                    ? null
+                    : item.item?.housePackageTool?.id;
+                const dt = item.item?.meta?.doorType;
                 if (doorCount) {
                     setType("HPT");
-                    resp.kvFormItem[uid].groupItem.hptId = copy
-                        ? null
-                        : item.item?.housePackageTool?.id;
                     resp.kvFormItem[uid].groupItem.doorStepProductId =
                         stepProductId;
                     Object.entries(data._doorForm).map(([formId, doorForm]) => {
@@ -285,7 +287,7 @@ export function zhInitializeState(data: GetSalesBookForm, copy = false) {
                             },
                         });
                     });
-                } else if (item.item?.meta?.doorType == "Moulding") {
+                } else if (dt == "Moulding") {
                     const formId = `${id}`;
                     pushItemId(formId);
                     // console.log({ formId, stepProdUid, id });
