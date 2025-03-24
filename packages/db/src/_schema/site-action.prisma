@@ -1,0 +1,39 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SiteActionTicket {
+  id                       BigInt    @default(autoincrement())
+  description              String    @db.VarChar(191)
+  userId                   BigInt?
+  meta                     String?
+  deletedAt                DateTime? @db.Timestamptz(6)
+  createdAt                DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt                DateTime? @updatedAt @db.Timestamptz(6)
+  siteActionNotificationId BigInt
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SiteActionNotification {
+  id        BigInt    @default(autoincrement())
+  event     String    @db.VarChar(191)
+  enabled   Boolean?
+  meta      String?
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  custom    Boolean?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SiteActionNotificationActiveForUsers {
+  id                       BigInt    @default(autoincrement())
+  userId                   BigInt
+  siteActionNotificationId BigInt
+  deletedAt                DateTime? @db.Timestamptz(6)
+  createdAt                DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt                DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}

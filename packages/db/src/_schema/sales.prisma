@@ -1,0 +1,552 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model CommissionPayment {
+  id            BigInt    @default(autoincrement())
+  amount        Float
+  userId        BigInt
+  paidBy        BigInt
+  checkNo       String?   @db.VarChar(191)
+  paymentMethod String?   @db.VarChar(191)
+  meta          String?
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  usersId       BigInt?
+  deletedAt     DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesOrders {
+  id                BigInt    @default(autoincrement())
+  title             String?   @db.VarChar(255)
+  customerId        BigInt?
+  billingAddressId  BigInt?
+  shippingAddressId BigInt?
+  salesRepId        BigInt?
+  pickupId          BigInt?
+  prodId            BigInt?
+  summary           String?
+  instruction       String?
+  meta              String?
+  status            String?   @db.VarChar(255)
+  inventoryStatus   String?   @db.VarChar(255)
+  deletedAt         DateTime? @db.Timestamptz(6)
+  createdAt         DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime? @updatedAt @db.Timestamptz(6)
+  orderId           String    @db.VarChar(255)
+  slug              String    @db.VarChar(255)
+  type              String?   @db.VarChar(255)
+  goodUntil         DateTime? @db.Timestamptz(6)
+  paymentTerm       String?   @db.VarChar(191)
+  prodQty           Float?
+  builtQty          Float?
+  subTotal          Float?
+  profitMargin      Float?
+  tax               Float?
+  taxPercentage     Float?
+  grandTotal        Float?
+  amountDue         Float?
+  invoiceStatus     String?   @db.VarChar(255)
+  prodStatus        String?   @db.VarChar(255)
+  prodDueDate       DateTime? @db.Timestamptz(6)
+  deliveredAt       DateTime? @db.Timestamptz(6)
+  deliveryOption    String?   @db.VarChar(191)
+  isDyke            Boolean?  @default(false)
+  paymentDueDate    DateTime? @db.Timestamptz(6)
+  customerProfileId BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesExtraCosts {
+  id          BigInt   @default(autoincrement())
+  type        String   @db.VarChar(191)
+  taxxable    Boolean?
+  amount      Float
+  tax         Float?
+  totalAmount Float?
+  orderId     BigInt
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesOrderItems {
+  id                 BigInt    @default(autoincrement())
+  description        String?   @db.VarChar(300)
+  productId          BigInt?
+  supplier           String?   @db.VarChar(191)
+  swing              String?   @db.VarChar(255)
+  price              Float?
+  tax                Float?
+  taxPercenatage     Float?
+  discount           Float?
+  discountPercentage Float?
+  meta               String?
+  createdAt          DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime? @updatedAt @db.Timestamptz(6)
+  qty                Float?
+  prebuiltQty        Float?
+  truckLoadQty       Float?
+  salesOrderId       BigInt
+  profitMargin       Float?
+  rate               Float?
+  total              Float?
+  salesPercentage    Float?
+  prodStatus         String?   @db.VarChar(255)
+  prodStartedAt      DateTime? @db.Timestamptz(6)
+  sentToProdAt       DateTime? @db.Timestamptz(6)
+  prodCompletedAt    DateTime? @db.Timestamptz(6)
+  dykeDescription    String?   @db.VarChar(300)
+  deletedAt          DateTime? @db.Timestamptz(6)
+  multiDyke          Boolean   @default(false)
+  multiDykeUid       String?   @db.VarChar(191)
+  dykeProduction     Boolean   @default(false)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model QtyControl {
+  qty            BigInt?   @default(0)
+  lh             BigInt?   @default(0)
+  rh             BigInt?   @default(0)
+  total          BigInt    @default(0)
+  type           String    @db.VarChar(191)
+  percentage     Float?
+  autoComplete   Boolean?
+  deletedAt      DateTime? @db.Timestamptz(6)
+  itemControlUid String    @db.VarChar(191)
+  itemTotal      BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesItemControl {
+  uid          String    @db.VarChar(191)
+  salesId      BigInt
+  produceable  Boolean?
+  shippable    Boolean?
+  deletedAt    DateTime? @db.Timestamptz(6)
+  orderItemId  BigInt?
+  sectionTitle String?   @db.VarChar(191)
+  subtitle     String?   @db.VarChar(191)
+  title        String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model HousePackageTools {
+  id            BigInt    @default(autoincrement())
+  height        String?   @db.VarChar(191)
+  doorId        BigInt?
+  jambSizeId    BigInt?
+  casingId      BigInt?
+  meta          String?
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  salesOrderId  BigInt
+  orderItemId   BigInt
+  totalDoors    BigInt?   @default(0)
+  totalPrice    Float?    @default(0)
+  doorType      String?   @db.VarChar(191)
+  dykeDoorId    BigInt?
+  moldingId     BigInt?
+  deletedAt     DateTime? @db.Timestamptz(6)
+  stepProductId BigInt?
+  priceId       String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model ComponentPrice {
+  id             String    @db.VarChar(191)
+  salesItemId    BigInt
+  salesId        BigInt
+  qty            Float
+  type           String    @db.VarChar(191)
+  baseUnitCost   Float
+  baseTotalCost  Float
+  salesUnitCost  Float
+  salesTotalCost Float
+  margin         Float     @default(1)
+  salesProfit    Float
+  createdAt      DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt      DateTime? @db.Timestamptz(6)
+  grandTotal     Float?
+  taxPercentage  Float?
+  totalTax       Float?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeSalesDoors {
+  id                 BigInt    @default(autoincrement())
+  dimension          String    @db.VarChar(191)
+  housePackageToolId BigInt
+  doorPrice          Float?
+  jambSizePrice      Float?
+  casingPrice        Float?
+  unitPrice          Float?
+  lhQty              BigInt?   @default(0)
+  rhQty              BigInt?   @default(0)
+  totalQty           BigInt    @default(0)
+  lineTotal          Float?    @default(0)
+  salesOrderItemId   BigInt?
+  meta               String?
+  createdAt          DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt          DateTime? @updatedAt @db.Timestamptz(6)
+  salesOrderId       BigInt
+  deletedAt          DateTime? @db.Timestamptz(6)
+  swing              String?   @db.VarChar(191)
+  doorType           String?   @db.VarChar(191)
+  priceId            String?   @db.VarChar(191)
+  stepProductId      BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeStepForm {
+  id          BigInt    @default(autoincrement())
+  value       String?   @db.VarChar(191)
+  qty         BigInt?   @default(0)
+  price       Float?    @default(0)
+  salesId     BigInt?
+  salesItemId BigInt?
+  meta        String?
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime? @updatedAt @db.Timestamptz(6)
+  stepId      BigInt
+  deletedAt   DateTime? @db.Timestamptz(6)
+  prodUid     String?   @db.VarChar(191)
+  basePrice   Float?    @default(0)
+  priceId     String?   @db.VarChar(191)
+  componentId BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeSteps {
+  id              BigInt    @default(autoincrement())
+  title           String?   @db.VarChar(191)
+  value           String?
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime? @updatedAt @db.Timestamptz(6)
+  prevStepValueId BigInt?
+  rootStepValueId BigInt?
+  stepValueId     BigInt?
+  deletedAt       DateTime? @db.Timestamptz(6)
+  meta            String?
+  uid             String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeStepValues {
+  id        BigInt    @default(autoincrement())
+  title     String?   @db.VarChar(191)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeCategories {
+  id        BigInt    @default(autoincrement())
+  title     String    @db.VarChar(191)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeStepProducts {
+  id            BigInt    @default(autoincrement())
+  dykeProductId BigInt?
+  dykeStepId    BigInt
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  nextStepId    BigInt?
+  deletedAt     DateTime? @db.Timestamptz(6)
+  uid           String?   @db.VarChar(191)
+  custom        Boolean?  @default(false)
+  sortIndex     BigInt?
+  meta          String?
+  doorId        BigInt?
+  productCode   String?   @db.VarChar(191)
+  redirectUid   String?   @db.VarChar(191)
+  name          String?   @db.VarChar(191)
+  img           String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model ProductSortIndex {
+  id              BigInt    @default(autoincrement())
+  sortIndex       BigInt
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt       DateTime? @db.Timestamptz(6)
+  stepComponentId BigInt
+  uid             String    @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykePricingSystem {
+  id              BigInt    @default(autoincrement())
+  dykeStepId      BigInt
+  dependenciesUid String?   @db.VarChar(191)
+  stepProductUid  String    @db.VarChar(191)
+  price           Float
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt       DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeDoors {
+  id        BigInt    @default(autoincrement())
+  query     String?   @db.VarChar(191)
+  title     String    @db.VarChar(191)
+  img       String?   @db.VarChar(191)
+  meta      String?
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  doorType  String?   @db.VarChar(191)
+  deletedAt DateTime? @db.Timestamptz(6)
+  price     Float?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeProducts {
+  id           BigInt    @default(autoincrement())
+  img          String?   @db.VarChar(191)
+  description  String?   @db.VarChar(191)
+  noteRequired Boolean?  @default(false)
+  title        String?   @db.VarChar(191)
+  productCode  String?   @db.VarChar(191)
+  qty          BigInt?   @default(0)
+  meta         String?
+  value        String    @db.VarChar(191)
+  createdAt    DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime? @updatedAt @db.Timestamptz(6)
+  price        Float?
+  categoryId   BigInt?
+  deletedAt    DateTime? @db.Timestamptz(6)
+  custom       Boolean?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeProductPrices {
+  id        BigInt    @default(autoincrement())
+  price     Float
+  dimension String    @db.VarChar(191)
+  type      String    @db.VarChar(191)
+  productId BigInt
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeShelfCategories {
+  id               BigInt    @default(autoincrement())
+  name             String    @db.VarChar(191)
+  type             String    @db.VarChar(191)
+  categoryId       BigInt?
+  parentCategoryId BigInt?
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt        DateTime? @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeShelfProducts {
+  id               BigInt    @default(autoincrement())
+  title            String    @db.VarChar(191)
+  unitPrice        Float?
+  categoryId       BigInt?
+  parentCategoryId BigInt?
+  img              String?   @db.VarChar(191)
+  meta             String?
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt        DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeSalesError {
+  id         BigInt    @default(autoincrement())
+  errorId    String    @db.VarChar(191)
+  userId     BigInt
+  meta       String?
+  deletedAt  DateTime? @db.Timestamptz(6)
+  createdAt  DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime? @updatedAt @db.Timestamptz(6)
+  restoredAt DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesTaxes {
+  id        String    @default(cuid()) @db.VarChar(191)
+  salesId   BigInt
+  taxCode   String    @db.VarChar(191)
+  taxxable  Float
+  tax       Float     @default(0)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Taxes {
+  title      String    @db.VarChar(191)
+  taxCode    String    @db.VarChar(191)
+  percentage Float     @default(0)
+  taxOn      String    @default("total") @db.VarChar(191)
+  createdAt  DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt  DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesStat {
+  salesId    BigInt
+  status     String?   @db.VarChar(191)
+  type       String    @db.VarChar(191)
+  score      Float?
+  total      Float?
+  percentage Float?
+  createdAt  DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt  DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model OrderItemProductionAssignments {
+  id                  BigInt    @default(autoincrement())
+  itemId              BigInt
+  orderId             BigInt
+  assignedToId        BigInt?
+  assignedById        BigInt
+  qtyAssigned         BigInt?
+  note                String?   @db.VarChar(191)
+  dueDate             DateTime? @db.Timestamptz(6)
+  deletedAt           DateTime? @db.Timestamptz(6)
+  createdAt           DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt           DateTime? @updatedAt @db.Timestamptz(6)
+  lhQty               BigInt?
+  qtyCompleted        BigInt?
+  rhQty               BigInt?
+  salesDoorId         BigInt?
+  startedAt           DateTime? @db.Timestamptz(6)
+  salesItemControlUid String?   @db.VarChar(191)
+  shelfItemId         BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model OrderProductionSubmissions {
+  id               BigInt    @default(autoincrement())
+  salesOrderId     BigInt?
+  salesOrderItemId BigInt?
+  qty              BigInt
+  deletedAt        DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+  meta             String?
+  assignmentId     BigInt?
+  note             String?
+  lhQty            BigInt?   @default(0)
+  rhQty            BigInt?   @default(0)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DykeSalesShelfItem {
+  id               BigInt    @default(autoincrement())
+  salesOrderItemId BigInt?
+  productId        BigInt?
+  qty              BigInt?
+  unitPrice        BigInt?
+  totalPrice       BigInt?
+  meta             String?
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt        DateTime? @db.Timestamptz(6)
+  categoryId       BigInt
+  description      String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesCommision {
+  id                  BigInt    @default(autoincrement())
+  amount              Float
+  userId              BigInt
+  orderId             BigInt
+  orderPaymentId      BigInt
+  commissionPaymentId BigInt?
+  status              String    @db.VarChar(255)
+  deletedAt           DateTime? @db.Timestamptz(6)
+  createdAt           DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt           DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesOrderProducts {
+  id               BigInt    @default(autoincrement())
+  salesOrderId     BigInt
+  salesOrderItemId BigInt
+  qty              BigInt?
+  stockQty         BigInt?
+  shortQty         BigInt?
+  productVariantId BigInt?
+  productId        BigInt?
+  status           String    @db.VarChar(255)
+  deletedAt        DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}

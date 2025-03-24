@@ -1,0 +1,102 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Customers {
+  id             Int       @id @default(autoincrement())
+  addressId      BigInt?
+  customerTypeId BigInt?
+  walletId       BigInt?
+  name           String?   @db.VarChar(255)
+  businessName   String?   @db.VarChar(255)
+  email          String?   @db.VarChar(255)
+  phoneNo        String?   @db.VarChar(255)
+  phoneNo2       String?   @db.VarChar(255)
+  address        String?
+  meta           String?
+  deletedAt      DateTime? @db.Timestamptz(6)
+  createdAt      DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime? @updatedAt @db.Timestamptz(6)
+  slug           String?   @db.VarChar(255)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model CustomerTaxProfiles {
+  id         BigInt    @default(autoincrement())
+  customerId BigInt
+  taxCode    String    @db.VarChar(191)
+  createdAt  DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt  DateTime? @db.Timestamptz(6)
+  updatedAt  DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DealerAuth {
+  id                       BigInt    @default(autoincrement())
+  dealerId                 BigInt
+  createdAt                DateTime? @default(now()) @db.Timestamptz(6)
+  email                    String    @db.VarChar(191)
+  password                 String?   @db.VarChar(255)
+  emailVerifiedAt          DateTime? @db.Timestamptz(6)
+  approvedAt               DateTime? @db.Timestamptz(6)
+  rejectedAt               DateTime? @db.Timestamptz(6)
+  restricted               Boolean?
+  updatedAt                DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt                DateTime? @db.Timestamptz(6)
+  status                   String?   @db.VarChar(191)
+  primaryBillingAddressId  BigInt?
+  primaryShippingAddressId BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DealerStatusHistory {
+  id        BigInt    @default(autoincrement())
+  dealerId  BigInt
+  status    String    @db.VarChar(191)
+  authorId  BigInt
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+  reason    String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DealerToken {
+  dealerId   BigInt
+  token      String    @db.VarChar(191)
+  expiredAt  DateTime? @db.Timestamptz(6)
+  consumedAt DateTime? @db.Timestamptz(6)
+  deletedAt  DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model CustomerTypes {
+  id             BigInt    @default(autoincrement())
+  title          String    @db.VarChar(255)
+  coefficient    Float?
+  defaultProfile Boolean?
+  meta           String?
+  deletedAt      DateTime? @db.Timestamptz(6)
+  createdAt      DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model DealerSalesRequest {
+  id           BigInt    @default(autoincrement())
+  createdAt    DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime? @updatedAt @db.Timestamptz(6)
+  salesId      BigInt
+  request      String    @db.VarChar(191)
+  status       String    @db.VarChar(191)
+  deletedAt    DateTime? @db.Timestamptz(6)
+  approvedById BigInt?
+
+  @@ignore
+}

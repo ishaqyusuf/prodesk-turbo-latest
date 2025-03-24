@@ -1,0 +1,28 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Refunds {
+  id            String    @default(uuid()) @db.VarChar(191)
+  refId         String    @db.VarChar(191)
+  salesId       BigInt
+  refundSalesId BigInt?
+  walletId      BigInt
+  total         Float
+  status        String    @db.VarChar(191)
+  description   String?   @db.VarChar(191)
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt     DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model RefundTransactions {
+  id            String    @default(uuid()) @db.VarChar(191)
+  refundId      String    @db.VarChar(191)
+  transactionId BigInt
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt     DateTime? @db.Timestamptz(6)
+
+  @@ignore
+}

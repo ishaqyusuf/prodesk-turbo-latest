@@ -1,0 +1,34 @@
+model checkouttenders {
+  id              String    @id(map: "idx_32727_primary") @db.VarChar(191)
+  tenderid        String    @unique @db.VarChar(191)
+  salescheckoutid String    @db.VarChar(191)
+  status          String    @db.VarChar(191)
+  createdat       DateTime? @default(now()) @db.Timestamptz(6)
+  deletedat       DateTime? @db.Timestamptz(6)
+  amount          Float?
+  tip             Float?
+
+  @@index([salescheckoutid])
+}
+
+model invoices {
+  id        BigInt    @unique @default(autoincrement())
+  projectId BigInt?
+  homeId    BigInt?
+  refNo     String?   @db.VarChar(255)
+  lot       String?   @db.VarChar(255)
+  block     String?   @db.VarChar(255)
+  taskId    BigInt?
+  checkNo   String?   @db.VarChar(255)
+  amount    Float?
+  taskName  String?   @db.VarChar(255)
+  meta      String?
+  deletedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @db.Timestamptz(6)
+  taskUid   String?   @db.VarChar(255)
+  checkDate DateTime? @db.Timestamptz(6)
+
+  @@index([homeId], map: "invoices_homeid_idx")
+  @@index([projectId], map: "invoices_projectid_idx")
+}

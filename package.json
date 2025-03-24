@@ -4,7 +4,7 @@
   "workspaces": [
     "packages/*",
     "apps/*",
-    "tools/*",
+    "tooling/*",
     "packages/email/*"
   ],
   "scripts": {

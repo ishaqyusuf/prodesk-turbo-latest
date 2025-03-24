@@ -1,0 +1,126 @@
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model CustomerTransaction {
+  id            BigInt    @default(autoincrement())
+  authorId      BigInt?
+  amount        Float
+  walletId      BigInt?
+  description   String?
+  meta          String?
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt     DateTime? @db.Timestamptz(6)
+  paymentMethod String?   @db.VarChar(191)
+  status        String?   @db.VarChar(191)
+  squarePID     String?   @db.VarChar(191)
+  type          String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model CustomerWallet {
+  id        BigInt    @default(autoincrement())
+  balance   Float
+  meta      String?
+  createdAt DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime? @updatedAt @db.Timestamptz(6)
+  deletedAt DateTime? @db.Timestamptz(6)
+  accountNo String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesPayments {
+  id               BigInt    @default(autoincrement())
+  transactionId    BigInt?
+  orderId          BigInt
+  amount           Float
+  meta             String?
+  deletedAt        DateTime? @db.Timestamptz(6)
+  createdAt        DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime? @updatedAt @db.Timestamptz(6)
+  status           String?   @db.VarChar(191)
+  tip              Float?
+  authorId         BigInt?
+  note             String?   @db.VarChar(191)
+  squarePaymentsId String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SquarePayments {
+  id            String    @default(cuid()) @db.VarChar(191)
+  paymentId     String?   @db.VarChar(191)
+  status        String    @default("created") @db.VarChar(191)
+  paymentMethod String    @db.VarChar(191)
+  paymentLink   String?   @db.VarChar(191)
+  amount        Float
+  tip           Float?
+  meta          String?
+  deletedAt     DateTime? @db.Timestamptz(6)
+  createdAt     DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime? @updatedAt @db.Timestamptz(6)
+  terminalId    String?   @db.VarChar(191)
+  createdById   BigInt?
+  squareOrderId String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SquarePaymentOrders {
+  id              String @default(cuid()) @db.VarChar(191)
+  squarePaymentId String @db.VarChar(191)
+  orderId         BigInt
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model PaymentTerminals {
+  terminalId   String    @db.VarChar(191)
+  terminalName String    @db.VarChar(191)
+  deletedAt    DateTime? @db.Timestamptz(6)
+  createdAt    DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime? @updatedAt @db.Timestamptz(6)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SalesCheckout {
+  id              String    @default(cuid()) @db.VarChar(191)
+  paymentId       String?   @db.VarChar(191)
+  status          String?   @db.VarChar(191)
+  paymentType     String?   @db.VarChar(191)
+  terminalId      String?   @db.VarChar(191)
+  terminalName    String?   @db.VarChar(191)
+  amount          Float?
+  tip             Float?    @default(0)
+  orderId         BigInt?
+  meta            String?
+  deletedAt       DateTime? @db.Timestamptz(6)
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime? @updatedAt @db.Timestamptz(6)
+  userId          BigInt?
+  salesPaymentsId BigInt?
+  squarePaymentId String?   @db.VarChar(191)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model CheckoutTenders {
+  id              String    @default(cuid()) @db.VarChar(191)
+  tenderId        String    @db.VarChar(191)
+  salesCheckoutId String    @db.VarChar(191)
+  status          String    @db.VarChar(191)
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  deletedAt       DateTime? @db.Timestamptz(6)
+  amount          Float?
+  tip             Float?
+
+  @@ignore
+}

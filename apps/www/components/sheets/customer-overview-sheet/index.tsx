@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import {
     SheetDescription,
-    SheetFooter,
     SheetHeader,
     SheetTitle,
 } from "@/components/ui/sheet";
@@ -27,6 +26,7 @@ export function CustomerOverviewSheet() {
             open={ctx.opened}
             rounded
             size="xl"
+            floating
             onOpenChange={ctx.close}
         >
             <Tabs
