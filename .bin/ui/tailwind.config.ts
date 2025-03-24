@@ -4,7 +4,7 @@
  */
 import type { Config } from "tailwindcss";
 
-import baseConfig from "@gnd/tailwind-config/web";
+import baseConfig from "../../tooling/tailwind/web";
 
 export default {
   content: ["./src/**/*.tsx"],
