@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
-import { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
+import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
 
 import { cn } from "@acme/ui";
 
@@ -88,7 +88,7 @@ export default function FormSelect<
     return typeof option == "string"
       ? option
       : titleKey == "label"
-        ? option[titleKey] || option["text"]
+        ? option[titleKey] || option.text
         : option[titleKey];
   }
   return (
@@ -107,8 +107,8 @@ export default function FormSelect<
                   let value = itemValue(s);
                   if (transformValue) value = transformValue(value);
 
-                  field?.onChange(value);
-                  onSelect && onSelect(value);
+                  field.onChange(value);
+                  onSelect?.(value);
                   // onSelect;
                 }}
                 options={list}
@@ -218,7 +218,7 @@ export function ControlledCombox({
                 value={itemValue(opt)}
                 key={index}
                 onSelect={() => {
-                  onSelect && onSelect(opt);
+                  onSelect?.(opt);
                   setShow(false);
                 }}
               >

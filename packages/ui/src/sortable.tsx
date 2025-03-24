@@ -153,7 +153,7 @@ function Sortable<TData extends { id: UniqueIdentifier }>({
       sensors={sensors}
       onDragStart={({ active }) => setActiveId(active.id)}
       onDragEnd={({ active, over }) => {
-        if (over && active.id !== over?.id) {
+        if (over && active.id !== over.id) {
           const activeIndex = value.findIndex((item) => item.id === active.id);
           const overIndex = value.findIndex((item) => item.id === over.id);
 
