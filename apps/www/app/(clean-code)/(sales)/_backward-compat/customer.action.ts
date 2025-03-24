@@ -4,7 +4,11 @@ import { prisma } from "@/db";
 
 export async function uniqueables() {
     const tables = Object.keys(prisma);
-    return tables.map((t) => `"${t}"`).join(", ");
+    return tables
+        .filter((a) => !a.startsWith("$"))
+        .sort((a, b) => a.localeCompare(b))
+        .map((t) => `"${t}"`)
+        .join(", ");
     const customers = await prisma.customers.findMany({
         where: {},
         select: {

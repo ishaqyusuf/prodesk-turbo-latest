@@ -19,7 +19,6 @@ import { cn, sum } from "@/lib/utils";
 import { CheckCircle } from "lucide-react";
 import { CustomSheetContentPortal } from "../custom-sheet-content";
 import { SheetFooter } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createPaymentSchema } from "@/actions/schema";
@@ -52,7 +51,7 @@ export function PayPortalTab({}) {
     useEffect(() => {
         const amountDue = sum(
             data?.pendingSales?.filter((a) => selections?.includes(a.id)),
-            "amountDue"
+            "amountDue",
         );
         form.setValue("amount", amountDue);
     }, [selections, data]);
@@ -98,7 +97,7 @@ export function PayPortalTab({}) {
                                         "cursor-pointer",
                                         selections?.includes(sale?.id)
                                             ? "bg-muted-foreground/30 hover:bg-muted-foreground/30"
-                                            : "hover:bg-muted-foreground/25"
+                                            : "hover:bg-muted-foreground/25",
                                     )}
                                     onClick={(e) => {
                                         let sels = [...(selections || [])];
@@ -117,7 +116,7 @@ export function PayPortalTab({}) {
                                                 "size-4",
                                                 selections?.includes(sale?.id)
                                                     ? "text-green-700"
-                                                    : "opacity-20"
+                                                    : "opacity-20",
                                             )}
                                         />
                                     </TableCell>

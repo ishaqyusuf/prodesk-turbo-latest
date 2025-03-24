@@ -86,7 +86,7 @@ export default function PayForm({}) {
                                                                     option.status ==
                                                                         "PAIRED"
                                                                         ? "text-green-500"
-                                                                        : "text-red-600"
+                                                                        : "text-red-600",
                                                                 )}
                                                             />
                                                             <span>

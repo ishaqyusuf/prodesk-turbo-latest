@@ -7,6 +7,7 @@ import {
     uniqueables,
     updateUniques,
 } from "./customer.action";
+import { findSalesDoorAction } from "./find-sales-door.action";
 
 export default function Customers({}) {
     function woker() {
@@ -29,10 +30,21 @@ export default function Customers({}) {
             });
         });
     }
+    function findSalesDoor() {
+        findSalesDoorAction().then((ls) => {
+            console.log(ls);
+            return;
+            chunker({
+                worker: updateUniques,
+                list: ls,
+            });
+        });
+    }
     return (
         <>
             <Menu.Item onClick={woker}>Customers</Menu.Item>
             <Menu.Item onClick={uniqueCustomers}>Unique Customers</Menu.Item>
+            <Menu.Item onClick={findSalesDoor}>Find Sales Door</Menu.Item>
         </>
     );
 }
