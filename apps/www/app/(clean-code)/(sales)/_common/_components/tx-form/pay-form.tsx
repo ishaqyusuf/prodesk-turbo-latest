@@ -104,6 +104,7 @@ export default function PayForm({}) {
                                 </div>
                             </Form>
                         )}
+
                         <div className="flex justify-end gap-4 items-center">
                             {pm != "terminal" || (
                                 <>

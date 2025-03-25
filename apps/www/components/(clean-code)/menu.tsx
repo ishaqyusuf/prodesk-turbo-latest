@@ -64,7 +64,7 @@ function BaseMenu(
         triggerSize,
         variant = "outline",
     }: RowActionMoreMenuProps,
-    ref
+    ref,
 ) {
     const [_open, _onOpenChanged] = useState(open);
     useImperativeHandle(ref, () => ({
@@ -91,7 +91,7 @@ function BaseMenu(
                             variant == "default"
                                 ? "data-[state=open]:bg-muted-foreground"
                                 : "data-[state=open]:bg-muted",
-                            triggerSize == "sm" && "h-6 w-6"
+                            triggerSize == "sm" && "h-6 w-6",
                         )}
                     >
                         {Icon && <Icon className="h-4 w-4" />}
@@ -228,7 +228,7 @@ function Trash({ action, children, ...props }: TrashProps) {
                             error:
                                 props.errorText ||
                                 "Unable to completed Delete Action",
-                        }
+                        },
                     );
                 });
             }}
@@ -236,7 +236,7 @@ function Trash({ action, children, ...props }: TrashProps) {
                 (!props.variant || props.variant == "trash") &&
                     "text-red-500 hover:text-red-600",
                 props.variant == "primary" && "",
-                "gap-2"
+                "gap-2",
             )}
         >
             <Icon
@@ -244,7 +244,7 @@ function Trash({ action, children, ...props }: TrashProps) {
                 variant="destructive"
                 className={cn(
                     isPending ? "h-3.5 w-3.5 animate-spin" : "h-4 w-4",
-                    ""
+                    "",
                 )}
             />
             <span>{confirm ? "Sure?" : children}</span>

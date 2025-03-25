@@ -17,13 +17,13 @@ import { _modal } from "@/components/common/modal/provider";
 import { isProdClient } from "@/lib/is-prod";
 import { revalidateTable } from "@/components/(clean-code)/data-table/use-infinity-data-table";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createPaymentSchema } from "@/actions/schema";
+import { createPaymentSchemaOld } from "@/actions/schema";
 
 export type UsePayForm = ReturnType<typeof usePayForm>;
 export const usePayForm = () => {
     const tx = txStore();
     const form = useForm({
-        resolver: zodResolver(createPaymentSchema),
+        resolver: zodResolver(createPaymentSchemaOld),
         defaultValues: {
             terminal: null as CreateTerminalPaymentAction["resp"],
             paymentMethod: tx.paymentMethod,

@@ -41,6 +41,39 @@ export const createCustomerSchema = z
             });
         }
     });
+export const createPaymentSchemaOld = z
+    .object({
+        paymentMethod: z.enum([
+            "link",
+            "terminal",
+            "check",
+            "cash",
+            "zelle",
+            "credit-card",
+            "wire",
+        ]),
+        amount: z.number(),
+        checkNo: z.string().optional(),
+        deviceId: z.string().optional(),
+        enableTip: z.boolean().optional(),
+    })
+    .superRefine((data, ctx) => {
+        if (data.paymentMethod === "check" && !data.checkNo) {
+            ctx.addIssue({
+                path: ["checkNo"],
+                message: "Check No is required",
+                code: "custom",
+            });
+        }
+        if (data.paymentMethod === "terminal" && !data.deviceId) {
+            ctx.addIssue({
+                path: ["deviceId"],
+                message: "Device Id is required",
+                code: "custom",
+            });
+        } else {
+        }
+    });
 export const createPaymentSchema = z
     .object({
         salesIds: z.array(z.number()),
