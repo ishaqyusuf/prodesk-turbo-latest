@@ -157,6 +157,9 @@
         "zustand": "^5.0.0-rc.2"
     },
     "devDependencies": {
+        "@gnd/eslint-config": "workspace:*",
+        "@gnd/prettier-config": "workspace:*",
+        "@gnd/tsconfig": "workspace:*",
         "@tailwindcss/typography": "^0.5.10",
         "@trigger.dev/build": "3.3.17",
         "@types/dot-object": "^2.1.6",
