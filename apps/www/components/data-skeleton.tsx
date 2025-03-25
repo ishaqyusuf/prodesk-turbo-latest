@@ -21,7 +21,7 @@ export function DataSkeleton({
 }: Props) {
     const ctx = useDataSkeleton();
     if (!placeholder && pok) placeholder = Placeholders[pok];
-    if (ctx.loading) {
+    if (ctx?.loading) {
         return as === React.Fragment ? (
             <React.Fragment>
                 <span className="animate-pulse rounded-md bg-muted opacity-0">
@@ -34,10 +34,10 @@ export function DataSkeleton({
                 {
                     className: cn(
                         "animate-pulse rounded-md bg-muted",
-                        className
+                        className,
                     ),
                 },
-                <span className="opacity-0">{placeholder}</span>
+                <span className="opacity-0">{placeholder}</span>,
             )
         );
     }

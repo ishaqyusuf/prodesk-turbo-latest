@@ -1,5 +1,6 @@
 import tseslint from "typescript-eslint";
 
+/** @type {Awaited<import('typescript-eslint').Config>} */
 export const customConfig = tseslint.config({
   files: ["**/*.js", "**/*.ts", "**/*.tsx"],
   rules: {
