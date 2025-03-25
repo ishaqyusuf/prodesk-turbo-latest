@@ -14,77 +14,65 @@ import QueryTab from "@/app/(clean-code)/_common/query-tab";
 import { openDispatchModal } from "../../../_common/_components/sales-overview-sheet";
 
 interface Props {
-    queryKey?;
-    filterFields;
+  queryKey?;
+  filterFields;
 }
 export default function DispatchPageClient({ queryKey, filterFields }: Props) {
-    const table = useTableCompose({
-        cells(ctx) {
-            return [
-                ctx.Column("Date", "date", DispatchCells.Date),
-                ctx.Column(
-                    "Dispatch #",
-                    "dispatchId",
-                    DispatchCells.DispatchId
-                ),
-                ctx.Column("Order #", "orderId", DispatchCells.Order),
-                ctx.Column(
-                    "Dispatch Mode",
-                    "orderId",
-                    DispatchCells.DispatchMode
-                ),
-                ctx.Column("Address", "address", DispatchCells.Address),
-                ctx.Column("Created By", "rep", DispatchCells.SalesRep),
-                ctx.Column(
-                    "Assigned To",
-                    "dispatcher",
-                    DispatchCells.Dispatcher
-                ),
-                ctx.Column("Status", "status", DispatchCells.Status),
-                ...__filters()["sales-delivery"].filterColumns,
-            ];
-        },
-        checkable: true,
-        filterFields,
-        cellVariants: {
-            size: "sm",
-        },
-        passThroughProps: {},
-    });
+  const table = useTableCompose({
+    cells(ctx) {
+      return [
+        ctx.Column("Date", "date", DispatchCells.Date),
+        ctx.Column("Dispatch #", "dispatchId", DispatchCells.DispatchId),
+        ctx.Column("Order #", "orderId", DispatchCells.Order),
+        ctx.Column("Dispatch Mode", "orderId", DispatchCells.DispatchMode),
+        ctx.Column("Address", "address", DispatchCells.Address),
+        ctx.Column("Created By", "rep", DispatchCells.SalesRep),
+        ctx.Column("Assigned To", "dispatcher", DispatchCells.Dispatcher),
+        ctx.Column("Status", "status", DispatchCells.Status),
+        ...__filters()["sales-delivery"].filterColumns,
+      ];
+    },
+    checkable: true,
+    filterFields,
+    cellVariants: {
+      size: "sm",
+    },
+    passThroughProps: {},
+  });
 
-    return (
-        <div className="bg-white">
-            <DataTable.Infinity
-                checkable
-                ActionCell={DispatchCells.Action}
-                queryKey={queryKey}
-                {...table.props}
-                itemViewFn={(item) => {
-                    openDispatchModal({
-                        salesId: item.order.id,
-                        shippingId: item.id,
-                    });
-                }}
-            >
-                <DataTable.Header top="lg" className="bg-white">
-                    <div className="flex justify-between items-end mb-2 gap-2 sm:sticky">
-                        <div className="">
-                            <QueryTab page="orders" />
-                        </div>
-                        <div className="flex-1"></div>
-                        <QueryTabAction />
-                    </div>
-                    <div className="flex justify-between">
-                        <div className="flex-1">
-                            <DataTableFilterCommand />
-                        </div>
-                        <DataTableInfinityToolbar />
-                    </div>
-                </DataTable.Header>
-                <DataTable.Table />
-                <DataTable.LoadMore />
-                <DispatchOverviewSheet />
-            </DataTable.Infinity>
-        </div>
-    );
+  return (
+    <div className="bg-white">
+      <DataTable.Infinity
+        checkable
+        ActionCell={DispatchCells.Action}
+        queryKey={queryKey}
+        {...table.props}
+        itemViewFn={(item) => {
+          openDispatchModal({
+            salesId: item.order.id,
+            shippingId: item.id,
+          });
+        }}
+      >
+        <DataTable.Header top="lg" className="bg-white">
+          <div className="flex justify-between items-end mb-2 gap-2 sm:sticky">
+            <div className="">
+              <QueryTab page="orders" />
+            </div>
+            <div className="flex-1"></div>
+            <QueryTabAction />
+          </div>
+          <div className="flex justify-between">
+            <div className="flex-1">
+              <DataTableFilterCommand />
+            </div>
+            <DataTableInfinityToolbar />
+          </div>
+        </DataTable.Header>
+        <DataTable.Table />
+        <DataTable.LoadMore />
+        <DispatchOverviewSheet />
+      </DataTable.Infinity>
+    </div>
+  );
 }

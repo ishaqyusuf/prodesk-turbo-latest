@@ -5,13 +5,12 @@ import reactConfig from "@gnd/eslint-config/react";
 
 /** @type {import('typescript-eslint').Config} */
 export default [
-    {
-        ignores: [".next/**"],
-    },
-    ...baseConfig,
-    ...reactConfig,
-    ...nextjsConfig,
-    ...restrictEnvAccess,
-    ...customConfig,
+  {
+    ignores: [".next/**"],
+  },
+  ...baseConfig,
+  ...reactConfig,
+  ...nextjsConfig,
+  ...restrictEnvAccess,
+  ...customConfig,
 ];
-

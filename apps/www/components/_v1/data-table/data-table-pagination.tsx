@@ -3,24 +3,24 @@ import {
   ChevronRightIcon,
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,
-} from "@radix-ui/react-icons"
-import { type Table } from "@tanstack/react-table"
+} from "@radix-ui/react-icons";
+import { type Table } from "@tanstack/react-table";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { TablePageInfo } from "@/types/data-table"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/select";
+import { TablePageInfo } from "@/types/data-table";
+import { cn } from "@/lib/utils";
 
 interface DataTablePaginationProps<TData> {
-  table: Table<TData>
-  pageSizeOptions?: number[],
-  pageInfo: TablePageInfo
+  table: Table<TData>;
+  pageSizeOptions?: number[];
+  pageInfo: TablePageInfo;
 }
 
 export function DataTablePagination<TData>({
@@ -28,7 +28,7 @@ export function DataTablePagination<TData>({
   pageInfo,
   pageSizeOptions = [10, 20, 30, 40, 50],
 }: DataTablePaginationProps<TData>) {
-  const {pageCount,from = 0,to = 0,totalItems = 0,perPage } = pageInfo;
+  const { pageCount, from = 0, to = 0, totalItems = 0, perPage } = pageInfo;
   return (
     <div className="flex w-full flex-col items-center   gap-4 overflow-auto px-2 py-1 sm:flex-row sm:gap-8">
       <div className="flex-1 whitespace-nowrap text-sm text-muted-foreground">
@@ -37,15 +37,20 @@ export function DataTablePagination<TData>({
         {table.getFilteredRowModel().rows.length} row(s) selected. */}
       </div>
       <div className="flex-1"></div>
-      <div className={cn(" flex-col items-center gap-4  sm:gap-6 lg:gap-8",
-    (!perPage || perPage == 20) && pageCount == 1 ? "hidden" :"flex sm:flex-row"
-      )}>
+      <div
+        className={cn(
+          " flex-col items-center gap-4  sm:gap-6 lg:gap-8",
+          (!perPage || perPage == 20) && pageCount == 1
+            ? "hidden"
+            : "flex sm:flex-row",
+        )}
+      >
         <div className="hidden sflex items-center space-x-2">
           <p className="whitespace-nowrap text-sm font-medium">Rows per page</p>
           <Select
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={(value) => {
-              table.setPageSize(Number(value))
+              table.setPageSize(Number(value));
             }}
           >
             <SelectTrigger className="h-8 w-[70px]">
@@ -108,5 +113,5 @@ export function DataTablePagination<TData>({
         </div>
       </div>
     </div>
-  )
+  );
 }

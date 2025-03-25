@@ -3,9 +3,9 @@ import { LegacyDykeFormStepType } from "@/app/(clean-code)/(sales)/sales-book/(f
 import { useDoor } from "../step-component-modal/use-step-component-modal";
 
 export function useHeightSettingCtx(ctx: LegacyDykeFormStepType) {
-    const doorCtx = useDoor(true);
-    const stepMeta = ctx.step.step.meta.doorSizeConfig;
-    const form = useForm({
-        defaultValues: {},
-    });
+  const doorCtx = useDoor(true);
+  const stepMeta = ctx.step.step.meta.doorSizeConfig;
+  const form = useForm({
+    defaultValues: {},
+  });
 }

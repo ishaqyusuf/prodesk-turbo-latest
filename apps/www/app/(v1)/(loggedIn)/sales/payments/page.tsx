@@ -9,28 +9,22 @@ import { Metadata } from "next";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Sales Payment",
+  title: "Sales Payment",
 };
 interface Props {}
 export default async function SalesPaymentPage({ searchParams }) {
-    const response = await getsalesPayments(queryParams(searchParams));
-    return (
-        <AuthGuard can={["viewOrderPayment"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Payments" />
-                </Breadcrumbs>
-                <PageHeader
-                    title="Sales Payments"
-                    permissions={["editOrders"]}
-                />
-                <SalesPaymentTableShell
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <DeletePaymentPrompt />
-            </div>
-        </AuthGuard>
-    );
+  const response = await getsalesPayments(queryParams(searchParams));
+  return (
+    <AuthGuard can={["viewOrderPayment"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Payments" />
+        </Breadcrumbs>
+        <PageHeader title="Sales Payments" permissions={["editOrders"]} />
+        <SalesPaymentTableShell searchParams={searchParams} {...response} />
+        <DeletePaymentPrompt />
+      </div>
+    </AuthGuard>
+  );
 }

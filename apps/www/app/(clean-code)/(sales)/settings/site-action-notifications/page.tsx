@@ -5,15 +5,15 @@ import { SiteActionNotificationTable } from "@/components/tables/site-action-not
 import { getUsersListAction } from "@/data-actions/users/get-users";
 
 export default async function Page() {
-    const dataPromise = getActionNotifications();
-    const userPromise = getUsersListAction({});
-    // const ls = Promise.all([getActionNotifications(), getUsersListAction({})]);
-    return (
-        <FPage title="Action Notification">
-            <SiteActionNotificationTable
-                dataPromise={dataPromise}
-                userPromise={userPromise}
-            />
-        </FPage>
-    );
+  const dataPromise = getActionNotifications();
+  const userPromise = getUsersListAction({});
+  // const ls = Promise.all([getActionNotifications(), getUsersListAction({})]);
+  return (
+    <FPage title="Action Notification">
+      <SiteActionNotificationTable
+        dataPromise={dataPromise}
+        userPromise={userPromise}
+      />
+    </FPage>
+  );
 }

@@ -11,27 +11,27 @@ import { StatCards } from "@/components/common/stat-cards";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Payables",
+  title: "Payables",
 };
 export default async function PayablesPage({ searchParams }) {
-    const promise = getPayablesAction(searchParams);
-    const statCards = await getPayableAnalyticsStats(searchParams);
+  const promise = getPayablesAction(searchParams);
+  const statCards = await getPayableAnalyticsStats(searchParams);
 
-    return (
-        <AuthGuard can={["editOrderPayment"]}>
-            <PageShell>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Commissions" />
-                </Breadcrumbs>
-                <AccountingTab />
-                <div className="flex items-end justify-between">
-                    <PageHeader title="Payables" />
+  return (
+    <AuthGuard can={["editOrderPayment"]}>
+      <PageShell>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Commissions" />
+        </Breadcrumbs>
+        <AccountingTab />
+        <div className="flex items-end justify-between">
+          <PageHeader title="Payables" />
 
-                    <StatCards cards={statCards} />
-                </div>
-                <PayablesTable promise={promise} />
-            </PageShell>
-        </AuthGuard>
-    );
+          <StatCards cards={statCards} />
+        </div>
+        <PayablesTable promise={promise} />
+      </PageShell>
+    </AuthGuard>
+  );
 }

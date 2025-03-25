@@ -4,27 +4,24 @@ import { zSalesOverview } from "../utils/store";
 import { Admin } from "./admin";
 
 export interface ItemProps {
-    group: GetSalesOverview["itemGroup"][number];
-    item: GetSalesOverview["itemGroup"][number]["items"][number];
-    className?: string;
-    itemUid: string;
+  group: GetSalesOverview["itemGroup"][number];
+  item: GetSalesOverview["itemGroup"][number]["items"][number];
+  className?: string;
+  itemUid: string;
 }
 export function SalesItemCard(props: ItemProps) {
-    const z = zSalesOverview();
-    return (
-        <div
-            className={cn(
-                "bg-white sm:rounded-lg my-3 border",
-                props.className
-            )}
-        ></div>
-    );
+  const z = zSalesOverview();
+  return (
+    <div
+      className={cn("bg-white sm:rounded-lg my-3 border", props.className)}
+    ></div>
+  );
 }
 
 export function SalesItemCardFooter(props: ItemProps) {
-    return <Admin>{props.item.analytics}</Admin>;
+  return <Admin>{props.item.analytics}</Admin>;
 }
 export function SalesItemCardMenu(props: ItemProps) {
-    const z = zSalesOverview();
-    if (!z.adminMode) return null;
+  const z = zSalesOverview();
+  if (!z.adminMode) return null;
 }

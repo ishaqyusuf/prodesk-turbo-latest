@@ -10,29 +10,29 @@ import { ISalesType } from "@/types/sales";
 import { prisma } from "@/db";
 
 export async function generateMetadata({ params, searchParams }) {
-    const [type, slug] = params.typeAndSlug;
-    const title = `${type} | ${slug}`;
-    return {
-        title,
-    };
+  const [type, slug] = params.typeAndSlug;
+  const title = `${type} | ${slug}`;
+  return {
+    title,
+  };
 }
 
 export default async function SalesOverviewPage({ params: { typeAndSlug } }) {
-    const [type, slug]: [ISalesType, string] = typeAndSlug;
+  const [type, slug]: [ISalesType, string] = typeAndSlug;
 
-    const data = getSalesOverview({ type, slug });
+  const data = getSalesOverview({ type, slug });
 
-    return (
-        <AuthGuard can={["viewOrders"]}>
-            <div className="">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink title="Orders" link="/sales/orders" />
-                </Breadcrumbs>
-                <OverviewShell data={data} />
-                <OrderPrinter />
-                <DeletePaymentPrompt />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewOrders"]}>
+      <div className="">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink title="Orders" link="/sales/orders" />
+        </Breadcrumbs>
+        <OverviewShell data={data} />
+        <OrderPrinter />
+        <DeletePaymentPrompt />
+      </div>
+    </AuthGuard>
+  );
 }

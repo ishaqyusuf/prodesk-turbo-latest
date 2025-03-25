@@ -1,12 +1,7 @@
 {
   "name": "gnd",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "tooling/*",
-    "packages/email/*"
-  ],
+  "workspaces": ["packages/*", "apps/*", "tooling/*", "packages/email/*"],
   "scripts": {
     "build": "turbo build",
     "clean": "git clean -xdf node_modules",

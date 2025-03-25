@@ -10,97 +10,97 @@ import { _FilterColumn } from "@/components/_v1/columns/base-columns";
 import Money from "@/components/_v1/money";
 
 export default function CommissionsTable<T>({
-    data,
-    pageInfo,
-    searchParams,
+  data,
+  pageInfo,
+  searchParams,
 }: TableShellProps<ICommissions>) {
-    const [isPending, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
-    const [selectedRowIds, setSelectedRowIds] = useState<number[]>([]);
-    const table = SmartTable<ICommissions>(data);
-    // const _columns = table.Columns([
-    //   table.column("id", "#", {
-    //     content: (data) => ({
-    //       link: ``,
-    //       story: [
-    //         table.primaryText(data.InboundOrder?.orderId),
-    //         table.secondary(data.createdAt),
-    //       ],
-    //     }),
-    //   }),
-    // ]);
-    const columns = useMemo<ColumnDef<ICommissions, unknown>[]>(
-        () => [
-            table.column("id", "#", {
-                maxSize: 10,
-                content(data) {
-                    return {
-                        story: [
-                            table.primaryText(data.id),
-                            table.secondary(data.createdAt),
-                        ],
-                    };
-                },
-            }),
-            table.simpleColumn("Order", (data) => ({
-                link: `/sales/order/${data.order?.slug}`,
-                story: [table.primaryText(data.order.orderId)],
-            })),
-            table.simpleColumn("Sales Rep", (data) => ({
-                // link: `/sales/order/${data.order?.slug}`,
-                story: [table.primaryText(data.user?.name)],
-            })),
+  const [selectedRowIds, setSelectedRowIds] = useState<number[]>([]);
+  const table = SmartTable<ICommissions>(data);
+  // const _columns = table.Columns([
+  //   table.column("id", "#", {
+  //     content: (data) => ({
+  //       link: ``,
+  //       story: [
+  //         table.primaryText(data.InboundOrder?.orderId),
+  //         table.secondary(data.createdAt),
+  //       ],
+  //     }),
+  //   }),
+  // ]);
+  const columns = useMemo<ColumnDef<ICommissions, unknown>[]>(
+    () => [
+      table.column("id", "#", {
+        maxSize: 10,
+        content(data) {
+          return {
+            story: [
+              table.primaryText(data.id),
+              table.secondary(data.createdAt),
+            ],
+          };
+        },
+      }),
+      table.simpleColumn("Order", (data) => ({
+        link: `/sales/order/${data.order?.slug}`,
+        story: [table.primaryText(data.order.orderId)],
+      })),
+      table.simpleColumn("Sales Rep", (data) => ({
+        // link: `/sales/order/${data.order?.slug}`,
+        story: [table.primaryText(data.user?.name)],
+      })),
 
-            table.simpleColumn("Amount", (data) => ({
-                story: [<Money value={data.amount} key={0} />],
-            })),
-            table.simpleStatus("status"),
+      table.simpleColumn("Amount", (data) => ({
+        story: [<Money value={data.amount} key={0} />],
+      })),
+      table.simpleStatus("status"),
 
-            ..._FilterColumn("_q"),
+      ..._FilterColumn("_q"),
+      {
+        accessorKey: "actions",
+        //    header: ColumnHeader(""),
+        size: 15,
+        maxSize: 15,
+        enableSorting: false,
+        cell: ({ row }) => <></>,
+      },
+    ], //.filter(Boolean) as any,
+    [data, isPending],
+  );
+  return (
+    <DataTable2
+      searchParams={searchParams}
+      columns={columns}
+      pageInfo={pageInfo}
+      data={data}
+      filterableColumns={[
+        {
+          id: "Status",
+          title: "Status",
+          single: true,
+          options: [
+            { label: "All", value: "All" },
             {
-                accessorKey: "actions",
-                //    header: ColumnHeader(""),
-                size: 15,
-                maxSize: 15,
-                enableSorting: false,
-                cell: ({ row }) => <></>,
+              label: "Pending Putaway",
+              value: "Pending",
             },
-        ], //.filter(Boolean) as any,
-        [data, isPending]
-    );
-    return (
-        <DataTable2
-            searchParams={searchParams}
-            columns={columns}
-            pageInfo={pageInfo}
-            data={data}
-            filterableColumns={[
-                {
-                    id: "Status",
-                    title: "Status",
-                    single: true,
-                    options: [
-                        { label: "All", value: "All" },
-                        {
-                            label: "Pending Putaway",
-                            value: "Pending",
-                        },
-                        { label: "Stored", value: "Stored" },
-                        {
-                            label: "Pending Arrival",
-                            value: "Pending Arrival",
-                        },
-                    ],
-                },
-            ]}
-            searchableColumns={[
-                {
-                    id: "_q" as any,
-                    title: "",
-                },
-            ]}
+            { label: "Stored", value: "Stored" },
+            {
+              label: "Pending Arrival",
+              value: "Pending Arrival",
+            },
+          ],
+        },
+      ]}
+      searchableColumns={[
+        {
+          id: "_q" as any,
+          title: "",
+        },
+      ]}
 
-            //  deleteRowsAction={() => void deleteSelectedRows()}
-        />
-    );
+      //  deleteRowsAction={() => void deleteSelectedRows()}
+    />
+  );
 }

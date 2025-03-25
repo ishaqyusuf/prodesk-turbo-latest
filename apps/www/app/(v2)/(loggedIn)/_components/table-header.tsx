@@ -2,5 +2,5 @@
 
 interface TableHeaderProps {}
 export default function TableHeader({}: TableHeaderProps) {
-    return <></>;
+  return <></>;
 }

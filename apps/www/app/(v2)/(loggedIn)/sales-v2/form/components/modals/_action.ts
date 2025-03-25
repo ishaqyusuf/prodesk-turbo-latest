@@ -3,17 +3,17 @@
 import { prisma } from "@/db";
 
 export async function _getMouldingSpecies() {
-    const species = await prisma.dykeSteps.findFirst({
-        where: {
-            title: "Specie",
-        },
+  const species = await prisma.dykeSteps.findFirst({
+    where: {
+      title: "Specie",
+    },
+    include: {
+      stepProducts: {
         include: {
-            stepProducts: {
-                include: {
-                    product: true,
-                },
-            },
+          product: true,
         },
-    });
-    return species?.stepProducts.map((p) => p.product.title).filter(Boolean);
+      },
+    },
+  });
+  return species?.stepProducts.map((p) => p.product.title).filter(Boolean);
 }

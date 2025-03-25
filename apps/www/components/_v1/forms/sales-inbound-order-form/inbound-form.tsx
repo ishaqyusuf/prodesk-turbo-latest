@@ -5,16 +5,16 @@ import InboundFormTableShell from "@/components/_v1/shells/inbound-form-table-sh
 import { IInboundOrder } from "@/types/sales-inbound";
 
 interface Props {
-    list: any;
-    form: IInboundOrder;
-    suppliers: string[];
+  list: any;
+  form: IInboundOrder;
+  suppliers: string[];
 }
 export default function InboundForm({ form, list, suppliers }: Props) {
-    async function create() {}
-    return (
-        <>
-            <PageHeader title="New Inbound" />
-            <InboundFormTableShell {...list} suppliers={suppliers} />
-        </>
-    );
+  async function create() {}
+  return (
+    <>
+      <PageHeader title="New Inbound" />
+      <InboundFormTableShell {...list} suppliers={suppliers} />
+    </>
+  );
 }

@@ -8,23 +8,23 @@ import PageHeader from "@/components/_v1/page-header";
 import CommissionsTable from "./commissions-table";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 export const metadata: Metadata = {
-    title: "Sales Commissions",
+  title: "Sales Commissions",
 };
 export default async function SalesCommissions({ searchParams }) {
-    const resp = await _getSalesCommissionsAction({
-        ...queryParams(searchParams),
-    });
+  const resp = await _getSalesCommissionsAction({
+    ...queryParams(searchParams),
+  });
 
-    return (
-        <AuthGuard can={["editOrderPayment"]}>
-            <CommissionsLayout query={searchParams}>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Commissions" />
-                </Breadcrumbs>
-                <PageHeader title="Sales Commissions" />
-                <CommissionsTable searchParams={searchParams} {...resp} />
-            </CommissionsLayout>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["editOrderPayment"]}>
+      <CommissionsLayout query={searchParams}>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Commissions" />
+        </Breadcrumbs>
+        <PageHeader title="Sales Commissions" />
+        <CommissionsTable searchParams={searchParams} {...resp} />
+      </CommissionsLayout>
+    </AuthGuard>
+  );
 }

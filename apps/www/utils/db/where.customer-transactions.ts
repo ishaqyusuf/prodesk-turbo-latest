@@ -5,52 +5,52 @@ import { SearchParamsType } from "@/components/(clean-code)/data-table/search-pa
 import { Prisma } from "@prisma/client";
 
 export function whereCustomerTx(query: SearchParamsType) {
-    const whereAnd: Prisma.CustomerTransactionWhereInput[] = [
+  const whereAnd: Prisma.CustomerTransactionWhereInput[] = [
+    {
+      OR: [
         {
-            OR: [
-                {
-                    AND: [
-                        { type: {} },
-                        // { type: "transaction" as CustomerTransactionType },
-                        {
-                            amount: {
-                                lt: 0,
-                            },
-                        },
-                    ],
-                },
-                {
-                    paymentMethod: "link" as PaymentMethods,
-                    amount: {
-                        gt: 0,
-                    },
-                },
-            ],
+          AND: [
+            { type: {} },
+            // { type: "transaction" as CustomerTransactionType },
+            {
+              amount: {
+                lt: 0,
+              },
+            },
+          ],
         },
-        // {
-        // },
-        // {
-        //     salesPayments: {
-        //         some: {
-        //             order: {},
-        //         },
-        //     },
-        // },
-    ];
-    if (query["account.no"]) {
-        whereAnd.push({
-            wallet: {
-                accountNo: query["account.no"],
-            },
-        });
-    }
-    if (query["sales.id"])
-        whereAnd.push({
-            salesPayments: {
-                some: {
-                    orderId: query["sales.id"],
-                },
-            },
-        });
-    return composeQuery(whereAnd);
+        {
+          paymentMethod: "link" as PaymentMethods,
+          amount: {
+            gt: 0,
+          },
+        },
+      ],
+    },
+    // {
+    // },
+    // {
+    //     salesPayments: {
+    //         some: {
+    //             order: {},
+    //         },
+    //     },
+    // },
+  ];
+  if (query["account.no"]) {
+    whereAnd.push({
+      wallet: {
+        accountNo: query["account.no"],
+      },
+    });
+  }
+  if (query["sales.id"])
+    whereAnd.push({
+      salesPayments: {
+        some: {
+          orderId: query["sales.id"],
+        },
+      },
+    });
+  return composeQuery(whereAnd);
 }

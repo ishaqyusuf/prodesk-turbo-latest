@@ -19,111 +19,105 @@ import AutoComplete2 from "../auto-complete-tw";
 import { staticRolesAction } from "@/app/(v1)/_actions/hrm/static-roles";
 import { employeeSchema } from "@/lib/validations/hrm";
 import {
-    createEmployeeAction,
-    saveEmployeeAction,
+  createEmployeeAction,
+  saveEmployeeAction,
 } from "@/app/(v1)/_actions/hrm/save-employee";
 import { useStaticRoles } from "@/_v2/hooks/use-static-data";
 
 export default function EditJobModal() {
-    const route = useRouter();
-    const [isSaving, startTransition] = useTransition();
-    const form = useForm<IUser>({
-        defaultValues: {},
+  const route = useRouter();
+  const [isSaving, startTransition] = useTransition();
+  const form = useForm<IUser>({
+    defaultValues: {},
+  });
+  async function submit(data) {
+    startTransition(async () => {
+      // if(!form.getValues)
+      try {
+        const isValid = employeeSchema.parse(form.getValues());
+        if (!data?.id)
+          await createEmployeeAction({
+            ...form.getValues(),
+          });
+        else
+          await saveEmployeeAction({
+            ...form.getValues(),
+          });
+        closeModal();
+        toast.message("Success!");
+        route.refresh();
+      } catch (error) {
+        console.log(error);
+        toast.message("Invalid Form");
+        return;
+      }
     });
-    async function submit(data) {
-        startTransition(async () => {
-            // if(!form.getValues)
-            try {
-                const isValid = employeeSchema.parse(form.getValues());
-                if (!data?.id)
-                    await createEmployeeAction({
-                        ...form.getValues(),
-                    });
-                else
-                    await saveEmployeeAction({
-                        ...form.getValues(),
-                    });
-                closeModal();
-                toast.message("Success!");
-                route.refresh();
-            } catch (error) {
-                console.log(error);
-                toast.message("Invalid Form");
-                return;
-            }
-        });
-    }
-    const roles = useStaticRoles();
+  }
+  const roles = useStaticRoles();
 
-    async function init(data) {
-        form.reset(
-            !data
-                ? {}
-                : {
-                      ...data,
-                  }
-        );
-    }
-    return (
-        <BaseModal<IUser | undefined>
-            className="sm:max-w-[550px]"
-            onOpen={(data) => {
-                init(data);
-            }}
-            onClose={() => {}}
-            modalName="editJob"
-            Title={({ data }) => (
-                <div>
-                    {data?.id ? "Edit" : "Create"}
-                    {" Employee"}
-                </div>
-            )}
-            Content={({ data }) => (
-                <div>
-                    <div className="grid md:grid-cols-2 gap-4">
-                        <div className="grid gap-2 col-span-2">
-                            <Label>Name</Label>
-                            <Input
-                                placeholder=""
-                                className="h-8"
-                                {...form.register("name")}
-                            />
-                        </div>
-                        <div className="grid gap-2">
-                            <Label>Username</Label>
-                            <Input
-                                className="h-8"
-                                {...form.register("username")}
-                            />
-                        </div>
-                        <div className="grid gap-2">
-                            <Label>Email</Label>
-                            <Input
-                                className="h-8"
-                                {...form.register("email")}
-                            />
-                        </div>
-                        <div className="grid gap-2 col-span-2">
-                            <Label>Role</Label>
-                            <AutoComplete2
-                                form={form}
-                                options={roles.data || []}
-                                formKey={"role.id"}
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
-            Footer={({ data }) => (
-                <Btn
-                    isLoading={isSaving}
-                    onClick={() => submit(data)}
-                    size="sm"
-                    type="submit"
-                >
-                    Save
-                </Btn>
-            )}
-        />
+  async function init(data) {
+    form.reset(
+      !data
+        ? {}
+        : {
+            ...data,
+          },
     );
+  }
+  return (
+    <BaseModal<IUser | undefined>
+      className="sm:max-w-[550px]"
+      onOpen={(data) => {
+        init(data);
+      }}
+      onClose={() => {}}
+      modalName="editJob"
+      Title={({ data }) => (
+        <div>
+          {data?.id ? "Edit" : "Create"}
+          {" Employee"}
+        </div>
+      )}
+      Content={({ data }) => (
+        <div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid gap-2 col-span-2">
+              <Label>Name</Label>
+              <Input
+                placeholder=""
+                className="h-8"
+                {...form.register("name")}
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label>Username</Label>
+              <Input className="h-8" {...form.register("username")} />
+            </div>
+            <div className="grid gap-2">
+              <Label>Email</Label>
+              <Input className="h-8" {...form.register("email")} />
+            </div>
+            <div className="grid gap-2 col-span-2">
+              <Label>Role</Label>
+              <AutoComplete2
+                form={form}
+                options={roles.data || []}
+                formKey={"role.id"}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      Footer={({ data }) => (
+        <Btn
+          isLoading={isSaving}
+          onClick={() => submit(data)}
+          size="sm"
+          type="submit"
+        >
+          Save
+        </Btn>
+      )}
+    />
+  );
 }

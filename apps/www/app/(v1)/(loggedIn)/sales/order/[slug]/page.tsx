@@ -17,55 +17,55 @@ import TimelineSection from "@/app/(v2)/(loggedIn)/sales-v2/overview/components/
 import { prisma } from "@/db";
 
 export const metadata: Metadata = {
-    title: "Order Overview",
-    description: "Order Overview",
+  title: "Order Overview",
+  description: "Order Overview",
 };
 
 export default async function SalesOrderPage({ params: { slug } }) {
-    const s = await prisma.salesOrders.findFirst({
+  const s = await prisma.salesOrders.findFirst({
+    where: {
+      id: 3263,
+    },
+    select: {
+      payments: {
         where: {
-            id: 3263,
+          deletedAt: {},
         },
         select: {
-            payments: {
-                where: {
-                    deletedAt: {},
-                },
-                select: {
-                    id: true,
-                },
-            },
+          id: true,
         },
-    });
-    const order: SalesOverview = (await getOrderAction(slug)) as any;
-    if (!order) return notFound();
-    metadata.description = order.orderId;
-    if (order.isDyke) redirect(`/sales-v2/overview/order/${slug}`);
-    return (
-        <AuthGuard can={["editOrders"]}>
-            <DataPageShell className="sm:px-8" data={order}>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink title="Orders" link="/sales/orders" />
-                    <OrderViewCrumb slug={order.orderId} isLast />
-                </Breadcrumbs>
+      },
+    },
+  });
+  const order: SalesOverview = (await getOrderAction(slug)) as any;
+  if (!order) return notFound();
+  metadata.description = order.orderId;
+  if (order.isDyke) redirect(`/sales-v2/overview/order/${slug}`);
+  return (
+    <AuthGuard can={["editOrders"]}>
+      <DataPageShell className="sm:px-8" data={order}>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink title="Orders" link="/sales/orders" />
+          <OrderViewCrumb slug={order.orderId} isLast />
+        </Breadcrumbs>
 
-                <div className="grid sm:grid-cols-3 gap-4 ">
-                    <div className="sm:col-span-2 max-sm:divide-y flex flex-col space-y-4">
-                        <OverviewDetailsSection />
-                        {/* <ItemDetailsSection /> */}
-                        <TabbedItemEmailOverview />
-                    </div>
-                    <div className="space-y-4 max-sm:divide-y">
-                        <CostBreakdown />
-                        <PaymentHistory />
-                        <TimelineSection />
-                    </div>
-                </div>
+        <div className="grid sm:grid-cols-3 gap-4 ">
+          <div className="sm:col-span-2 max-sm:divide-y flex flex-col space-y-4">
+            <OverviewDetailsSection />
+            {/* <ItemDetailsSection /> */}
+            <TabbedItemEmailOverview />
+          </div>
+          <div className="space-y-4 max-sm:divide-y">
+            <CostBreakdown />
+            <PaymentHistory />
+            <TimelineSection />
+          </div>
+        </div>
 
-                <OrderPrinter />
-                <DeletePaymentPrompt />
-            </DataPageShell>
-        </AuthGuard>
-    );
+        <OrderPrinter />
+        <DeletePaymentPrompt />
+      </DataPageShell>
+    </AuthGuard>
+  );
 }

@@ -29,6 +29,6 @@ export async function getSalesPaymentCustomers() {
 
   return customers.sort(
     (a, b) =>
-      ((a.businessName || a.name) as any) - ((b.businessName || b.name) as any)
+      ((a.businessName || a.name) as any) - ((b.businessName || b.name) as any),
   );
 }

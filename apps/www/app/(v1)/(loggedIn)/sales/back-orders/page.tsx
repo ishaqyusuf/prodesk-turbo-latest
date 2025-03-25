@@ -15,32 +15,32 @@ import BackOrderModal from "@/components/_v1/modals/sales/back-order-modal";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Back Orders",
+  title: "Back Orders",
 };
 interface Props {}
 export default async function BackOrdersPage({ searchParams }) {
-    // await _restoreSalesOrder();
-    const response = await getSalesOrder({
-        ...queryParams(searchParams),
-        _backOrder: true,
-    });
-    return (
-        <SalesTabLayout query={searchParams}>
-            <Breadcrumbs>
-                <BreadLink isFirst title="Sales" />
-                <BreadLink isLast title="Back Orders" />
-            </Breadcrumbs>
-            <PageHeader
-                title="Back Orders"
-                newLink="/sales/order/new/form"
-                permissions={["editOrders"]}
-            />
-            <AuthGuard can={["editOrders"]}>
-                {/* <OrdersTableShell searchParams={searchParams} {...response} /> */}
-            </AuthGuard>
-            <OrderPrinter />
+  // await _restoreSalesOrder();
+  const response = await getSalesOrder({
+    ...queryParams(searchParams),
+    _backOrder: true,
+  });
+  return (
+    <SalesTabLayout query={searchParams}>
+      <Breadcrumbs>
+        <BreadLink isFirst title="Sales" />
+        <BreadLink isLast title="Back Orders" />
+      </Breadcrumbs>
+      <PageHeader
+        title="Back Orders"
+        newLink="/sales/order/new/form"
+        permissions={["editOrders"]}
+      />
+      <AuthGuard can={["editOrders"]}>
+        {/* <OrdersTableShell searchParams={searchParams} {...response} /> */}
+      </AuthGuard>
+      <OrderPrinter />
 
-            <BackOrderModal />
-        </SalesTabLayout>
-    );
+      <BackOrderModal />
+    </SalesTabLayout>
+  );
 }

@@ -4,11 +4,11 @@ import { getSalesCustomerConflicts } from "./action";
 import { useEffect } from "react";
 
 export default function CustomerMerger({ customerId }) {
-    const merger = useEffectLoader(
-        async () => await getSalesCustomerConflicts(customerId)
-    );
-    useEffect(() => {
-        //
-    }, [merger.ready]);
-    return null;
+  const merger = useEffectLoader(
+    async () => await getSalesCustomerConflicts(customerId),
+  );
+  useEffect(() => {
+    //
+  }, [merger.ready]);
+  return null;
 }

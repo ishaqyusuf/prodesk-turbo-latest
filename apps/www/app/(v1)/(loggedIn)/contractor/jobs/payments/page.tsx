@@ -13,30 +13,26 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import JobPaymentTableShell from "./job-payment-table-shell";
 
 export const metadata: Metadata = {
-    title: "Payment Receipts",
+  title: "Payment Receipts",
 };
 export default async function JobPaymentsPage({ searchParams }) {
-    const response = await getJobPayments(queryParams(searchParams));
-    return (
-        <TabbedLayout tabKey="Job">
-            <Breadcrumbs>
-                <BreadLink isFirst title="Hrm" />
-                <BreadLink isLast title="Payments" />
-            </Breadcrumbs>
-            <PageHeader
-                title="Payment Receipts"
-                newLink={"/contractor/jobs/payments/pay"}
-                buttonText={"Make Payment"}
-                ButtonIcon={"dollar"}
-            />
-            <AuthGuard can={["editJobPayment"]}>
-                <JobPaymentTableShell
-                    admin
-                    searchParams={searchParams}
-                    {...response}
-                />
-            </AuthGuard>
-            <PaymentOverviewSheet />
-        </TabbedLayout>
-    );
+  const response = await getJobPayments(queryParams(searchParams));
+  return (
+    <TabbedLayout tabKey="Job">
+      <Breadcrumbs>
+        <BreadLink isFirst title="Hrm" />
+        <BreadLink isLast title="Payments" />
+      </Breadcrumbs>
+      <PageHeader
+        title="Payment Receipts"
+        newLink={"/contractor/jobs/payments/pay"}
+        buttonText={"Make Payment"}
+        ButtonIcon={"dollar"}
+      />
+      <AuthGuard can={["editJobPayment"]}>
+        <JobPaymentTableShell admin searchParams={searchParams} {...response} />
+      </AuthGuard>
+      <PaymentOverviewSheet />
+    </TabbedLayout>
+  );
 }

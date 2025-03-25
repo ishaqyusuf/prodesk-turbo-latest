@@ -7,24 +7,24 @@ import { Prisma } from "@prisma/client";
 import { wherePayableSalesOrders } from "./where";
 
 export default async function getPayablesAction(query) {
-    // return prisma.$transaction(async (tx) => {
-    const where = wherePayableSalesOrders(query);
-    const { pageCount, skip, take } = await paginatedAction(
-        query,
-        prisma.salesOrders,
-        where
-    );
-    const data = await prisma.salesOrders.findMany({
-        where,
-        skip,
-        take,
-        include: {
-            customer: true,
-        },
-    });
-    return {
-        data,
-        pageCount,
-    };
-    // });
+  // return prisma.$transaction(async (tx) => {
+  const where = wherePayableSalesOrders(query);
+  const { pageCount, skip, take } = await paginatedAction(
+    query,
+    prisma.salesOrders,
+    where,
+  );
+  const data = await prisma.salesOrders.findMany({
+    where,
+    skip,
+    take,
+    include: {
+      customer: true,
+    },
+  });
+  return {
+    data,
+    pageCount,
+  };
+  // });
 }

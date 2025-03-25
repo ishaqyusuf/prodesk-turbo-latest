@@ -9,24 +9,24 @@ import ProjectsTableShell from "@/app/(v1)/(loggedIn)/community/projects/compone
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Projects",
+  title: "Projects",
 };
 interface Props {}
 export default async function ProjectsPage({ searchParams }) {
-    const response = await getProjectsAction(queryParams(searchParams));
-    return (
-        <AuthGuard can={["viewProject"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Community" />
-                    <BreadLink isLast title="Projects" />
-                </Breadcrumbs>
+  const response = await getProjectsAction(queryParams(searchParams));
+  return (
+    <AuthGuard can={["viewProject"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Community" />
+          <BreadLink isLast title="Projects" />
+        </Breadcrumbs>
 
-                <ProjectsTableShell<IProject>
-                    searchParams={searchParams}
-                    {...response}
-                />
-            </div>
-        </AuthGuard>
-    );
+        <ProjectsTableShell<IProject>
+          searchParams={searchParams}
+          {...response}
+        />
+      </div>
+    </AuthGuard>
+  );
 }

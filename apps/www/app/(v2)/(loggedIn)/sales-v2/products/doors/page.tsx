@@ -11,25 +11,25 @@ import DykeDoorsTable from "./_components/dyke-doors-table";
 import { _getDykeDoors } from "../_actions/dyke-doors";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 export const metadata: Metadata = {
-    title: "Shelf Items | GND",
+  title: "Shelf Items | GND",
 };
 interface Props {
-    searchParams: SearchParams;
+  searchParams: SearchParams;
 }
 export default function DykeDoorsPage({ searchParams }: Props) {
-    const query = queryParams(searchParams);
-    const promise = _getDykeDoors(query);
-    return (
-        <AuthGuard can={["editOrders"]}>
-            <DykeTabLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Dyke Doors" />
-                </Breadcrumbs>
-                <Shell className="">
-                    <DykeDoorsTable promise={promise} />
-                </Shell>
-            </DykeTabLayout>
-        </AuthGuard>
-    );
+  const query = queryParams(searchParams);
+  const promise = _getDykeDoors(query);
+  return (
+    <AuthGuard can={["editOrders"]}>
+      <DykeTabLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Dyke Doors" />
+        </Breadcrumbs>
+        <Shell className="">
+          <DykeDoorsTable promise={promise} />
+        </Shell>
+      </DykeTabLayout>
+    </AuthGuard>
+  );
 }

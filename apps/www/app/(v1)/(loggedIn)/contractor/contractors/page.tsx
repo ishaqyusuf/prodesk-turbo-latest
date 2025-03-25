@@ -11,29 +11,26 @@ import ContractorsTableShell from "@/components/_v1/shells/contractors-table-she
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Documents",
+  title: "Documents",
 };
 export default async function ContractorsPage({ searchParams }) {
-    const response = await getEmployees(
-        queryParams(searchParams, {
-            role: "1099 Contractor",
-        })
-    );
+  const response = await getEmployees(
+    queryParams(searchParams, {
+      role: "1099 Contractor",
+    }),
+  );
 
-    return (
-        <AuthGuard can={["editEmployee"]}>
-            <div className="sm:px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Contactors" />
-                    {/* <BreadLink isLast title="Employees" /> */}
-                </Breadcrumbs>
-                <PageHeader title="Contractors" newDialog="employee" />
-                <ContractorsTableShell
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <EmployeeModal />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["editEmployee"]}>
+      <div className="sm:px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Contactors" />
+          {/* <BreadLink isLast title="Employees" /> */}
+        </Breadcrumbs>
+        <PageHeader title="Contractors" newDialog="employee" />
+        <ContractorsTableShell searchParams={searchParams} {...response} />
+        <EmployeeModal />
+      </div>
+    </AuthGuard>
+  );
 }

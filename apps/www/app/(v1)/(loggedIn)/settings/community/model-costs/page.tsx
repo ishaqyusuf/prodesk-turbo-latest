@@ -11,27 +11,24 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import { getHomeTemplates } from "../_components/home-template";
 
 export const metadata: Metadata = {
-    title: "Model Costs",
+  title: "Model Costs",
 };
 export default async function ModelCosts({ searchParams }) {
-    const response = await getHomeTemplates(queryParams(searchParams));
-    return (
-        <AuthGuard can={["editProject"]}>
-            <CommunitySettingsLayoutComponent>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Settings" />
-                    <BreadLink title="Community" />
-                    <BreadLink isLast title="Model Costs" />
-                </Breadcrumbs>
-                <PageHeader title="Model Costs" newDialog="modelTemplate" />
-                <ModelCostTableShell
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <ModelCostModal />
-                {/* <ModelTemplateModal /> */}
-                <ModelInstallCostModal />
-            </CommunitySettingsLayoutComponent>
-        </AuthGuard>
-    );
+  const response = await getHomeTemplates(queryParams(searchParams));
+  return (
+    <AuthGuard can={["editProject"]}>
+      <CommunitySettingsLayoutComponent>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Settings" />
+          <BreadLink title="Community" />
+          <BreadLink isLast title="Model Costs" />
+        </Breadcrumbs>
+        <PageHeader title="Model Costs" newDialog="modelTemplate" />
+        <ModelCostTableShell searchParams={searchParams} {...response} />
+        <ModelCostModal />
+        {/* <ModelTemplateModal /> */}
+        <ModelInstallCostModal />
+      </CommunitySettingsLayoutComponent>
+    </AuthGuard>
+  );
 }

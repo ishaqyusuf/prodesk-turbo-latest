@@ -1,3 +1,3 @@
 export default function shopAdminPage() {
-    return <div></div>;
+  return <div></div>;
 }

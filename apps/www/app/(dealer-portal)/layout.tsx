@@ -7,25 +7,25 @@ import DealerHeader from "./_components/header";
 import { redirect } from "next/navigation";
 
 export default function Layout({ children }) {
-    const { data: session } = useSession({
-        required: true,
-        onUnauthenticated() {
-            redirect("/login");
-        },
-    });
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/login");
+    },
+  });
 
-    if (!session?.user) return <></>;
-    if (session.role?.name != "Dealer") redirect("");
-    return (
-        <div className="min-h-screen flex flex-col">
-            <div>
-                <ContactHeader />
-                <DealerHeader />
-            </div>
-            <div className="min-h-[80vh]">{children}</div>
-            <div>
-                <SiteFooter />
-            </div>
-        </div>
-    );
+  if (!session?.user) return <></>;
+  if (session.role?.name != "Dealer") redirect("");
+  return (
+    <div className="min-h-screen flex flex-col">
+      <div>
+        <ContactHeader />
+        <DealerHeader />
+      </div>
+      <div className="min-h-[80vh]">{children}</div>
+      <div>
+        <SiteFooter />
+      </div>
+    </div>
+  );
 }

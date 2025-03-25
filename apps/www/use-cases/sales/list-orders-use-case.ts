@@ -4,11 +4,11 @@ import { AsyncFnType } from "@/types";
 
 export type ListOrderUseCase = AsyncFnType<typeof listOrdersUseCase>;
 export async function listOrdersUseCase(query: SalesQueryParam2) {
-    query._type = "order";
-    const { data, ...rest } = await getAllSales(query);
+  query._type = "order";
+  const { data, ...rest } = await getAllSales(query);
 
-    return {
-        ...rest,
-        data: data.map(composeListOrders),
-    };
+  return {
+    ...rest,
+    data: data.map(composeListOrders),
+  };
 }

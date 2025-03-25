@@ -9,18 +9,18 @@ import { DefaultSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 // import { authOptions } from "@/server/auth";
 declare module "next-auth" {
-    // interface User {
-    //     user: Users;
-    //     can: ICan;
-    //     role: Roles;
-    // }
+  // interface User {
+  //     user: Users;
+  //     can: ICan;
+  //     role: Roles;
+  // }
 
-    interface Session extends DefaultSession {
-        // user: {
-        user: Users;
-        can: ICan;
-        role: Roles;
-    }
+  interface Session extends DefaultSession {
+    // user: {
+    user: Users;
+    can: ICan;
+    role: Roles;
+  }
 }
 // declare module "next-auth/jwt" {
 //     /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */

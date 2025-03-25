@@ -27,7 +27,7 @@ export async function getHomeTemplateSuggestions() {
           .filter((_) => _.fieldName == l.fieldName)
           .map((f) => f.value);
       }
-    })
+    }),
   );
   //   console.log(updates);
   return suggestions;

@@ -1,10 +1,10 @@
 "use server";
 
 import {
-    loadStepComponentsDta,
-    LoadStepComponentsProps,
+  loadStepComponentsDta,
+  LoadStepComponentsProps,
 } from "../../../_common/data-access/step-components.dta";
 
 export async function getStepComponents(props: LoadStepComponentsProps) {
-    return await loadStepComponentsDta(props);
+  return await loadStepComponentsDta(props);
 }

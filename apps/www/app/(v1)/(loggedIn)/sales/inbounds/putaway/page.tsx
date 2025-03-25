@@ -8,18 +8,18 @@ import InboundLayout from "@/components/_v1/tab-layouts/inbound-layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Inbounds",
+  title: "Inbounds",
 };
 export default async function PutawayPage({ searchParams }) {
-    const response = await getPutwaysAction(queryParams(searchParams));
-    return (
-        <InboundLayout>
-            <Breadcrumbs>
-                <BreadLink isFirst title="Inbounds" />
-                <BreadLink isLast title="Inbound Orders" />
-            </Breadcrumbs>
-            <PageHeader title="Putaways" />
-            <PutawayTableShell searchParams={searchParams} {...response} />
-        </InboundLayout>
-    );
+  const response = await getPutwaysAction(queryParams(searchParams));
+  return (
+    <InboundLayout>
+      <Breadcrumbs>
+        <BreadLink isFirst title="Inbounds" />
+        <BreadLink isLast title="Inbound Orders" />
+      </Breadcrumbs>
+      <PageHeader title="Putaways" />
+      <PutawayTableShell searchParams={searchParams} {...response} />
+    </InboundLayout>
+  );
 }

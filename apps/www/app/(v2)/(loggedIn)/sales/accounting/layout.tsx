@@ -1,3 +1,3 @@
 export default function AccountLayout({ children }) {
-    return <>{children}</>;
+  return <>{children}</>;
 }

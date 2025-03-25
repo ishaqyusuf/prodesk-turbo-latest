@@ -12,26 +12,23 @@ import EmployeeModal from "@/components/_v1/modals/employee-modal";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Employees",
+  title: "Employees",
 };
 export default async function EmployeesPage({ searchParams }) {
-    // const response = await getEmployees(queryParams(searchParams));
-    const promise = getEmployees({ ...queryParams(searchParams) });
+  // const response = await getEmployees(queryParams(searchParams));
+  const promise = getEmployees({ ...queryParams(searchParams) });
 
-    return (
-        <AuthGuard can={["viewEmployee"]}>
-            <HrmLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Hrm" />
-                    <BreadLink isLast title="Employees" />
-                </Breadcrumbs>
+  return (
+    <AuthGuard can={["viewEmployee"]}>
+      <HrmLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Hrm" />
+          <BreadLink isLast title="Employees" />
+        </Breadcrumbs>
 
-                <EmployeesTableShell
-                    searchParams={searchParams}
-                    promise={promise}
-                />
-                <EmployeeModal />
-            </HrmLayout>
-        </AuthGuard>
-    );
+        <EmployeesTableShell searchParams={searchParams} promise={promise} />
+        <EmployeeModal />
+      </HrmLayout>
+    </AuthGuard>
+  );
 }

@@ -1,30 +1,30 @@
 import { getBaseUrl } from "@/envs";
 import {
-    Column,
-    Hr,
-    Img,
-    Link,
-    Row,
-    Section,
-    Text,
+  Column,
+  Hr,
+  Img,
+  Link,
+  Row,
+  Section,
+  Text,
 } from "@react-email/components";
 
 const baseUrl = getBaseUrl();
 
 export function Footer() {
-    return (
-        <Section className="w-full">
-            <Hr />
+  return (
+    <Section className="w-full">
+      <Hr />
 
-            <br />
+      <br />
 
-            <Text className="text-[21px] font-regular">
-                {/* Run your business smarter. */}
-            </Text>
+      <Text className="text-[21px] font-regular">
+        {/* Run your business smarter. */}
+      </Text>
 
-            <br />
+      <br />
 
-            {/* <TripleColumn
+      {/* <TripleColumn
                 pX={0}
                 pY={0}
                 styles={{ textAlign: "left" }}
@@ -225,10 +225,10 @@ export function Footer() {
                 }}
             /> */}
 
-            <br />
-            <br />
+      <br />
+      <br />
 
-            {/* <Row>
+      {/* <Row>
                 <Column className="align-middle w-[40px]">
                     <Link href="https://go.midday.ai/lS72Toq">
                         <Img
@@ -273,40 +273,40 @@ export function Footer() {
                 </Column>
             </Row> */}
 
-            <br />
-            <br />
+      <br />
+      <br />
 
-            <Row>
-                <Text className="text-[#B8B8B8] text-xs">
-                    GND Millwork - 13285 SW 131 ST Miami, Fl 33186.
-                </Text>
-            </Row>
+      <Row>
+        <Text className="text-[#B8B8B8] text-xs">
+          GND Millwork - 13285 SW 131 ST Miami, Fl 33186.
+        </Text>
+      </Row>
 
-            <Row>
-                <Link
-                    className="text-[#707070] text-[14px]"
-                    // href="https://app.midday.ai/settings/notifications"
-                    title="Unsubscribe"
-                >
-                    Notification preferences
-                </Link>
-            </Row>
+      <Row>
+        <Link
+          className="text-[#707070] text-[14px]"
+          // href="https://app.midday.ai/settings/notifications"
+          title="Unsubscribe"
+        >
+          Notification preferences
+        </Link>
+      </Row>
 
-            <br />
-            <br />
+      <br />
+      <br />
 
-            <Row>
-                <Link
-                // href="https://gnd-prodesk.vercel.app"
-                >
-                    <Img
-                        src={`${baseUrl}/email/logo-footer.png`}
-                        width="100"
-                        alt="GndMillwork"
-                        className="block"
-                    />
-                </Link>
-            </Row>
-        </Section>
-    );
+      <Row>
+        <Link
+        // href="https://gnd-prodesk.vercel.app"
+        >
+          <Img
+            src={`${baseUrl}/email/logo-footer.png`}
+            width="100"
+            alt="GndMillwork"
+            className="block"
+          />
+        </Link>
+      </Row>
+    </Section>
+  );
 }

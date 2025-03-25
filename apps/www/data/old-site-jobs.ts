@@ -14,8 +14,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-09 22:05:08",
     rejected_at: null,
@@ -43,8 +42,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":15,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":11,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":29,"total":129.92000000000002,"checked":true,"default_qty":29,"max_qty":29,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":376.92,"uid":null}',
+    meta: '{"additional_cost":15,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":11,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":29,"total":129.92000000000002,"checked":true,"default_qty":29,"max_qty":29,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":376.92,"uid":null}',
     admin_note: null,
     status_date: "2023-09-09 22:06:56",
     rejected_at: null,
@@ -72,8 +70,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":35,"total":156.8,"checked":true,"default_qty":35,"max_qty":35,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":418.8,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":35,"total":156.8,"checked":true,"default_qty":35,"max_qty":35,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":418.8,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-09 22:17:22",
     rejected_at: null,
@@ -101,8 +98,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-09 22:19:26",
     rejected_at: null,
@@ -130,8 +126,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":9,"total":90,"checked":true,"default_qty":9,"max_qty":"9","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":12,"total":60,"checked":true,"default_qty":12,"max_qty":"12","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":45,"total":201.60000000000002,"checked":true,"default_qty":45,"max_qty":"45","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"default_qty":1,"max_qty":1,"checked":true,"id":"19"},{"title":"Addon","total":130,"unit_value":130,"qty":1,"default_qty":1,"checked":true}],"sub_total":533.6,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":9,"total":90,"checked":true,"default_qty":9,"max_qty":"9","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":12,"total":60,"checked":true,"default_qty":12,"max_qty":"12","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":45,"total":201.60000000000002,"checked":true,"default_qty":45,"max_qty":"45","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"default_qty":1,"max_qty":1,"checked":true,"id":"19"},{"title":"Addon","total":130,"unit_value":130,"qty":1,"default_qty":1,"checked":true}],"sub_total":533.6,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/09\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-09 22:20:59",
     rejected_at: null,
@@ -159,8 +154,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:50:02",
     rejected_at: null,
@@ -188,8 +182,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":35,"total":156.8,"checked":true,"default_qty":35,"max_qty":35,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":418.8,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":35,"total":156.8,"checked":true,"default_qty":35,"max_qty":35,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":418.8,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:51:55",
     rejected_at: null,
@@ -217,8 +210,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY & BARO CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":22,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":13,"total":65,"checked":true,"default_qty":13,"max_qty":13,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":30,"total":134.4,"checked":true,"default_qty":30,"max_qty":30,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":195.7,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":22,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":13,"total":65,"checked":true,"default_qty":13,"max_qty":13,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":30,"total":134.4,"checked":true,"default_qty":30,"max_qty":30,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":195.7,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:52:33",
     rejected_at: null,
@@ -246,8 +238,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"SINGLE FRONT DOOR 8\\/0","unit_value":25,"qty":1,"total":25,"checked":true,"default_qty":1,"max_qty":1,"id":"9"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":9,"total":90,"checked":true,"default_qty":9,"max_qty":9,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":6,"total":30,"checked":true,"default_qty":6,"max_qty":6,"id":"14"},{"title":"BASE 3-1\\/2","unit_value":4,"qty":30,"total":120,"checked":true,"default_qty":30,"max_qty":30,"id":"16"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":397,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"SINGLE FRONT DOOR 8\\/0","unit_value":25,"qty":1,"total":25,"checked":true,"default_qty":1,"max_qty":1,"id":"9"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":9,"total":90,"checked":true,"default_qty":9,"max_qty":9,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":6,"total":30,"checked":true,"default_qty":6,"max_qty":6,"id":"14"},{"title":"BASE 3-1\\/2","unit_value":4,"qty":30,"total":120,"checked":true,"default_qty":30,"max_qty":30,"id":"16"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":397,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:53:45",
     rejected_at: null,
@@ -275,8 +266,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":15,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":11,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":29,"total":129.92000000000002,"checked":true,"default_qty":29,"max_qty":29,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":376.92,"uid":null}',
+    meta: '{"additional_cost":15,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":11,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":29,"total":129.92000000000002,"checked":true,"default_qty":29,"max_qty":29,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":376.92,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:54:52",
     rejected_at: null,
@@ -304,8 +294,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":"7","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":12,"total":60,"checked":true,"default_qty":12,"max_qty":"12","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":36,"total":161.28000000000003,"checked":true,"default_qty":36,"max_qty":"36","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":423.28000000000003,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":"7","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":12,"total":60,"checked":true,"default_qty":12,"max_qty":"12","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":36,"total":161.28000000000003,"checked":true,"default_qty":36,"max_qty":"36","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":423.28000000000003,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:55:42",
     rejected_at: null,
@@ -333,8 +322,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":"7","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":12,"total":60,"checked":true,"default_qty":12,"max_qty":"12","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":38,"total":170.24,"checked":true,"default_qty":38,"max_qty":"38","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":432.24,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":"7","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":12,"total":60,"checked":true,"default_qty":12,"max_qty":"12","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":38,"total":170.24,"checked":true,"default_qty":38,"max_qty":"38","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":432.24,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 02:56:18",
     rejected_at: null,
@@ -363,8 +351,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":22.4,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":"6","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":"11","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":25,"total":112.00000000000001,"checked":true,"default_qty":25,"max_qty":"25","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":359,"uid":null}',
+    meta: '{"additional_cost":22.4,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":"6","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":"11","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":25,"total":112.00000000000001,"checked":true,"default_qty":25,"max_qty":"25","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":359,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 03:51:38",
     rejected_at: null,
@@ -392,8 +379,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":22.4,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":"6","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":"11","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":25,"total":112.00000000000001,"checked":true,"default_qty":25,"max_qty":"25","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":359,"uid":null}',
+    meta: '{"additional_cost":22.4,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":"6","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":"11","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":25,"total":112.00000000000001,"checked":true,"default_qty":25,"max_qty":"25","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":359,"uid":null}',
     admin_note: null,
     status_date: "2023-09-12 03:53:13",
     rejected_at: null,
@@ -421,8 +407,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "MENDOZA FINISH CARPENTRY",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":"7","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":"10","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":30,"total":134.4,"checked":true,"default_qty":30,"max_qty":"30","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":406.4,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":"7","id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":"10","id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":30,"total":134.4,"checked":true,"default_qty":30,"max_qty":"30","id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":406.4,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 13:31:26",
     rejected_at: null,
@@ -450,8 +435,7 @@ export const oldSiteJobs = [
     note: "WESTVIEW (bloque 19) 10 handel 10 pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":100,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":100,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:28:56",
     rejected_at: null,
@@ -479,8 +463,7 @@ export const oldSiteJobs = [
     note: "POST OFICCE (bloque 18) 6debol 6handel 6pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":72,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":72,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:29:58",
     rejected_at: null,
@@ -508,8 +491,7 @@ export const oldSiteJobs = [
     note: "KENDALL (bloque 27) 9debol 9handel 9pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":108,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":108,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:30:32",
     rejected_at: null,
@@ -537,8 +519,7 @@ export const oldSiteJobs = [
     note: "CORSICA (bloque 4) 9handel 9pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":90,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":90,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:31:03",
     rejected_at: null,
@@ -566,8 +547,7 @@ export const oldSiteJobs = [
     note: "NARANJA (bloque 3) 10debol 10pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":90,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":90,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:31:41",
     rejected_at: null,
@@ -595,8 +575,7 @@ export const oldSiteJobs = [
     note: "CORSICA (bloque 22) 8debol 8handel 8pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":96,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":96,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:32:19",
     rejected_at: null,
@@ -624,8 +603,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 2/3) 14yales 14ds 3ws 1pipol 1pre 3debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":55.5,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":55.5,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:33:24",
     rejected_at: null,
@@ -653,8 +631,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 2/5) 11yales 11ds 2ws 1pipol 1pres 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":45,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":45,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:34:10",
     rejected_at: null,
@@ -682,8 +659,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 1/5) 10yales 10ds 3ws 1pipol 1pres 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":44,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":44,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:35:03",
     rejected_at: null,
@@ -711,8 +687,7 @@ export const oldSiteJobs = [
     note: "COSTA BLANCA (bloque 10) 56yales 56ds 6ws 6pipol 6debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":190,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":190,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:36:03",
     rejected_at: null,
@@ -740,8 +715,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 8/4) 11yales 11ds 2ws 1pipol 1pres 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":45,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":45,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:37:22",
     rejected_at: null,
@@ -769,8 +743,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 9/4) 11yales 11ds 3ws 1pipol 1pres 3debol 1pm",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":50,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":50,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:38:30",
     rejected_at: null,
@@ -798,8 +771,7 @@ export const oldSiteJobs = [
     note: "CEDAR POINTE (bloque 26) 61yales 61ds 16ws 8pipol 8pre 16 debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":278.9,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":278.9,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:40:19",
     rejected_at: null,
@@ -827,8 +799,7 @@ export const oldSiteJobs = [
     note: "CEDAR POINTE (bloque 20) 9d 9handel 9pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":108,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":108,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:41:32",
     rejected_at: null,
@@ -856,8 +827,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 25/8) 2Debol 1Handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:42:40",
     rejected_at: null,
@@ -885,8 +855,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 24/8) 1debol 1handel 1progra",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:43:07",
     rejected_at: null,
@@ -914,8 +883,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 1/2) 2debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:43:36",
     rejected_at: null,
@@ -943,8 +911,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 2/2) 1debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:44:06",
     rejected_at: null,
@@ -972,8 +939,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 3/2) 2debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:44:40",
     rejected_at: null,
@@ -1001,8 +967,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 4/2) 1debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:45:16",
     rejected_at: null,
@@ -1030,8 +995,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 5/2) 1debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":13,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":13,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:45:44",
     rejected_at: null,
@@ -1059,8 +1023,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 6/2) 2debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:46:20",
     rejected_at: null,
@@ -1088,8 +1051,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 7/2) 2debol 2handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:46:51",
     rejected_at: null,
@@ -1117,8 +1079,7 @@ export const oldSiteJobs = [
     note: "RAMBO (casa 23/8) 1debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":12,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:47:25",
     rejected_at: null,
@@ -1146,8 +1107,7 @@ export const oldSiteJobs = [
     note: "KENDALL (bloque 26) 72yales 72ds 18ws 9pipol 9pres 18debol 28pm 1pc",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":400,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":400,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 15:51:38",
     rejected_at: null,
@@ -1172,12 +1132,10 @@ export const oldSiteJobs = [
     title: null,
     subtitle: null,
     description: null,
-    note:
-      "GOLDEN PARK (casa 17/1) 19yales 19ds 2ws 1pipol 1pre 3debol 4domi 2bolt 1pro",
+    note: "GOLDEN PARK (casa 17/1) 19yales 19ds 2ws 1pipol 1pre 3debol 4domi 2bolt 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:53:06",
     rejected_at: null,
@@ -1205,8 +1163,7 @@ export const oldSiteJobs = [
     note: "GOLDEN PARK (casa 10/1) 15yales 15ds 2ws 1pipol 1pre 3debol 2pkdoor",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":65,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":65,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:53:56",
     rejected_at: null,
@@ -1234,8 +1191,7 @@ export const oldSiteJobs = [
     note: "Ponchao",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":60,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":60,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:55:27",
     rejected_at: null,
@@ -1263,8 +1219,7 @@ export const oldSiteJobs = [
     note: "SALERNO (casa 2/6) 18yales 18ds 5ws 1pipol 1pre 5debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":70,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":70,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:57:10",
     rejected_at: null,
@@ -1292,8 +1247,7 @@ export const oldSiteJobs = [
     note: "SALERNO(casa 3/6) 13yales 13ds 3ws 1pipol 1pre 3debol 2pm 2pc",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":65,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":65,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:58:02",
     rejected_at: null,
@@ -1321,8 +1275,7 @@ export const oldSiteJobs = [
     note: "SALERNO (casa 4/6) 16yales 16ds 5ws 1pipol 1pre 5debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":68.4,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":68.4,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:58:55",
     rejected_at: null,
@@ -1350,8 +1303,7 @@ export const oldSiteJobs = [
     note: "SALERNO (casa 1/6) 9yales 9ds 2ws 1pipol 1pre 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":37.85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":37.85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 21:59:53",
     rejected_at: null,
@@ -1379,8 +1331,7 @@ export const oldSiteJobs = [
     note: "SALERNO(casa 21/5) 9yales 9ds 2ws 1pipol 1pre 3pm 3debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":46.35,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":46.35,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:00:34",
     rejected_at: null,
@@ -1408,8 +1359,7 @@ export const oldSiteJobs = [
     note: "SALERNO(casa 23/5) 9yales 9ds 3ws 1pipol 1pre 3debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":41.85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":41.85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:01:22",
     rejected_at: null,
@@ -1437,8 +1387,7 @@ export const oldSiteJobs = [
     note: "SALERNO (casa 22/5) 10yales 10ds 2ws 1pipol 1pre 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":40.5,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":40.5,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:04:41",
     rejected_at: null,
@@ -1466,8 +1415,7 @@ export const oldSiteJobs = [
     note: "CORSICA (bloque 5) 59yales 59ds 8ws 8pipol 8debol 6pm",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":220,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":220,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:07:42",
     rejected_at: null,
@@ -1495,8 +1443,7 @@ export const oldSiteJobs = [
     note: "NARANJA (bloque 1) 86yales 86ds 10ws 20debol 5pm",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":300,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":300,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:09:37",
     rejected_at: null,
@@ -1524,8 +1471,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 8/5) 2debol 1handel 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":14,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:10:17",
     rejected_at: null,
@@ -1553,8 +1499,7 @@ export const oldSiteJobs = [
     note: "AVALON SQUARE ))))))) 10debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":20,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":20,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:11:07",
     rejected_at: null,
@@ -1582,8 +1527,7 @@ export const oldSiteJobs = [
     note: "CEDAR POINTE (bloque 21) 10debol 10handel 10pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":120,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":120,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:11:47",
     rejected_at: null,
@@ -1611,8 +1555,7 @@ export const oldSiteJobs = [
     note: "COSTA BLANCA (bloque 10) 6debol 6handel",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":72,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":72,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:12:14",
     rejected_at: null,
@@ -1640,8 +1583,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 4/5) 16yales 16ds 3ws 1pipol 1pre 3debol 6pm",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":75.4,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":75.4,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:13:05",
     rejected_at: null,
@@ -1669,8 +1611,7 @@ export const oldSiteJobs = [
     note: "SUNSET TRAIL(bloque 8) 6debol 6handel 6pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":72,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":72,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:14:30",
     rejected_at: null,
@@ -1698,8 +1639,7 @@ export const oldSiteJobs = [
     note: "SUNSET TRAIL (bloque 9) 5debol 5handel 5pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":60,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":60,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:15:20",
     rejected_at: null,
@@ -1727,8 +1667,7 @@ export const oldSiteJobs = [
     note: "NARANJA (bloque 3) 1debol 1pro",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":8,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":8,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:16:09",
     rejected_at: null,
@@ -1756,8 +1695,7 @@ export const oldSiteJobs = [
     note: "VERDANA (casa 2/1) 10yales 10ds 2ws 1pipol 1pre 1pm 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":43,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":43,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:17:07",
     rejected_at: null,
@@ -1785,8 +1723,7 @@ export const oldSiteJobs = [
     note: "VERDANA(casa 1/1) 16yales 16ds 3ws 1pipol 1pre 3debol 3pm",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":67.9,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":67.9,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:19:37",
     rejected_at: null,
@@ -1814,8 +1751,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 1/5) 11yales 11ds 2ws 1pipol 1pre 1pm 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":46,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":46,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:21:07",
     rejected_at: null,
@@ -1843,8 +1779,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 5/3) 11yales 11ds 2ws 1pipol 1pre 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":43.15,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":43.15,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:21:52",
     rejected_at: null,
@@ -1872,8 +1807,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 16/1) 9yales 9ds 2ws 1pipol 1pre 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":37.85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":37.85,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:22:37",
     rejected_at: null,
@@ -1901,8 +1835,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 2/5) 11yales 11ds 2ws 1pipol 1pre 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":43,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":43,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:23:06",
     rejected_at: null,
@@ -1930,8 +1863,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 3/3) 11yales 11ds 2ws 1pipol 1pre 2debol",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":43,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":43,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:24:44",
     rejected_at: null,
@@ -1959,8 +1891,7 @@ export const oldSiteJobs = [
     note: "KENDALL (casa 2/3) 10yales 10ds 2ws 1pipol 1pre 2debol 2pm",
     done_by: "Hector Gonzalez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":46,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":46,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/12\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-12 22:26:26",
     rejected_at: null,
@@ -1985,12 +1916,10 @@ export const oldSiteJobs = [
     title: null,
     subtitle: null,
     description: null,
-    note:
-      "Merrick Square \n2 unidades de rodapies bloque modelo \nSe desintalo el de 3 1/2 y se intalo 5 1/4",
+    note: "Merrick Square \n2 unidades de rodapies bloque modelo \nSe desintalo el de 3 1/2 y se intalo 5 1/4",
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":1400,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":1400,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 00:46:12",
     rejected_at: null,
@@ -2018,8 +1947,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":11,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":29,"total":129.92000000000002,"checked":true,"default_qty":29,"max_qty":29,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":376.92,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":11,"total":55,"checked":true,"default_qty":11,"max_qty":11,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":29,"total":129.92000000000002,"checked":true,"default_qty":29,"max_qty":29,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":376.92,"uid":null}',
     admin_note: null,
     status_date: "2023-09-13 00:48:18",
     rejected_at: null,
@@ -2047,8 +1975,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":377.44,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 00:50:13",
     rejected_at: null,
@@ -2076,8 +2003,7 @@ export const oldSiteJobs = [
     note: "8 bifolds q intale en Westview 8/15",
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":40,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":40,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 00:51:39",
     rejected_at: null,
@@ -2105,8 +2031,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":34,"total":152.32000000000002,"checked":true,"default_qty":34,"max_qty":34,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":424.32000000000005,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":34,"total":152.32000000000002,"checked":true,"default_qty":34,"max_qty":34,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":424.32000000000005,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 01:12:18",
     rejected_at: null,
@@ -2134,8 +2059,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"default_qty":1,"max_qty":1,"checked":true,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"default_qty":6,"max_qty":6,"checked":true,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"default_qty":10,"max_qty":10,"checked":true,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":34,"total":152.32000000000002,"default_qty":34,"max_qty":34,"checked":true,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"default_qty":1,"max_qty":1,"checked":true,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":414.32000000000005,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"default_qty":1,"max_qty":1,"checked":true,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"default_qty":6,"max_qty":6,"checked":true,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"default_qty":10,"max_qty":10,"checked":true,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":34,"total":152.32000000000002,"default_qty":34,"max_qty":34,"checked":true,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"default_qty":1,"max_qty":1,"checked":true,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":414.32000000000005,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 01:25:21",
     rejected_at: null,
@@ -2163,8 +2087,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":35,"total":156.8,"checked":true,"default_qty":35,"max_qty":35,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":418.8,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":6,"total":60,"checked":true,"default_qty":6,"max_qty":6,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":10,"total":50,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":35,"total":156.8,"checked":true,"default_qty":35,"max_qty":35,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":418.8,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 01:26:27",
     rejected_at: null,
@@ -2192,8 +2115,7 @@ export const oldSiteJobs = [
     note: "se cortaron 5 puertas t se hilo y costo marco de otra puerta.",
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":35,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"SINGLE FRONT DOOR 8\\/0","unit_value":25,"qty":null,"total":0,"checked":true,"default_qty":1,"max_qty":1,"id":"9"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":9,"total":90,"checked":true,"default_qty":9,"max_qty":9,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":6,"total":30,"checked":true,"default_qty":6,"max_qty":6,"id":"14"},{"title":"BASE 3-1\\/2","unit_value":4,"qty":30,"total":120,"checked":true,"default_qty":30,"max_qty":30,"id":"16"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":372,"uid":null}',
+    meta: '{"additional_cost":35,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"SINGLE FRONT DOOR 8\\/0","unit_value":25,"qty":null,"total":0,"checked":true,"default_qty":1,"max_qty":1,"id":"9"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":9,"total":90,"checked":true,"default_qty":9,"max_qty":9,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":6,"total":30,"checked":true,"default_qty":6,"max_qty":6,"id":"14"},{"title":"BASE 3-1\\/2","unit_value":4,"qty":30,"total":120,"checked":true,"default_qty":30,"max_qty":30,"id":"16"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":372,"uid":null}',
     admin_note: null,
     status_date: "2023-09-13 01:31:16",
     rejected_at: null,
@@ -2221,8 +2143,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "Miguel Angel Hernandez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":13,"total":65,"checked":true,"default_qty":13,"max_qty":13,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":36,"total":161.28000000000003,"checked":true,"default_qty":36,"max_qty":36,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":130,"unit_value":130,"qty":1,"default_qty":1,"checked":true}],"sub_total":478.28000000000003,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"GARAGE DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"10"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":13,"total":65,"checked":true,"default_qty":13,"max_qty":13,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":36,"total":161.28000000000003,"checked":true,"default_qty":36,"max_qty":36,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":130,"unit_value":130,"qty":1,"default_qty":1,"checked":true}],"sub_total":478.28000000000003,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 01:49:53",
     rejected_at: null,
@@ -2250,8 +2171,7 @@ export const oldSiteJobs = [
     note: null,
     done_by: "Miguel Angel Hernandez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":2,"total":10,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":337.44,"uid":null}',
+    meta: '{"additional_cost":0,"co_installer_id":null,"cost_data":[{"title":"SINGLE FRONT DOOR 6\\/8","unit_value":20,"qty":1,"total":20,"checked":true,"default_qty":1,"max_qty":1,"id":"8"},{"title":"INTERIOR DOOR 6\\/8","unit_value":10,"qty":7,"total":70,"checked":true,"default_qty":7,"max_qty":7,"id":"12"},{"title":"BIFOLD 6\\/8","unit_value":5,"qty":2,"total":10,"checked":true,"default_qty":10,"max_qty":10,"id":"14"},{"title":"BASE 4-1\\/4","unit_value":4.48,"qty":28,"total":125.44000000000001,"checked":true,"default_qty":28,"max_qty":28,"id":"17"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":337.44,"uid":null}',
     admin_note: null,
     status_date: "2023-09-13 01:52:12",
     rejected_at: null,
@@ -2279,8 +2199,7 @@ export const oldSiteJobs = [
     note: "Instalar Cristal en la puerta del frente \n$25",
     done_by: "Miguel Angel Hernandez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":25,"co_installer_id":null,"cost_data":[{"title":"SIDE DOOR 8-0 WITH GLASS","unit_value":"40","qty":1,"total":40,"checked":true,"default_qty":1,"max_qty":1,"id":"28"},{"title":"GARAGE DOOR 8\\/0","unit_value":30,"qty":1,"total":30,"checked":true,"default_qty":1,"max_qty":1,"id":"11"},{"title":"INTERIOR DOOR 8\\/0","unit_value":15,"qty":13,"total":195,"checked":true,"default_qty":13,"max_qty":13,"id":"13"},{"title":"BIFOLD 8\\/0","unit_value":6,"qty":2,"total":12,"checked":true,"default_qty":2,"max_qty":2,"id":"15"},{"title":"BASE 5-1\\/4","unit_value":5.6,"qty":14,"total":78.39999999999999,"checked":true,"default_qty":14,"max_qty":14,"id":"18"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"default_qty":1,"max_qty":1,"checked":true,"id":"19"},{"title":"BY-PASS 6-8 o 8\\/0","unit_value":30,"qty":3,"total":90,"checked":true,"default_qty":3,"max_qty":3,"id":"27"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":557.4,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":25,"co_installer_id":null,"cost_data":[{"title":"SIDE DOOR 8-0 WITH GLASS","unit_value":"40","qty":1,"total":40,"checked":true,"default_qty":1,"max_qty":1,"id":"28"},{"title":"GARAGE DOOR 8\\/0","unit_value":30,"qty":1,"total":30,"checked":true,"default_qty":1,"max_qty":1,"id":"11"},{"title":"INTERIOR DOOR 8\\/0","unit_value":15,"qty":13,"total":195,"checked":true,"default_qty":13,"max_qty":13,"id":"13"},{"title":"BIFOLD 8\\/0","unit_value":6,"qty":2,"total":12,"checked":true,"default_qty":2,"max_qty":2,"id":"15"},{"title":"BASE 5-1\\/4","unit_value":5.6,"qty":14,"total":78.39999999999999,"checked":true,"default_qty":14,"max_qty":14,"id":"18"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"default_qty":1,"max_qty":1,"checked":true,"id":"19"},{"title":"BY-PASS 6-8 o 8\\/0","unit_value":30,"qty":3,"total":90,"checked":true,"default_qty":3,"max_qty":3,"id":"27"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":557.4,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 01:58:37",
     rejected_at: null,
@@ -2305,12 +2224,10 @@ export const oldSiteJobs = [
     title: null,
     subtitle: null,
     description: null,
-    note:
-      "Stein Villas 15/16 \nen la unidad faltaron 3  bifolds por eso le estoy descontando $15 a la unidad",
+    note: "Stein Villas 15/16 \nen la unidad faltaron 3  bifolds por eso le estoy descontando $15 a la unidad",
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":361.92,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":361.92,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 02:02:29",
     rejected_at: null,
@@ -2335,12 +2252,10 @@ export const oldSiteJobs = [
     title: "VERIDIAN GROVE TH",
     subtitle: "BLK06 LOT02 (2165 LH)",
     description: null,
-    note:
-      "Poner cristal puerta del frente $25\nInstalar todo el rodapie a la casa completa 28 tiras\n$156.8\n\ntotal $181.8",
+    note: "Poner cristal puerta del frente $25\nInstalar todo el rodapie a la casa completa 28 tiras\n$156.8\n\ntotal $181.8",
     done_by: "Miguel Angel Hernandez",
     status: "Submitted",
-    meta:
-      '{"additional_cost":181.8,"co_installer_id":null,"cost_data":[{"title":"SIDE DOOR 8-0 WITH GLASS","unit_value":"40","qty":1,"total":40,"checked":true,"default_qty":1,"max_qty":1,"id":"28"},{"title":"BALLCATCH DOOR 8\\/0","unit_value":"30","qty":1,"total":30,"checked":true,"default_qty":1,"max_qty":1,"id":"7"},{"title":"SINGLE FRONT DOOR 8\\/0","unit_value":25,"qty":13,"total":325,"checked":true,"default_qty":13,"max_qty":13,"id":"9"},{"title":"BIFOLD 8\\/0","unit_value":6,"qty":1,"total":6,"checked":true,"default_qty":1,"max_qty":1,"id":"15"},{"title":"BASE 5-1\\/4","unit_value":5.6,"qty":12,"total":67.19999999999999,"checked":true,"default_qty":12,"max_qty":12,"id":"18"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":580.2,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":181.8,"co_installer_id":null,"cost_data":[{"title":"SIDE DOOR 8-0 WITH GLASS","unit_value":"40","qty":1,"total":40,"checked":true,"default_qty":1,"max_qty":1,"id":"28"},{"title":"BALLCATCH DOOR 8\\/0","unit_value":"30","qty":1,"total":30,"checked":true,"default_qty":1,"max_qty":1,"id":"7"},{"title":"SINGLE FRONT DOOR 8\\/0","unit_value":25,"qty":13,"total":325,"checked":true,"default_qty":13,"max_qty":13,"id":"9"},{"title":"BIFOLD 8\\/0","unit_value":6,"qty":1,"total":6,"checked":true,"default_qty":1,"max_qty":1,"id":"15"},{"title":"BASE 5-1\\/4","unit_value":5.6,"qty":12,"total":67.19999999999999,"checked":true,"default_qty":12,"max_qty":12,"id":"18"},{"title":"ATTIC DOOR","unit_value":12,"qty":1,"total":12,"checked":true,"default_qty":1,"max_qty":1,"id":"19"},{"title":"Addon","total":100,"unit_value":100,"qty":1,"default_qty":1,"checked":true}],"sub_total":580.2,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 02:03:08",
     rejected_at: null,
@@ -2365,12 +2280,10 @@ export const oldSiteJobs = [
     title: null,
     subtitle: null,
     description: null,
-    note:
-      "Stein Villas 20/16 \nfaltaron 3 bifolds por eso le estoy descontando $15 a la unidad",
+    note: "Stein Villas 20/16 \nfaltaron 3 bifolds por eso le estoy descontando $15 a la unidad",
     done_by: "LLORENTE MILLWORK",
     status: "Submitted",
-    meta:
-      '{"additional_cost":361.92,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":361.92,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 02:03:58",
     rejected_at: null,
@@ -2395,12 +2308,10 @@ export const oldSiteJobs = [
     title: null,
     subtitle: null,
     description: "Carpinteria",
-    note:
-      "11 prehungs          8'         $165.00\n1 prehung Doble   8'         $30.00\n1 Puerta Garage    8'        $30.00\n1 Tapa Atico                      $12.00\n3 Bypass                8'        $120.00\n1 Addon                             $130.00\n          \n\n                         $487.00",
+    note: "11 prehungs          8'         $165.00\n1 prehung Doble   8'         $30.00\n1 Puerta Garage    8'        $30.00\n1 Tapa Atico                      $12.00\n3 Bypass                8'        $120.00\n1 Addon                             $130.00\n          \n\n                         $487.00",
     done_by: "M.MERLO MILLWORK LLC",
     status: "Submitted",
-    meta:
-      '{"additional_cost":487,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
+    meta: '{"additional_cost":487,"co_installer_id":null,"cost_data":[],"sub_total":0,"uid":null,"status_progress":[{"status":"Submitted","date":"09\\/13\\/23"}],"parent_job_id":null}',
     admin_note: null,
     status_date: "2023-09-13 02:07:41",
     rejected_at: null,

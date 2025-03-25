@@ -13,41 +13,41 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import TimelineSection from "@/app/(v2)/(loggedIn)/sales-v2/overview/components/timeline";
 
 export const metadata: Metadata = {
-    title: "Order Overview",
-    description: "Order Overview",
+  title: "Order Overview",
+  description: "Order Overview",
 };
 export default async function SalesProductionPage({ params: { slug } }) {
-    const order: ISalesOrder = (await getOrderAction(slug)) as any;
-    console.log(order);
-    order.ctx = {
-        prodPage: true,
-    };
-    if (!order) return notFound();
-    metadata.description = order.orderId;
-    return (
-        <AuthGuard roles={["Production"]}>
-            <DataPageShell className="" data={order}>
-                <Breadcrumbs>
-                    <BreadLink
-                        link={"/tasks/sales-productions"}
-                        isFirst
-                        title="Productions"
-                    />
-                    <OrderViewCrumb slug={order.orderId} isLast />
-                </Breadcrumbs>
+  const order: ISalesOrder = (await getOrderAction(slug)) as any;
+  console.log(order);
+  order.ctx = {
+    prodPage: true,
+  };
+  if (!order) return notFound();
+  metadata.description = order.orderId;
+  return (
+    <AuthGuard roles={["Production"]}>
+      <DataPageShell className="" data={order}>
+        <Breadcrumbs>
+          <BreadLink
+            link={"/tasks/sales-productions"}
+            isFirst
+            title="Productions"
+          />
+          <OrderViewCrumb slug={order.orderId} isLast />
+        </Breadcrumbs>
 
-                <div className="grid grid-cols-3 gap-4">
-                    <div className="col-span-2 flex flex-col space-y-4">
-                        <OverviewDetailsSection myProd />
-                        <ItemDetailsSection />
-                    </div>
-                    <div className="space-y-4">
-                        <TimelineSection />
-                    </div>
-                </div>
-                <OrderPrinter />
-                <SalesProdSubmitModal />
-            </DataPageShell>
-        </AuthGuard>
-    );
+        <div className="grid grid-cols-3 gap-4">
+          <div className="col-span-2 flex flex-col space-y-4">
+            <OverviewDetailsSection myProd />
+            <ItemDetailsSection />
+          </div>
+          <div className="space-y-4">
+            <TimelineSection />
+          </div>
+        </div>
+        <OrderPrinter />
+        <SalesProdSubmitModal />
+      </DataPageShell>
+    </AuthGuard>
+  );
 }

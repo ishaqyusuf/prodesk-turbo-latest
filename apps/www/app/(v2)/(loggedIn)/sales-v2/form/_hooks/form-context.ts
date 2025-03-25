@@ -5,7 +5,7 @@ import { IDykeItemFormContext } from "./use-dyke-item";
 import { useLegacyDykeForm } from "@/app/(clean-code)/(sales)/sales-book/(form)/_hooks/legacy-hooks";
 
 export const DykeItemFormContext = createContext<IDykeItemFormContext>(
-    {} as any
+  {} as any,
 );
 
 export const useDykeForm = () => useFormContext<DykeForm>();

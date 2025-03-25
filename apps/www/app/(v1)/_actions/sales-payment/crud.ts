@@ -6,41 +6,41 @@ import { dateQuery, getPageInfo, queryFilter } from "../action-utils";
 import { Prisma } from "@prisma/client";
 
 export interface salesPaymentsQueryParamsProps extends BaseQuery {
-    _customerId?;
+  _customerId?;
 }
 export async function getsalesPayments(query: salesPaymentsQueryParamsProps) {
-    const where = wheresalesPayments(query);
-    const items = await prisma.salesPayments.findMany({
-        where,
+  const where = wheresalesPayments(query);
+  const items = await prisma.salesPayments.findMany({
+    where,
+    include: {
+      customer: {
         include: {
-            customer: {
-                include: {
-                    wallet: true,
-                },
-            },
-            order: true,
+          wallet: true,
         },
-        ...(await queryFilter(query)),
-    });
+      },
+      order: true,
+    },
+    ...(await queryFilter(query)),
+  });
 
-    const pageInfo = await getPageInfo(query, where, prisma.salesPayments);
-    return {
-        pageInfo,
-        data: items as any,
-    };
+  const pageInfo = await getPageInfo(query, where, prisma.salesPayments);
+  return {
+    pageInfo,
+    data: items as any,
+  };
 }
 function wheresalesPayments(query: salesPaymentsQueryParamsProps) {
-    const q = {
-        contains: query._q || undefined,
-    } as any;
-    const where: Prisma.SalesPaymentsWhereInput = {
-        customerId: +query._customerId || undefined,
-        customer: {
-            businessName: q,
-            name: q,
-            phoneNo: q,
-        },
-        ...dateQuery(query),
-    };
-    return where;
+  const q = {
+    contains: query._q || undefined,
+  } as any;
+  const where: Prisma.SalesPaymentsWhereInput = {
+    customerId: +query._customerId || undefined,
+    customer: {
+      businessName: q,
+      name: q,
+      phoneNo: q,
+    },
+    ...dateQuery(query),
+  };
+  return where;
 }

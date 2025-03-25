@@ -13,36 +13,36 @@ import HomesTableShell from "../../units/homes-table-shell";
 import AddBtn from "../../units/add-button";
 
 export const metadata: Metadata = {
-    title: "Projects",
+  title: "Projects",
 };
 interface Props {}
 export default async function ProjectHomesPage({ searchParams, params }) {
-    const { project, ...response } = (await getProjectHomesAction(
-        queryParams({ ...searchParams, _projectSlug: params.slug })
-    )) as any;
-    metadata.title = `${project.title} | Homes`;
+  const { project, ...response } = (await getProjectHomesAction(
+    queryParams({ ...searchParams, _projectSlug: params.slug }),
+  )) as any;
+  metadata.title = `${project.title} | Homes`;
 
-    return (
-        <AuthGuard can={["viewProject"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Community" />
-                    <BreadLink link="/community/projects" title="Projects" />
-                    <BreadLink link="/community/units" title="All Units" />
-                    <BreadLink title={project.title} isLast />
-                </Breadcrumbs>
-                <PageHeader
-                    title={project.title}
-                    subtitle={project?.builder?.name}
-                    Action={AddBtn}
-                    modalData={{ projectId: project.id }}
-                />
-                <HomesTableShell<ExtendedHome>
-                    projectView
-                    data={response.data as any}
-                    pageInfo={response.pageInfo}
-                />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewProject"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Community" />
+          <BreadLink link="/community/projects" title="Projects" />
+          <BreadLink link="/community/units" title="All Units" />
+          <BreadLink title={project.title} isLast />
+        </Breadcrumbs>
+        <PageHeader
+          title={project.title}
+          subtitle={project?.builder?.name}
+          Action={AddBtn}
+          modalData={{ projectId: project.id }}
+        />
+        <HomesTableShell<ExtendedHome>
+          projectView
+          data={response.data as any}
+          pageInfo={response.pageInfo}
+        />
+      </div>
+    </AuthGuard>
+  );
 }

@@ -18,7 +18,7 @@ const MentionList = forwardRef<any, any>((props, ref) => {
 
   const upHandler = () => {
     setSelectedIndex(
-      (selectedIndex + props.items.length - 1) % props.items.length
+      (selectedIndex + props.items.length - 1) % props.items.length,
     );
   };
 

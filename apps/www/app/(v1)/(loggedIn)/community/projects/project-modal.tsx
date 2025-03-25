@@ -13,72 +13,70 @@ import { toast } from "sonner";
 import { updateProjectAction } from "./actions/action";
 import { _revalidate } from "@/app/(v1)/_actions/_revalidate";
 export default function ProjectModal({ data }: { data?: IProject }) {
-    const form = useForm<IProject>({
-        resolver: zodResolver(projectSchema),
-        defaultValues: {
-            ...data,
-        },
-    });
-    const builders = useBuilders();
-    async function save(modal: ModalContextProps) {
-        const data = form.getValues();
-        if (!data.id) await saveProject(data);
-        else await updateProjectAction(data);
-        modal.close();
-        toast.message("Saved!");
-        _revalidate("projects");
-    }
-    return (
-        <Form {...form}>
-            <Modal.Content>
-                <Modal.Header
-                    title={data?.id ? "Edit Project" : "Create Project"}
-                />
-                <div className="grid grid-cols-2 gap-4">
-                    <FormInput
-                        size="sm"
-                        control={form.control}
-                        name="title"
-                        label="Project Name"
-                        className="col-span-2"
-                    />
-                    <FormInput
-                        size="sm"
-                        control={form.control}
-                        name="refNo"
-                        label="Ref No."
-                    />
-                    <FormSelect
-                        options={builders.data || []}
-                        label="Builder"
-                        valueKey="id"
-                        titleKey="name"
-                        size="sm"
-                        name="builderId"
-                        control={form.control}
-                    />
-                    <FormInput
-                        size="sm"
-                        control={form.control}
-                        name="address"
-                        label="Address"
-                        className="col-span-2"
-                    />
-                    <FormInput
-                        size="sm"
-                        control={form.control}
-                        name="meta.supervisor.name"
-                        label="Supervisor"
-                    />
-                    <FormInput
-                        size="sm"
-                        control={form.control}
-                        name="meta.supervisor.email"
-                        label="Supervisor Email"
-                    />
-                </div>
-                <Modal.Footer onSubmit={save} />
-            </Modal.Content>
-        </Form>
-    );
+  const form = useForm<IProject>({
+    resolver: zodResolver(projectSchema),
+    defaultValues: {
+      ...data,
+    },
+  });
+  const builders = useBuilders();
+  async function save(modal: ModalContextProps) {
+    const data = form.getValues();
+    if (!data.id) await saveProject(data);
+    else await updateProjectAction(data);
+    modal.close();
+    toast.message("Saved!");
+    _revalidate("projects");
+  }
+  return (
+    <Form {...form}>
+      <Modal.Content>
+        <Modal.Header title={data?.id ? "Edit Project" : "Create Project"} />
+        <div className="grid grid-cols-2 gap-4">
+          <FormInput
+            size="sm"
+            control={form.control}
+            name="title"
+            label="Project Name"
+            className="col-span-2"
+          />
+          <FormInput
+            size="sm"
+            control={form.control}
+            name="refNo"
+            label="Ref No."
+          />
+          <FormSelect
+            options={builders.data || []}
+            label="Builder"
+            valueKey="id"
+            titleKey="name"
+            size="sm"
+            name="builderId"
+            control={form.control}
+          />
+          <FormInput
+            size="sm"
+            control={form.control}
+            name="address"
+            label="Address"
+            className="col-span-2"
+          />
+          <FormInput
+            size="sm"
+            control={form.control}
+            name="meta.supervisor.name"
+            label="Supervisor"
+          />
+          <FormInput
+            size="sm"
+            control={form.control}
+            name="meta.supervisor.email"
+            label="Supervisor Email"
+          />
+        </div>
+        <Modal.Footer onSubmit={save} />
+      </Modal.Content>
+    </Form>
+  );
 }

@@ -1,4 +1,4 @@
- import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 // import {
@@ -6,7 +6,13 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 //   ISaveOrderResponse,
 // } from "@/app/api/sales-orders/save-order-component";
 // import { IOrderComponent } from "@/types/ISales";
-import { FooterRowInfo, IFooterInfo, IOrderComponent, IOrderInventoryUpdate, ISaveOrderResponse } from "@/types/sales";
+import {
+  FooterRowInfo,
+  IFooterInfo,
+  IOrderComponent,
+  IOrderInventoryUpdate,
+  ISaveOrderResponse,
+} from "@/types/sales";
 export interface OrderItemFormState {
   open;
   rowIndex;
@@ -22,14 +28,14 @@ export interface OrderItemFormState {
   };
   showMockup;
 }
- 
+
 const initialState: OrderItemFormState = {
   open: false,
   itemPriceData: null,
   footerInfo: {
     rows: {},
   },
-  showMockup: false
+  showMockup: false,
 } as any;
 const orderItemComponentSlice = createSlice({
   name: "order-item-component",
@@ -78,9 +84,8 @@ const orderItemComponentSlice = createSlice({
     itemQuoteUpdated(state, action) {
       state.itemPriceData = action.payload;
     },
-    resetFooterInfo(state,action)
-    {
-        state.footerInfo.rows = action.payload
+    resetFooterInfo(state, action) {
+      state.footerInfo.rows = action.payload;
     },
     updateFooterInfo(state, action: PayloadAction<FooterRowInfo>) {
       let { rowIndex } = action.payload;
@@ -91,9 +96,9 @@ const orderItemComponentSlice = createSlice({
         ...action.payload,
       };
     },
-    toggleMockup(state,action) {
-      state.showMockup = action.payload
-    }
+    toggleMockup(state, action) {
+      state.showMockup = action.payload;
+    },
   },
 });
 export default orderItemComponentSlice.reducer;
@@ -104,5 +109,5 @@ export const {
   resetFooterInfo,
   itemQuoteUpdated,
   closeCostUpdater,
-  toggleMockup
+  toggleMockup,
 } = orderItemComponentSlice.actions;

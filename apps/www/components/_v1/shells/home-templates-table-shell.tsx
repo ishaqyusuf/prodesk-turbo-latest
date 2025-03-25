@@ -82,7 +82,7 @@ export default function HomeTemplatesTableShell<T>({
         // cell: ({ row }) => <OrderRowAction row={row.original} />,
       },
     ], //.filter(Boolean) as any,
-    [data, isPending]
+    [data, isPending],
   );
   return (
     <DataTable2

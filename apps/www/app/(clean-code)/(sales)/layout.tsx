@@ -9,18 +9,18 @@ import SalesOverviewSheet from "@/components/sheets/sales-overview-sheet";
 import { CustomerCreateSheet } from "@/components/sheets/customer-create-sheet";
 
 export default async function Layout({ children }) {
-    // await fixPaymentMethod();
-    return (
-        <SidebarLayout>
-            <ContentLayout>
-                <SalesQuickAction />
-                <BackwardCompat />
-                {children}
-            </ContentLayout>
-            <CustomerOverviewSheet />
-            <SalesPreviewModal />
-            <SalesOverviewSheet />
-            <CustomerCreateSheet />
-        </SidebarLayout>
-    );
+  // await fixPaymentMethod();
+  return (
+    <SidebarLayout>
+      <ContentLayout>
+        <SalesQuickAction />
+        <BackwardCompat />
+        {children}
+      </ContentLayout>
+      <CustomerOverviewSheet />
+      <SalesPreviewModal />
+      <SalesOverviewSheet />
+      <CustomerCreateSheet />
+    </SidebarLayout>
+  );
 }

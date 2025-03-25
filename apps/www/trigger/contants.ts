@@ -1,3 +1,3 @@
 export const triggerIds = {
-    sendComposeEmail: "send-composed-email",
+  sendComposeEmail: "send-composed-email",
 };

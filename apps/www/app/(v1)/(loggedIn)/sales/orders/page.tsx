@@ -21,37 +21,35 @@ import Link from "next/link";
 import NewFeatureBtn from "@/components/common/new-feature-btn";
 
 export const metadata: Metadata = {
-    title: "Sales Orders",
+  title: "Sales Orders",
 };
 interface Props {}
 export default async function SalesOrdersPage({ searchParams }) {
-    // if (env.NODE_ENV == "production") redirect("/sales/dashboard/orders");
-    // if (dayjs().get("minutes") > 10) throw new Error("paystack error");
-    const response = getSalesOrder({
-        ...queryParams(searchParams),
-        _noBackOrder: true,
-        isDyke: false,
-    });
+  // if (env.NODE_ENV == "production") redirect("/sales/dashboard/orders");
+  // if (dayjs().get("minutes") > 10) throw new Error("paystack error");
+  const response = getSalesOrder({
+    ...queryParams(searchParams),
+    _noBackOrder: true,
+    isDyke: false,
+  });
 
-    return (
-        <AuthGuard can={["viewOrders"]}>
-            {/* <RestoreOrders /> */}
-            <SalesTabLayout query={searchParams}>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Orders" />
-                </Breadcrumbs>
-                <Portal nodeId={"actionNav"}>
-                    <div>
-                        <NewFeatureBtn href="/sales-book/orders">
-                            New Site
-                        </NewFeatureBtn>
-                    </div>
-                </Portal>
-                <CopyFn />
-                <OrdersTable searchParams={searchParams} promise={response} />
-                <OrderPrinter />
-            </SalesTabLayout>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewOrders"]}>
+      {/* <RestoreOrders /> */}
+      <SalesTabLayout query={searchParams}>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Orders" />
+        </Breadcrumbs>
+        <Portal nodeId={"actionNav"}>
+          <div>
+            <NewFeatureBtn href="/sales-book/orders">New Site</NewFeatureBtn>
+          </div>
+        </Portal>
+        <CopyFn />
+        <OrdersTable searchParams={searchParams} promise={response} />
+        <OrderPrinter />
+      </SalesTabLayout>
+    </AuthGuard>
+  );
 }

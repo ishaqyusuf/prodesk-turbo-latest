@@ -6,16 +6,16 @@ import { cookies } from "next/headers";
 import { Cookies } from "@/utils/constants";
 
 export async function getCustomerPayPortalAction(accountNo) {
-    const pendingSales = await getCustomerPendingSales(accountNo);
-    const totalPayable = sum(pendingSales, "amountDue");
-    const terminals = await getSquareDevices();
-    const lastUsedTerminalId = cookies().get(
-        Cookies.LastSquareTerminalUsed
-    )?.value;
-    return {
-        pendingSales,
-        totalPayable,
-        terminals,
-        lastUsedTerminalId,
-    };
+  const pendingSales = await getCustomerPendingSales(accountNo);
+  const totalPayable = sum(pendingSales, "amountDue");
+  const terminals = await getSquareDevices();
+  const lastUsedTerminalId = cookies().get(
+    Cookies.LastSquareTerminalUsed,
+  )?.value;
+  return {
+    pendingSales,
+    totalPayable,
+    terminals,
+    lastUsedTerminalId,
+  };
 }

@@ -12,37 +12,37 @@ import { prisma } from "@/db";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Unit Productions",
+  title: "Unit Productions",
 };
 interface Props {}
 export default async function CommunityProductionsPage({
-    searchParams,
-    params,
+  searchParams,
+  params,
 }) {
-    const taskNames = await _taskNames({
-        produceable: true,
-    } as any);
-    // console.log(taskNames);
-    const response = await getProductions(
-        queryParams({ _task: taskNames, ...searchParams })
-    );
-    // metadata.title = `${project.title} | Homes`;
+  const taskNames = await _taskNames({
+    produceable: true,
+  } as any);
+  // console.log(taskNames);
+  const response = await getProductions(
+    queryParams({ _task: taskNames, ...searchParams }),
+  );
+  // metadata.title = `${project.title} | Homes`;
 
-    return (
-        <AuthGuard can={["viewProduction"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Community" />
-                    <BreadLink link="/community/projects" title="Projects" />
-                    <BreadLink title="Productions" isLast />
-                </Breadcrumbs>
-                <PageHeader title={"Unit Productions"} subtitle={``} />
-                <CommunityProductionsTableShell
-                    searchParams={searchParams}
-                    data={response.data as any}
-                    pageInfo={response.pageInfo}
-                />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewProduction"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Community" />
+          <BreadLink link="/community/projects" title="Projects" />
+          <BreadLink title="Productions" isLast />
+        </Breadcrumbs>
+        <PageHeader title={"Unit Productions"} subtitle={``} />
+        <CommunityProductionsTableShell
+          searchParams={searchParams}
+          data={response.data as any}
+          pageInfo={response.pageInfo}
+        />
+      </div>
+    </AuthGuard>
+  );
 }

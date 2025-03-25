@@ -63,7 +63,7 @@ export function DateRangePicker({
 
       return newSearchParams.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   // Update query string
@@ -75,7 +75,7 @@ export function DateRangePicker({
       })}`,
       {
         scroll: false,
-      }
+      },
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date?.from, date?.to]);
@@ -89,7 +89,7 @@ export function DateRangePicker({
             variant={"outline"}
             className={cn(
               "w-full justify-start truncate text-left font-normal xs:w-[300px]",
-              !date && "text-muted-foreground"
+              !date && "text-muted-foreground",
             )}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />

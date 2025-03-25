@@ -11,43 +11,43 @@ import PageHeader from "@/components/_v1/page-header";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-    title: "Sales Productions",
+  title: "Sales Productions",
 };
 export default function SalesProductionPage({ searchParams }) {
-    redirect(`/sales-book/production-tasks`);
-    const p = _getProductionList({ query: searchParams, production: true });
-    const dueToday = _getProductionList({
-        query: {
-            dueToday: true,
-        },
-        production: true,
-    });
-    const pastDue = _getProductionList({
-        query: {
-            pastDue: true,
-        },
-        production: true,
-    });
-    return (
-        <AuthGuard can={[]}>
-            {/* <ProductionPageTabs prod /> */}
-            <Breadcrumbs>
-                <BreadLink isFirst title="Sales" />
-                <BreadLink title="Productions" isLast />
-            </Breadcrumbs>
-            <Shell className="px-8">
-                <PageHeader title="Due Today" />
-                <ProductionList prod simple promise={dueToday} />
-                <PageHeader title="Past Due" />
-                <ProductionList
-                    emptyText="No Production past due"
-                    simple
-                    prod
-                    promise={pastDue}
-                />
-                <PageHeader title="Productions" />
-                <ProductionList prod promise={p} />
-            </Shell>
-        </AuthGuard>
-    );
+  redirect(`/sales-book/production-tasks`);
+  const p = _getProductionList({ query: searchParams, production: true });
+  const dueToday = _getProductionList({
+    query: {
+      dueToday: true,
+    },
+    production: true,
+  });
+  const pastDue = _getProductionList({
+    query: {
+      pastDue: true,
+    },
+    production: true,
+  });
+  return (
+    <AuthGuard can={[]}>
+      {/* <ProductionPageTabs prod /> */}
+      <Breadcrumbs>
+        <BreadLink isFirst title="Sales" />
+        <BreadLink title="Productions" isLast />
+      </Breadcrumbs>
+      <Shell className="px-8">
+        <PageHeader title="Due Today" />
+        <ProductionList prod simple promise={dueToday} />
+        <PageHeader title="Past Due" />
+        <ProductionList
+          emptyText="No Production past due"
+          simple
+          prod
+          promise={pastDue}
+        />
+        <PageHeader title="Productions" />
+        <ProductionList prod promise={p} />
+      </Shell>
+    </AuthGuard>
+  );
 }

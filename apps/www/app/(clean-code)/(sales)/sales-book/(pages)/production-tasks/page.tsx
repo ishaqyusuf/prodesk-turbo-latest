@@ -1,6 +1,6 @@
 import {
-    SearchParamsType,
-    searchParamsCache,
+  SearchParamsType,
+  searchParamsCache,
 } from "@/components/(clean-code)/data-table/search-params";
 
 import FPage from "@/components/(clean-code)/fikr-ui/f-page";
@@ -19,27 +19,27 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import { authId } from "@/app/(v1)/_actions/utils";
 
 export async function generateMetadata({}) {
-    return constructMetadata({
-        title: `Sales Production - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `Sales Production - gndprodesk.com`,
+  });
 }
 export default async function SalesBookPage({ searchParams }) {
-    const search = searchParamsCache.parse(searchParams);
-    const queryClient = getQueryClient();
-    const props = composeFilter(
-        "production-tasks"
-        // await getSalesPageQueryDataDta()
-    );
-    const { queryKey, filterFields } = props;
-    await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
-    return (
-        <AuthGuard can={["viewProduction"]}>
-            <FPage className="" title="Productions">
-                <ProductionTasksPageClient
-                    queryKey={queryKey}
-                    filterFields={filterFields}
-                />
-            </FPage>
-        </AuthGuard>
-    );
+  const search = searchParamsCache.parse(searchParams);
+  const queryClient = getQueryClient();
+  const props = composeFilter(
+    "production-tasks",
+    // await getSalesPageQueryDataDta()
+  );
+  const { queryKey, filterFields } = props;
+  await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
+  return (
+    <AuthGuard can={["viewProduction"]}>
+      <FPage className="" title="Productions">
+        <ProductionTasksPageClient
+          queryKey={queryKey}
+          filterFields={filterFields}
+        />
+      </FPage>
+    </AuthGuard>
+  );
 }

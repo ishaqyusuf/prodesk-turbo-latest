@@ -10,26 +10,26 @@ import { refreshTabData } from "@/app/(clean-code)/(sales)/_common/_components/s
 import { revalidateTable } from "../../(clean-code)/data-table/use-infinity-data-table";
 
 export function LaborCostInline() {
-    const store = salesOverviewStore();
-    const overview = store.overview;
-    async function updateCost(value) {
-        await updateSalesLaborCostAction(overview.id, Number(value));
-        refreshTabData(store.currentTab);
-        revalidateTable();
-    }
+  const store = salesOverviewStore();
+  const overview = store.overview;
+  async function updateCost(value) {
+    await updateSalesLaborCostAction(overview.id, Number(value));
+    refreshTabData(store.currentTab);
+    revalidateTable();
+  }
 
-    return (
-        <InfoLine
-            label="Labour Cost"
-            value={
-                <InlineTextEditor
-                    onUpdate={updateCost}
-                    className="w-24"
-                    value={overview?.invoice?.labour}
-                >
-                    <Money value={overview?.invoice?.labour} />
-                </InlineTextEditor>
-            }
-        ></InfoLine>
-    );
+  return (
+    <InfoLine
+      label="Labour Cost"
+      value={
+        <InlineTextEditor
+          onUpdate={updateCost}
+          className="w-24"
+          value={overview?.invoice?.labour}
+        >
+          <Money value={overview?.invoice?.labour} />
+        </InlineTextEditor>
+      }
+    ></InfoLine>
+  );
 }

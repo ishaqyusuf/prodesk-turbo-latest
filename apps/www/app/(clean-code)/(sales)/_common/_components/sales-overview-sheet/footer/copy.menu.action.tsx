@@ -13,41 +13,41 @@ import { salesFormUrl } from "@/utils/sales-utils";
 import { openLink } from "@/lib/open-link";
 
 export function CopyMenuAction({}) {
-    const ctx = salesOverviewStore();
-    const type = ctx.overview.type;
-    const isDyke = ctx.overview.dyke;
-    const route = useRouter();
-    async function copyAs(as: SalesType) {
-        const orderId = ctx.overview.orderId;
-        const result = await copySalesUseCase(orderId, as);
+  const ctx = salesOverviewStore();
+  const type = ctx.overview.type;
+  const isDyke = ctx.overview.dyke;
+  const route = useRouter();
+  async function copyAs(as: SalesType) {
+    const orderId = ctx.overview.orderId;
+    const result = await copySalesUseCase(orderId, as);
 
-        if (result.link) {
-            toast.success(`Copied as ${as}`, {
-                action: {
-                    label: "edit",
-                    onClick(event) {
-                        openLink(salesFormUrl(as, result.data?.slug), {}, true);
-                    },
-                },
-            });
-            revalidateTable();
-        }
+    if (result.link) {
+      toast.success(`Copied as ${as}`, {
+        action: {
+          label: "edit",
+          onClick(event) {
+            openLink(salesFormUrl(as, result.data?.slug), {}, true);
+          },
+        },
+      });
+      revalidateTable();
     }
-    return (
-        <Menu.Item
-            Icon={Copy}
-            SubMenu={
-                <>
-                    <Menu.Item onClick={() => copyAs("order")} icon="orders">
-                        Order
-                    </Menu.Item>
-                    <Menu.Item onClick={() => copyAs("quote")} icon="estimates">
-                        Quote
-                    </Menu.Item>
-                </>
-            }
-        >
-            Copy As
-        </Menu.Item>
-    );
+  }
+  return (
+    <Menu.Item
+      Icon={Copy}
+      SubMenu={
+        <>
+          <Menu.Item onClick={() => copyAs("order")} icon="orders">
+            Order
+          </Menu.Item>
+          <Menu.Item onClick={() => copyAs("quote")} icon="estimates">
+            Quote
+          </Menu.Item>
+        </>
+      }
+    >
+      Copy As
+    </Menu.Item>
+  );
 }

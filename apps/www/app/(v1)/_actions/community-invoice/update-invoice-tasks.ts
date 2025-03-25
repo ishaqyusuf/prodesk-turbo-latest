@@ -25,6 +25,6 @@ export async function updateInvoiceTasksAction({
           where: { id },
           data: transformData(data) as any,
         });
-      })
+      }),
     );
 }

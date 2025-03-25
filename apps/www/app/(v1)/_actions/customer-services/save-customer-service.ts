@@ -7,7 +7,7 @@ import { WorkOrders } from "@prisma/client";
 export async function createCustomerService(data: WorkOrders) {
   data.slug = await slugModel(
     `${data.projectName} ${data.lot} ${data.block}`,
-    prisma.workOrders
+    prisma.workOrders,
   );
   await prisma.workOrders.create({
     data: transformData(data) as any,

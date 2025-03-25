@@ -5,41 +5,41 @@ import { prisma } from "@/db";
 import { updateSalesCheckoutStatus } from "./update-sales-checkout-status";
 
 interface Props {
-    paymentId: string;
+  paymentId: string;
 }
 
 export async function salesPaymentCheckoutResponse(props: Props) {
-    const payment = await prisma.customerTransaction.findFirst({
-        where: {
-            squarePayment: {
-                paymentId: props.paymentId,
-            },
-        },
+  const payment = await prisma.customerTransaction.findFirst({
+    where: {
+      squarePayment: {
+        paymentId: props.paymentId,
+      },
+    },
+    include: {
+      squarePayment: {
         include: {
-            squarePayment: {
-                include: {
-                    checkout: true,
-                    orders: {
-                        include: {
-                            order: {
-                                select: {
-                                    amountDue: true,
-                                    id: true,
-                                },
-                            },
-                        },
-                    },
+          checkout: true,
+          orders: {
+            include: {
+              order: {
+                select: {
+                  amountDue: true,
+                  id: true,
                 },
+              },
             },
+          },
         },
+      },
+    },
+  });
+  // return payment;
+  const paymentStatus = payment.status as SquarePaymentStatus;
+  // return { paymentStatus };
+  if (paymentStatus == "PENDING") {
+    return await updateSalesCheckoutStatus({
+      squareOrderId: payment.squarePayment.squareOrderId,
+      checkoutId: payment.squarePayment.checkout.id,
     });
-    // return payment;
-    const paymentStatus = payment.status as SquarePaymentStatus;
-    // return { paymentStatus };
-    if (paymentStatus == "PENDING") {
-        return await updateSalesCheckoutStatus({
-            squareOrderId: payment.squarePayment.squareOrderId,
-            checkoutId: payment.squarePayment.checkout.id,
-        });
-    }
+  }
 }

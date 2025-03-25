@@ -8,86 +8,83 @@ import NumberPicker from "@/components/(clean-code)/custom/controlled/number-pic
 import FormInput from "@/components/common/controls/form-input";
 import { toast } from "sonner";
 import {
-    AssignmentSubmitForm,
-    submitAssignmentUseCase,
+  AssignmentSubmitForm,
+  submitAssignmentUseCase,
 } from "../../../use-case/sales-prod.use-case";
 
 interface Props {
-    assignment: ItemAssignment;
+  assignment: ItemAssignment;
 }
 export default function SubmitProductionForm({ assignment }: Props) {
-    const ctx = useItemProdViewContext();
-    const { mainCtx, item } = ctx;
-    const form = useForm<AssignmentSubmitForm>({
-        defaultValues: {
-            qty: 0,
-            lhQty: 0,
-            rhQty: 0,
-            note: "",
-            salesOrderItemId: item.salesItemId,
-            assignmentId: assignment.id,
-            salesOrderId: item.orderId,
-        },
-    });
-    const pending = assignment.pending;
-    const hasBothSide = pending.lh && pending.rh;
+  const ctx = useItemProdViewContext();
+  const { mainCtx, item } = ctx;
+  const form = useForm<AssignmentSubmitForm>({
+    defaultValues: {
+      qty: 0,
+      lhQty: 0,
+      rhQty: 0,
+      note: "",
+      salesOrderItemId: item.salesItemId,
+      assignmentId: assignment.id,
+      salesOrderId: item.orderId,
+    },
+  });
+  const pending = assignment.pending;
+  const hasBothSide = pending.lh && pending.rh;
 
-    async function __sumbit() {
-        try {
-            const data = form.getValues();
-            if (!data.lhQty && !data.qty && !data.rhQty)
-                throw Error("Select valid qty");
-            if (item.hasSwing) data.qty = sum([data.lhQty, data.rhQty]);
-            await submitAssignmentUseCase(
-                data,
-                item.analytics.control.produceable
-            );
-            toast.success("Submitted");
-            mainCtx.refresh();
-        } catch (error) {
-            if (error instanceof Error) toast.error(error.message);
-        }
+  async function __sumbit() {
+    try {
+      const data = form.getValues();
+      if (!data.lhQty && !data.qty && !data.rhQty)
+        throw Error("Select valid qty");
+      if (item.hasSwing) data.qty = sum([data.lhQty, data.rhQty]);
+      await submitAssignmentUseCase(data, item.analytics.control.produceable);
+      toast.success("Submitted");
+      mainCtx.refresh();
+    } catch (error) {
+      if (error instanceof Error) toast.error(error.message);
     }
-    return (
-        <div className="p-4 grid gap-4">
-            <Form {...form}>
-                <div className={cn(hasBothSide && "grid grid-cols-2 gap-4")}>
-                    {(item.hasSwing && pending.lh) || pending.qty ? (
-                        <NumberPicker
-                            control={form.control}
-                            name={item.hasSwing ? "lhQty" : "qty"}
-                            size="sm"
-                            label={item.hasSwing ? "LH Qty" : "Qty"}
-                            length={pending.lh || pending.qty}
-                        />
-                    ) : (
-                        <></>
-                    )}
-                    {pending.rh ? (
-                        <NumberPicker
-                            control={form.control}
-                            name="rhQty"
-                            size="sm"
-                            label="RH Qty"
-                            length={pending.rh}
-                        />
-                    ) : null}
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                    <FormInput
-                        type="textarea"
-                        className="col-span-2"
-                        control={form.control}
-                        name="note"
-                        label="Note"
-                    />
-                </div>
-            </Form>
-            <div className="flex justify-end">
-                <Button size="sm" action={__sumbit}>
-                    Submit
-                </Button>
-            </div>
+  }
+  return (
+    <div className="p-4 grid gap-4">
+      <Form {...form}>
+        <div className={cn(hasBothSide && "grid grid-cols-2 gap-4")}>
+          {(item.hasSwing && pending.lh) || pending.qty ? (
+            <NumberPicker
+              control={form.control}
+              name={item.hasSwing ? "lhQty" : "qty"}
+              size="sm"
+              label={item.hasSwing ? "LH Qty" : "Qty"}
+              length={pending.lh || pending.qty}
+            />
+          ) : (
+            <></>
+          )}
+          {pending.rh ? (
+            <NumberPicker
+              control={form.control}
+              name="rhQty"
+              size="sm"
+              label="RH Qty"
+              length={pending.rh}
+            />
+          ) : null}
         </div>
-    );
+        <div className="grid grid-cols-2 gap-4">
+          <FormInput
+            type="textarea"
+            className="col-span-2"
+            control={form.control}
+            name="note"
+            label="Note"
+          />
+        </div>
+      </Form>
+      <div className="flex justify-end">
+        <Button size="sm" action={__sumbit}>
+          Submit
+        </Button>
+      </div>
+    </div>
+  );
 }

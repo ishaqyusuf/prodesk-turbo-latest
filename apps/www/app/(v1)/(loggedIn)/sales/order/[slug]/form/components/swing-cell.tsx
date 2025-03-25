@@ -10,34 +10,34 @@ import { FormField } from "@/components/ui/form";
 import { ISalesOrder } from "@/types/sales";
 
 export default function SwingCell({
-    rowIndex,
-    ctx,
-    form,
+  rowIndex,
+  ctx,
+  form,
 }: SalesInvoiceCellProps) {
-    const getSwingValue = () => form.getValues(`items.${rowIndex}.swing`);
-    const [swing, setSwing] = useState<string | undefined>(
-        getSwingValue() || undefined
-    );
-    useEffect(() => {
-        // setSwing(getSwingValue() || undefined);
-    }, [rowIndex]);
-    return (
-        <TableCell id="swing" className="p-1">
-            <FormField<ISalesOrder>
-                name={`items.${rowIndex}.swing`}
-                control={form.control}
-                render={({ field }) => (
-                    <Input className="h-8 w-16  p-1  font-medium" {...field} />
-                    // <AutoComplete2
-                    //     allowCreate
-                    //     fluid
-                    //     {...field}
-                    //     options={ctx?.swings}
-                    // />
-                )}
-            />
+  const getSwingValue = () => form.getValues(`items.${rowIndex}.swing`);
+  const [swing, setSwing] = useState<string | undefined>(
+    getSwingValue() || undefined,
+  );
+  useEffect(() => {
+    // setSwing(getSwingValue() || undefined);
+  }, [rowIndex]);
+  return (
+    <TableCell id="swing" className="p-1">
+      <FormField<ISalesOrder>
+        name={`items.${rowIndex}.swing`}
+        control={form.control}
+        render={({ field }) => (
+          <Input className="h-8 w-16  p-1  font-medium" {...field} />
+          // <AutoComplete2
+          //     allowCreate
+          //     fluid
+          //     {...field}
+          //     options={ctx?.swings}
+          // />
+        )}
+      />
 
-            {/* <Input
+      {/* <Input
         className="h-8 w-16  p-1  font-medium"
         value={swing}
         onChange={(e) => {
@@ -45,7 +45,7 @@ export default function SwingCell({
           form.setValue(`items.${rowIndex}.swing`, e.target.value);
         }}
       /> */}
-            {/* <AutoComplete
+      {/* <AutoComplete
         keyName={`items.${rowIndex}.swing`}
         className="w-24"
         id="swing"
@@ -53,6 +53,6 @@ export default function SwingCell({
         form={form}
         list={ctx?.swings}
       /> */}
-        </TableCell>
-    );
+    </TableCell>
+  );
 }

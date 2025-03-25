@@ -9,25 +9,23 @@ import Portal from "@/components/_v1/portal";
 import NewFeatureBtn from "@/components/common/new-feature-btn";
 
 export async function generateMetadata({}) {
-    return constructMetadata({
-        title: `Customers - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `Customers - gndprodesk.com`,
+  });
 }
 export default async function CustomersPage({ searchParams }) {
-    const search = searchParamsCache.parse(searchParams);
-    const queryClient = getQueryClient();
-    const props = composeFilter("customers");
+  const search = searchParamsCache.parse(searchParams);
+  const queryClient = getQueryClient();
+  const props = composeFilter("customers");
 
-    await queryClient.prefetchInfiniteQuery(
-        dataOptions(search, props.queryKey)
-    );
+  await queryClient.prefetchInfiniteQuery(dataOptions(search, props.queryKey));
 
-    return (
-        <FPage className="" title="Customers">
-            <Portal nodeId={"navRightSlot"}>
-                <NewFeatureBtn href="/sales/customers">Old Site</NewFeatureBtn>
-            </Portal>
-            <CustomersPageClient {...props} />
-        </FPage>
-    );
+  return (
+    <FPage className="" title="Customers">
+      <Portal nodeId={"navRightSlot"}>
+        <NewFeatureBtn href="/sales/customers">Old Site</NewFeatureBtn>
+      </Portal>
+      <CustomersPageClient {...props} />
+    </FPage>
+  );
 }

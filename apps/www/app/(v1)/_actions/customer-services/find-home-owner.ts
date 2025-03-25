@@ -6,7 +6,7 @@ import { WorkOrders } from "@prisma/client";
 export async function findHomeOwnerAction(
   projectName,
   lot,
-  block
+  block,
 ): Promise<Partial<WorkOrders>> {
   const w = await prisma.workOrders.findFirst({
     where: {

@@ -8,29 +8,29 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export default async function TermsPage({ params }) {
-    const term = await prisma.blogs.findUnique({
-        where: {
-            slug: params.type,
-        },
+  const term = await prisma.blogs.findUnique({
+    where: {
+      slug: params.type,
+    },
+  });
+  if (!term) {
+    await prisma.blogs.create({
+      data: {
+        // id: await nextId(prisma.blogs),
+        authorId: 1,
+        slug: params.type,
+        title: params.type,
+        content: ``,
+        meta: {},
+        type: "terms",
+      },
     });
-    if (!term) {
-        await prisma.blogs.create({
-            data: {
-                // id: await nextId(prisma.blogs),
-                authorId: 1,
-                slug: params.type,
-                title: params.type,
-                content: ``,
-                meta: {},
-                type: "terms",
-            },
-        });
-        revalidatePath("/terms/[type]");
-        redirect(`/terms/${params.type}`);
-    }
-    return (
-        <Shell className="mx-auto max-w-6xl py-10 prose prose-slate lg:prose-xl">
-            <MDX source={term.content} components={mdxComponents.terms} />
-        </Shell>
-    );
+    revalidatePath("/terms/[type]");
+    redirect(`/terms/${params.type}`);
+  }
+  return (
+    <Shell className="mx-auto max-w-6xl py-10 prose prose-slate lg:prose-xl">
+      <MDX source={term.content} components={mdxComponents.terms} />
+    </Shell>
+  );
 }

@@ -10,60 +10,60 @@ import { Metadata } from "next";
 import BarChart from "./_components/bar-chart";
 
 export const metadata: Metadata = {
-    title: "Sales Dashboard",
+  title: "Sales Dashboard",
 };
 
 interface Props {}
 export default async function SalesDashboardPage({}: Props) {
-    const salesDashboard = await salesDashboardAction();
-    const {
-        totalSales,
-        amountDue,
-        totalDoors,
-        completedOrders,
-        completedDoors,
-        totalOrders,
-    } = salesDashboard;
-    return (
-        <AuthGuard can={["editDashboard"]}>
-            <DataPageShell className="space-y-4" data={salesDashboard}>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Dashboard" />
-                    <BreadLink isLast title="Sales" />
-                </Breadcrumbs>
-                <Portal nodeId="dashboardTitle">Sales Dashboard</Portal>
+  const salesDashboard = await salesDashboardAction();
+  const {
+    totalSales,
+    amountDue,
+    totalDoors,
+    completedOrders,
+    completedDoors,
+    totalOrders,
+  } = salesDashboard;
+  return (
+    <AuthGuard can={["editDashboard"]}>
+      <DataPageShell className="space-y-4" data={salesDashboard}>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Dashboard" />
+          <BreadLink isLast title="Sales" />
+        </Breadcrumbs>
+        <Portal nodeId="dashboardTitle">Sales Dashboard</Portal>
 
-                <StatCardContainer>
-                    <StartCard
-                        masked
-                        icon="dollar"
-                        value={totalSales}
-                        label="Total Sales"
-                        money
-                    />
-                    <StartCard
-                        masked
-                        icon="dollar"
-                        value={amountDue}
-                        label="Amount Due"
-                        money
-                    />
-                    <StartCard
-                        label="Total Orders"
-                        icon="lineChart"
-                        value={totalOrders}
-                        info={`${completedOrders || 0} completed`}
-                    />
-                    <StartCard
-                        icon="lineChart"
-                        label="Doors Ordered"
-                        value={totalDoors}
-                        info={`${completedDoors || 0} completed`}
-                    />
-                </StatCardContainer>
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                    <BarChart chartData={salesDashboard.bar} />
-                    {/* <Card className="lg:col-span-4">
+        <StatCardContainer>
+          <StartCard
+            masked
+            icon="dollar"
+            value={totalSales}
+            label="Total Sales"
+            money
+          />
+          <StartCard
+            masked
+            icon="dollar"
+            value={amountDue}
+            label="Amount Due"
+            money
+          />
+          <StartCard
+            label="Total Orders"
+            icon="lineChart"
+            value={totalOrders}
+            info={`${completedOrders || 0} completed`}
+          />
+          <StartCard
+            icon="lineChart"
+            label="Doors Ordered"
+            value={totalDoors}
+            info={`${completedDoors || 0} completed`}
+          />
+        </StatCardContainer>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          <BarChart chartData={salesDashboard.bar} />
+          {/* <Card className="lg:col-span-4">
                         <CardHeader>
                             <CardTitle>Overview</CardTitle>
                         </CardHeader>
@@ -73,9 +73,9 @@ export default async function SalesDashboardPage({}: Props) {
                             />
                         </CardContent>
                     </Card> */}
-                    <RecentSalesDashboardCard className="md:col-span-1 lg:col-span-3" />
-                </div>
-            </DataPageShell>
-        </AuthGuard>
-    );
+          <RecentSalesDashboardCard className="md:col-span-1 lg:col-span-3" />
+        </div>
+      </DataPageShell>
+    </AuthGuard>
+  );
 }

@@ -3,10 +3,10 @@ import { Prisma } from "@prisma/client";
 import { composeQuery } from "../../app/(clean-code)/(sales)/_common/utils/db-utils";
 
 export function whereDispatch(query: SearchParamsType) {
-    const wheres: Prisma.OrderDeliveryWhereInput[] = [];
-    if (query["sales.id"])
-        wheres.push({
-            salesOrderId: query["sales.id"],
-        });
-    return composeQuery(wheres);
+  const wheres: Prisma.OrderDeliveryWhereInput[] = [];
+  if (query["sales.id"])
+    wheres.push({
+      salesOrderId: query["sales.id"],
+    });
+  return composeQuery(wheres);
 }

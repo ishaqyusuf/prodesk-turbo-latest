@@ -13,36 +13,36 @@ import { refreshTabData } from "@/app/(clean-code)/(sales)/_common/_components/s
 import { revalidateTable } from "../../(clean-code)/data-table/use-infinity-data-table";
 
 export function SalesDateInline() {
-    const store = salesOverviewStore();
-    const overview = store.overview;
-    const [value, setValue] = useState(store.overview?.createdAt);
-    const updateSalesDate = useAction(updateSalesDateAction, {
-        onSuccess(args) {
-            toast.success("Date updated");
-            refreshTabData(store.currentTab);
-            revalidateTable();
-            setValue(args.input.newDate);
-        },
-        onError(e) {
-            toast.error("unable to complete");
-        },
-    });
-    return (
-        <InfoLine
-            label="Date Created"
-            value={
-                <DatePicker
-                    // disabled={(date) => date > new Date()}
-                    setValue={(e) => {
-                        updateSalesDate.execute({
-                            id: store.overview.id,
-                            newDate: e,
-                        });
-                    }}
-                    className="w-auto h-8"
-                    value={value}
-                />
-            }
-        ></InfoLine>
-    );
+  const store = salesOverviewStore();
+  const overview = store.overview;
+  const [value, setValue] = useState(store.overview?.createdAt);
+  const updateSalesDate = useAction(updateSalesDateAction, {
+    onSuccess(args) {
+      toast.success("Date updated");
+      refreshTabData(store.currentTab);
+      revalidateTable();
+      setValue(args.input.newDate);
+    },
+    onError(e) {
+      toast.error("unable to complete");
+    },
+  });
+  return (
+    <InfoLine
+      label="Date Created"
+      value={
+        <DatePicker
+          // disabled={(date) => date > new Date()}
+          setValue={(e) => {
+            updateSalesDate.execute({
+              id: store.overview.id,
+              newDate: e,
+            });
+          }}
+          className="w-auto h-8"
+          value={value}
+        />
+      }
+    ></InfoLine>
+  );
 }

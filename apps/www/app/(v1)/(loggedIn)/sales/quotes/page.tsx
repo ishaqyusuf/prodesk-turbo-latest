@@ -13,33 +13,28 @@ import Portal from "@/components/_v1/portal";
 import NewFeatureBtn from "@/components/common/new-feature-btn";
 
 export const metadata: Metadata = {
-    title: "Sales Quote",
+  title: "Sales Quote",
 };
 interface Props {}
 
 export default async function SalesEstimatesPage({ searchParams }) {
-    // if (env.NODE_ENV == "production") redirect("/sales/dashboard/quotes");
-    const response = await getSalesEstimates(queryParams(searchParams));
-    return (
-        <AuthGuard can={["viewEstimates"]}>
-            <SalesTabLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Quotes" />
-                </Breadcrumbs>
-                <Portal nodeId={"actionNav"}>
-                    <div>
-                        <NewFeatureBtn href="/sales-book/quotes">
-                            New Site
-                        </NewFeatureBtn>
-                    </div>
-                </Portal>
-                <EstimatesTableShell
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <OrderPrinter />
-            </SalesTabLayout>
-        </AuthGuard>
-    );
+  // if (env.NODE_ENV == "production") redirect("/sales/dashboard/quotes");
+  const response = await getSalesEstimates(queryParams(searchParams));
+  return (
+    <AuthGuard can={["viewEstimates"]}>
+      <SalesTabLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Quotes" />
+        </Breadcrumbs>
+        <Portal nodeId={"actionNav"}>
+          <div>
+            <NewFeatureBtn href="/sales-book/quotes">New Site</NewFeatureBtn>
+          </div>
+        </Portal>
+        <EstimatesTableShell searchParams={searchParams} {...response} />
+        <OrderPrinter />
+      </SalesTabLayout>
+    </AuthGuard>
+  );
 }

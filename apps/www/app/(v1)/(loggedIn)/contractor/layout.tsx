@@ -1,3 +1,3 @@
 export default function ContractorLayout({ children }) {
-    return <>{children}</>;
+  return <>{children}</>;
 }

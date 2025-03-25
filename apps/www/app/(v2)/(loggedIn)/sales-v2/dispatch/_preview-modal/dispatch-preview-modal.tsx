@@ -8,9 +8,9 @@ export type OrderAssignmentData = GetOrderAssignmentData;
 export const useData = () => useDataPage<OrderAssignmentData>();
 
 export default function DispatchPreviewModal() {
-    return (
-        <Modal.Content size="xl">
-            <Modal.Header title="Dispatch Preview" />
-        </Modal.Content>
-    );
+  return (
+    <Modal.Content size="xl">
+      <Modal.Header title="Dispatch Preview" />
+    </Modal.Content>
+  );
 }

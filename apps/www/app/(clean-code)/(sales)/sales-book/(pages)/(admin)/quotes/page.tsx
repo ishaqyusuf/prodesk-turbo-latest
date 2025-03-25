@@ -11,26 +11,26 @@ import Portal from "@/components/_v1/portal";
 import NewFeatureBtn from "@/components/common/new-feature-btn";
 
 export async function generateMetadata({ params }) {
-    return constructMetadata({
-        title: `Quotes List - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `Quotes List - gndprodesk.com`,
+  });
 }
 export default async function SalesBookQuotePage({ searchParams }) {
-    const search = searchParamsCache.parse(searchParams);
-    const queryClient = getQueryClient();
-    const { queryKey, filterFields } = composeFilter("quotes");
-    await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
+  const search = searchParamsCache.parse(searchParams);
+  const queryClient = getQueryClient();
+  const { queryKey, filterFields } = composeFilter("quotes");
+  await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
 
-    return (
-        <FPage can={["viewEstimates"]} title="Quotes">
-            <Portal nodeId={"navRightSlot"}>
-                <NewFeatureBtn href="/sales/quotes">Old Site</NewFeatureBtn>
-            </Portal>
-            <QuotesPageClient
-                queryKey={queryKey}
-                filterFields={filterFields}
-                searchParams={searchParams}
-            />
-        </FPage>
-    );
+  return (
+    <FPage can={["viewEstimates"]} title="Quotes">
+      <Portal nodeId={"navRightSlot"}>
+        <NewFeatureBtn href="/sales/quotes">Old Site</NewFeatureBtn>
+      </Portal>
+      <QuotesPageClient
+        queryKey={queryKey}
+        filterFields={filterFields}
+        searchParams={searchParams}
+      />
+    </FPage>
+  );
 }

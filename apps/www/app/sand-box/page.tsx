@@ -1,3 +1,3 @@
 export default function SandBoxPage() {
-    return <div></div>;
+  return <div></div>;
 }

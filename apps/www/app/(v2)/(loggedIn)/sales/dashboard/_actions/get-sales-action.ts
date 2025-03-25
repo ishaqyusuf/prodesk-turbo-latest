@@ -6,11 +6,11 @@ import { DeliveryOption, ISalesType } from "@/types/sales";
 import { Prisma } from "@prisma/client";
 
 export interface SalesQueryParams extends BaseQuery {
-    type: ISalesType;
-    deliveryOption: DeliveryOption;
+  type: ISalesType;
+  deliveryOption: DeliveryOption;
 }
 
 export type GetSalesAction = Awaited<ReturnType<typeof getSalesAction>>;
 export async function getSalesAction(query: SalesQueryParams) {
-    return await getSales(query);
+  return await getSales(query);
 }

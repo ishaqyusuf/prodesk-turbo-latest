@@ -22,161 +22,149 @@ import { _modal } from "@/components/common/modal/provider";
 import { useSalesOverviewQuery } from "@/hooks/use-sales-overview-query";
 
 export function SalesInfoTab({}) {
-    const store = salesOverviewStore();
-    const overview = store.overview;
-    const salesQuery = useSalesOverviewQuery();
-    const customerOverviewQuery = useCustomerOverviewQuery();
+  const store = salesOverviewStore();
+  const overview = store.overview;
+  const salesQuery = useSalesOverviewQuery();
+  const customerOverviewQuery = useCustomerOverviewQuery();
 
-    if (!overview) return;
-    return (
-        <div>
-            <InfoLine label="Order #" value={overview.orderId}>
-                <Link
-                    className={cn(
-                        buttonVariants({
-                            size: "xs",
-                            variant: "link",
-                        })
-                    )}
-                    href={composeSalesUrl(overview)}
-                    target="_blank"
-                >
-                    Edit
-                    <ExternalLink className="size-4 ml-2" />
-                </Link>
-            </InfoLine>
-            <InfoLine
-                label="Customer"
-                value={
-                    <div>
-                        <Button
-                            size="xs"
-                            disabled={!overview?.phoneNo}
-                            onClick={() => {
-                                openCustomerOverviewSheet(overview.phoneNo);
-                            }}
-                            variant={
-                                overview?.phoneNo ? "destructive" : "outline"
-                            }
-                        >
-                            {overview?.displayName || overview?.phoneNo}
-                        </Button>
-                        <DevOnly>
-                            <Button
-                                onClick={() => {
-                                    _modal.close();
-                                    customerOverviewQuery.open(
-                                        overview.phoneNo
-                                    );
-                                }}
-                            >
-                                V2
-                            </Button>
-                        </DevOnly>
-                    </div>
-                }
-            ></InfoLine>
-            <SalesDateInline />
-            <InfoLine
-                label="Sales Rep"
-                value={overview.salesRep?.name}
-            ></InfoLine>
-
-            <PoInline />
-            <LaborCostInline />
-            <SalesDeliveryCostInline />
-            <InfoLine
-                label="Total Invoice"
-                value={<Money value={overview?.invoice?.total} />}
-            ></InfoLine>
-            <InfoLine
-                label="Paid"
-                value={<Money value={overview?.invoice?.paid} />}
-            ></InfoLine>
-            <InfoLine
-                label="Pending"
-                value={
-                    <span>
-                        <SalesInvoiceDueStatus
-                            amountDue={overview?.invoice?.pending}
-                            dueDate={overview?.paymentDueDate}
-                        />
-                    </span>
-                }
-            ></InfoLine>
-
-            <div className="grid my-4 sm:grid-cols-2 gap-4">
-                {[overview.billing, overview.shipping].map((k, i) => (
-                    <div key={i}>
-                        <Label>
-                            {i == 0 ? "Billing" : "Shipping"}
-                            {" Address"}
-                        </Label>
-                        {!k?.length ? (
-                            <div className="min-h-16 flex flex-col items-center justify-center">
-                                No Address
-                            </div>
-                        ) : (
-                            k.map((line, ki) => {
-                                const Ico = Icons[line.icon];
-                                return (
-                                    <div
-                                        key={ki}
-                                        className="flex gap-4 py-1 border-b"
-                                    >
-                                        {Ico && (
-                                            <Ico className="size-4 text-muted-foreground" />
-                                        )}
-                                        <span>{line.value}</span>
-                                    </div>
-                                );
-                            })
-                        )}
-                    </div>
-                ))}
-            </div>
+  if (!overview) return;
+  return (
+    <div>
+      <InfoLine label="Order #" value={overview.orderId}>
+        <Link
+          className={cn(
+            buttonVariants({
+              size: "xs",
+              variant: "link",
+            }),
+          )}
+          href={composeSalesUrl(overview)}
+          target="_blank"
+        >
+          Edit
+          <ExternalLink className="size-4 ml-2" />
+        </Link>
+      </InfoLine>
+      <InfoLine
+        label="Customer"
+        value={
+          <div>
+            <Button
+              size="xs"
+              disabled={!overview?.phoneNo}
+              onClick={() => {
+                openCustomerOverviewSheet(overview.phoneNo);
+              }}
+              variant={overview?.phoneNo ? "destructive" : "outline"}
+            >
+              {overview?.displayName || overview?.phoneNo}
+            </Button>
             <DevOnly>
-                <Button
-                    onClick={() => {
-                        _modal.close();
-                        salesQuery.open2(overview.orderId, "sales");
-                    }}
-                >
-                    V2
-                </Button>
+              <Button
+                onClick={() => {
+                  _modal.close();
+                  customerOverviewQuery.open(overview.phoneNo);
+                }}
+              >
+                V2
+              </Button>
             </DevOnly>
-            <Note
-                admin
-                tagFilters={[
-                    // noteTagFilter("itemControlUID", itemView?.itemControlUid),
-                    // noteTagFilter("salesItemId", itemView?.itemId),
-                    noteTagFilter("salesId", store?.salesId),
-                ]}
-                typeFilters={["general", "dispatch", "payment", "production"]}
-                statusFilters={["public", "private"]}
-                subject={`Sales Note`}
-                headline={`${overview?.orderId}`}
+          </div>
+        }
+      ></InfoLine>
+      <SalesDateInline />
+      <InfoLine label="Sales Rep" value={overview.salesRep?.name}></InfoLine>
+
+      <PoInline />
+      <LaborCostInline />
+      <SalesDeliveryCostInline />
+      <InfoLine
+        label="Total Invoice"
+        value={<Money value={overview?.invoice?.total} />}
+      ></InfoLine>
+      <InfoLine
+        label="Paid"
+        value={<Money value={overview?.invoice?.paid} />}
+      ></InfoLine>
+      <InfoLine
+        label="Pending"
+        value={
+          <span>
+            <SalesInvoiceDueStatus
+              amountDue={overview?.invoice?.pending}
+              dueDate={overview?.paymentDueDate}
             />
-        </div>
-    );
+          </span>
+        }
+      ></InfoLine>
+
+      <div className="grid my-4 sm:grid-cols-2 gap-4">
+        {[overview.billing, overview.shipping].map((k, i) => (
+          <div key={i}>
+            <Label>
+              {i == 0 ? "Billing" : "Shipping"}
+              {" Address"}
+            </Label>
+            {!k?.length ? (
+              <div className="min-h-16 flex flex-col items-center justify-center">
+                No Address
+              </div>
+            ) : (
+              k.map((line, ki) => {
+                const Ico = Icons[line.icon];
+                return (
+                  <div key={ki} className="flex gap-4 py-1 border-b">
+                    {Ico && <Ico className="size-4 text-muted-foreground" />}
+                    <span>{line.value}</span>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        ))}
+      </div>
+      <DevOnly>
+        <Button
+          onClick={() => {
+            _modal.close();
+            salesQuery.open2(overview.orderId, "sales");
+          }}
+        >
+          V2
+        </Button>
+      </DevOnly>
+      <Note
+        admin
+        tagFilters={[
+          // noteTagFilter("itemControlUID", itemView?.itemControlUid),
+          // noteTagFilter("salesItemId", itemView?.itemId),
+          noteTagFilter("salesId", store?.salesId),
+        ]}
+        typeFilters={["general", "dispatch", "payment", "production"]}
+        statusFilters={["public", "private"]}
+        subject={`Sales Note`}
+        headline={`${overview?.orderId}`}
+      />
+    </div>
+  );
 }
 export function InfoLine({
-    label,
-    value,
-    children,
+  label,
+  value,
+  children,
 }: {
-    label?: string;
-    value?;
-    children?;
+  label?: string;
+  value?;
+  children?;
 }) {
-    return (
-        <div className="flex gap-4 p-1 py-2 b border-b items-center">
-            <span className="text-sm uppercase font-semibold text-muted-foreground">
-                {label}:
-            </span>
-            <div className="flex-1"></div>
-            <span className="text-sm uppercase font-mono">{value}</span>
-            {children}
-        </div>
-    );
+  return (
+    <div className="flex gap-4 p-1 py-2 b border-b items-center">
+      <span className="text-sm uppercase font-semibold text-muted-foreground">
+        {label}:
+      </span>
+      <div className="flex-1"></div>
+      <span className="text-sm uppercase font-mono">{value}</span>
+      {children}
+    </div>
+  );
 }

@@ -5,29 +5,29 @@ import { SalesEmailMenuItem } from "@/components/sales-email-menu-item";
 import { useMemo } from "react";
 
 export function SalesFormPrintMenu({}) {
-    const zus = useFormDataStore();
-    const printData = useMemo(() => {
-        return zus.metaData.id
-            ? {
-                  item: {
-                      type: zus.metaData.type,
-                      slug: zus.metaData.salesId,
-                      dispatchList: [],
-                  },
-                  overview: {
-                      type: zus.metaData.type,
-                      orderId: zus.metaData.salesId,
-                  },
-              }
-            : null;
-    }, [zus.metaData]);
-    if (printData)
-        return (
-            <>
-                <PrintMenuAction data={printData} />
-                <PrintMenuAction pdf data={printData} />
-            </>
-        );
+  const zus = useFormDataStore();
+  const printData = useMemo(() => {
+    return zus.metaData.id
+      ? {
+          item: {
+            type: zus.metaData.type,
+            slug: zus.metaData.salesId,
+            dispatchList: [],
+          },
+          overview: {
+            type: zus.metaData.type,
+            orderId: zus.metaData.salesId,
+          },
+        }
+      : null;
+  }, [zus.metaData]);
+  if (printData)
+    return (
+      <>
+        <PrintMenuAction data={printData} />
+        <PrintMenuAction pdf data={printData} />
+      </>
+    );
 
-    return null;
+  return null;
 }

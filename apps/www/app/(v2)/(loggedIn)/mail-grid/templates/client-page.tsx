@@ -1,8 +1,8 @@
 "use client";
 
 interface Props {
-    response;
+  response;
 }
 export default function ClientPage({}: Props) {
-    return <></>;
+  return <></>;
 }

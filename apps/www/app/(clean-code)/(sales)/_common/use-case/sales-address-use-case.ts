@@ -2,16 +2,16 @@
 
 import { AsyncFnType } from "@/app/(clean-code)/type";
 import {
-    getAddressFormDta,
-    searchAddressDta,
+  getAddressFormDta,
+  searchAddressDta,
 } from "../data-access/sales-address-dta";
 
 export type AddressSearchType = AsyncFnType<
-    typeof searchAddressUseCase
+  typeof searchAddressUseCase
 >[number];
 export async function searchAddressUseCase(q) {
-    return await searchAddressDta(q);
+  return await searchAddressDta(q);
 }
 export async function getAddressFormUseCase(id) {
-    return await getAddressFormDta(id);
+  return await getAddressFormDta(id);
 }

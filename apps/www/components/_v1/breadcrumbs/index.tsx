@@ -23,6 +23,6 @@ export function Breadcrumbs({ children, separator }: BreadcrumbsProps) {
     >
       {children}
     </nav>,
-    BreadCrumbElement
+    BreadCrumbElement,
   );
 }

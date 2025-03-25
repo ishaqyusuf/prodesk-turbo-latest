@@ -10,27 +10,27 @@ import { refreshTabData } from "@/app/(clean-code)/(sales)/_common/_components/s
 import { revalidateTable } from "../../(clean-code)/data-table/use-infinity-data-table";
 
 export function PoInline() {
-    const store = salesOverviewStore();
-    const overview = store.overview;
-    async function updateCost(value) {
-        await updateSalesMetaAction(overview.id, {
-            po: value,
-        });
-        refreshTabData(store.currentTab);
-        revalidateTable();
-    }
-    return (
-        <InfoLine
-            label="P.O No."
-            value={
-                <InlineTextEditor
-                    onUpdate={updateCost}
-                    className="w-24"
-                    value={overview?.po}
-                >
-                    {overview?.po || "Click to add"}
-                </InlineTextEditor>
-            }
-        ></InfoLine>
-    );
+  const store = salesOverviewStore();
+  const overview = store.overview;
+  async function updateCost(value) {
+    await updateSalesMetaAction(overview.id, {
+      po: value,
+    });
+    refreshTabData(store.currentTab);
+    revalidateTable();
+  }
+  return (
+    <InfoLine
+      label="P.O No."
+      value={
+        <InlineTextEditor
+          onUpdate={updateCost}
+          className="w-24"
+          value={overview?.po}
+        >
+          {overview?.po || "Click to add"}
+        </InlineTextEditor>
+      }
+    ></InfoLine>
+  );
 }

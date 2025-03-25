@@ -12,179 +12,175 @@ import dayjs from "dayjs";
 import { PageTab } from "./type";
 
 interface GetDealersQuery {
-    status;
+  status;
 }
 export type DealerStatus =
-    | "Verified"
-    | "Approved"
-    | "Pending Approval"
-    | "Rejected"
-    | "Restricted";
+  | "Verified"
+  | "Approved"
+  | "Pending Approval"
+  | "Rejected"
+  | "Restricted";
 export type GetDealersPageTabAction = Awaited<
-    ReturnType<typeof getDealersPageTabAction>
+  ReturnType<typeof getDealersPageTabAction>
 >;
 export type GetDealersAction = Awaited<ReturnType<typeof getDealersAction>>;
 export async function getDealersAction(query: GetDealersQuery) {
-    const where = _where(query);
-    const { pageCount } = await paginatedAction(
-        query,
-        prisma.dealerAuth,
-        where
-    );
-    const data = await prisma.dealerAuth.findMany({
-        where,
-        include: {
-            dealer: true,
-            primaryBillingAddress: true,
-            token: {
-                where: {
-                    consumedAt: null,
-                    expiredAt: {
-                        lt: new Date(),
-                    },
-                },
-            },
+  const where = _where(query);
+  const { pageCount } = await paginatedAction(query, prisma.dealerAuth, where);
+  const data = await prisma.dealerAuth.findMany({
+    where,
+    include: {
+      dealer: true,
+      primaryBillingAddress: true,
+      token: {
+        where: {
+          consumedAt: null,
+          expiredAt: {
+            lt: new Date(),
+          },
         },
-    });
-    return {
-        data: data.map((data) => {
-            let status = data.status as DealerStatus;
-            let tokenExpired = status == "Approved" && data.token.length;
-            let pendingVerification = status == "Approved";
-            return {
-                ...data,
-                status,
-                tokenExpired,
-                pendingVerification,
-            };
-        }),
-        pageCount,
-    };
+      },
+    },
+  });
+  return {
+    data: data.map((data) => {
+      let status = data.status as DealerStatus;
+      let tokenExpired = status == "Approved" && data.token.length;
+      let pendingVerification = status == "Approved";
+      return {
+        ...data,
+        status,
+        tokenExpired,
+        pendingVerification,
+      };
+    }),
+    pageCount,
+  };
 }
 export async function getDealersPageTabAction(): Promise<PageTab[]> {
-    const s = await prisma.dealerAuth.findMany({
-        select: {
-            status: true,
-        },
-    });
-    let tabNames: DealerStatus[] = [
-        "Approved",
-        "Pending Approval",
-        "Rejected",
-        "Restricted",
-    ];
-    let tabs = tabNames.map((t) => {
-        let count = s.filter((s) => {
-            let currentStatus = s.status;
-            if (!currentStatus && t == "Pending Approval") return true;
-            return currentStatus == t;
-        }).length;
-        let params = {};
-        switch (t) {
-            case "Approved":
-                break;
-            default:
-                params = {
-                    qk: "status",
-                    qv: t,
-                };
-        }
-        return {
-            title: t == "Approved" ? "Dealers" : t,
-            count,
-            params,
+  const s = await prisma.dealerAuth.findMany({
+    select: {
+      status: true,
+    },
+  });
+  let tabNames: DealerStatus[] = [
+    "Approved",
+    "Pending Approval",
+    "Rejected",
+    "Restricted",
+  ];
+  let tabs = tabNames.map((t) => {
+    let count = s.filter((s) => {
+      let currentStatus = s.status;
+      if (!currentStatus && t == "Pending Approval") return true;
+      return currentStatus == t;
+    }).length;
+    let params = {};
+    switch (t) {
+      case "Approved":
+        break;
+      default:
+        params = {
+          qk: "status",
+          qv: t,
         };
-    });
-    return tabs;
+    }
+    return {
+      title: t == "Approved" ? "Dealers" : t,
+      count,
+      params,
+    };
+  });
+  return tabs;
 }
 function _where(query: GetDealersQuery) {
-    const where: Prisma.DealerAuthWhereInput = {
-        status: query.status || {
-            in: ["Approved", "Verified"] as DealerStatus[],
-        },
-    };
-    return where;
+  const where: Prisma.DealerAuthWhereInput = {
+    status: query.status || {
+      in: ["Approved", "Verified"] as DealerStatus[],
+    },
+  };
+  return where;
 }
 export async function resendApprovalTokenAction(id) {
-    // await prisma.dealerAuth.update({
-    //     where: { id },
-    //     data: {
-    //         token: {
-    //             create: {
-    //                 token: generateRandomString(16),
-    //                 expiredAt: dayjs().add(4, "hours").toISOString(),
-    //             },
-    //         },
-    //     },
-    // });
-    await sendDealerApprovalEmail(id);
-    _revalidate("dealers");
+  // await prisma.dealerAuth.update({
+  //     where: { id },
+  //     data: {
+  //         token: {
+  //             create: {
+  //                 token: generateRandomString(16),
+  //                 expiredAt: dayjs().add(4, "hours").toISOString(),
+  //             },
+  //         },
+  //     },
+  // });
+  await sendDealerApprovalEmail(id);
+  _revalidate("dealers");
 }
 export async function dealershipApprovalAction(
-    id,
-    status: DealerStatus,
-    reason?: string
+  id,
+  status: DealerStatus,
+  reason?: string,
 ) {
-    const authId = await userId();
-    await prisma.dealerAuth.update({
-        where: { id },
-        data: {
-            status,
-            statusHistory: {
-                create: {
-                    status,
-                    reason,
-                    author: {
-                        connect: {
-                            id: authId,
-                        },
-                    },
-                },
+  const authId = await userId();
+  await prisma.dealerAuth.update({
+    where: { id },
+    data: {
+      status,
+      statusHistory: {
+        create: {
+          status,
+          reason,
+          author: {
+            connect: {
+              id: authId,
             },
-            token:
-                status == "Approved"
-                    ? {
-                          create: {
-                              token: generateRandomString(16),
-                              expiredAt: dayjs().add(4, "hours").toISOString(),
-                          },
-                      }
-                    : undefined,
+          },
         },
-    });
-    _revalidate("dealers");
+      },
+      token:
+        status == "Approved"
+          ? {
+              create: {
+                token: generateRandomString(16),
+                expiredAt: dayjs().add(4, "hours").toISOString(),
+              },
+            }
+          : undefined,
+    },
+  });
+  _revalidate("dealers");
 }
 export async function updateDealerProfileAction(id, profileId) {
-    await prisma.dealerAuth.update({
-        where: { id },
-        data: {
-            dealer: {
-                update: {
-                    customerTypeId: profileId,
-                },
-            },
+  await prisma.dealerAuth.update({
+    where: { id },
+    data: {
+      dealer: {
+        update: {
+          customerTypeId: profileId,
         },
-    });
+      },
+    },
+  });
 }
 export async function sendDealerApprovalEmail(id) {
-    const dealer = await prisma.dealerAuth.findFirst({
-        where: { id },
-        include: {
-            dealer: true,
-            token: {
-                orderBy: {
-                    expiredAt: "desc",
-                },
-            },
+  const dealer = await prisma.dealerAuth.findFirst({
+    where: { id },
+    include: {
+      dealer: true,
+      token: {
+        orderBy: {
+          expiredAt: "desc",
         },
-    });
-    const token = dealer.token.filter((s) => !s.consumedAt)[0]?.token;
-    await sendMessage({
-        subject: `Dealership Approved`,
-        body: `https://${env.NEXT_PUBLIC_ROOT_DOMAIN}/dealer/create-password/${token}`,
-        from: `Pablo From GND Millwork<pcruz321@gndprodesk.com>`,
-        type: "Dealers",
-        to: dealer.email,
-    } as any);
+      },
+    },
+  });
+  const token = dealer.token.filter((s) => !s.consumedAt)[0]?.token;
+  await sendMessage({
+    subject: `Dealership Approved`,
+    body: `https://${env.NEXT_PUBLIC_ROOT_DOMAIN}/dealer/create-password/${token}`,
+    from: `Pablo From GND Millwork<pcruz321@gndprodesk.com>`,
+    type: "Dealers",
+    to: dealer.email,
+  } as any);
 }
 // http://localhost:3000

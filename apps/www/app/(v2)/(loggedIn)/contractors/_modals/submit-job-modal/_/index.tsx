@@ -17,64 +17,64 @@ export type SubmitJobTabs = "project" | "user" | "unit" | "tasks" | "general";
 export type JobFormAction = "edit" | "change-worker";
 
 export interface SubmitJobForm {
-    job: IJobs;
-    data: IJobs;
-    tab: SubmitJobTabs;
-    action: JobFormAction;
-    tabHistory: { title }[];
-    homes: HomeJobList[];
-    home: HomeJobList;
-    costList: InstallCostLine[];
-    // initialized: boolean;
+  job: IJobs;
+  data: IJobs;
+  tab: SubmitJobTabs;
+  action: JobFormAction;
+  tabHistory: { title }[];
+  homes: HomeJobList[];
+  home: HomeJobList;
+  costList: InstallCostLine[];
+  // initialized: boolean;
 }
 export const useSubmitJobForm = () => useFormContext<SubmitJobForm>();
 
 export interface SubmitJobModalDataProps {
-    data: IJobs;
-    action: JobFormAction;
+  data: IJobs;
+  action: JobFormAction;
 }
 export interface SubmitJobModalProps {
-    data?: SubmitJobModalDataProps;
+  data?: SubmitJobModalDataProps;
 }
 function ModalContent({ data }: SubmitJobModalProps) {
-    const ctx = useJobSubmitCtx();
+  const ctx = useJobSubmitCtx();
 
-    // useEffect(() => {
-    // console.log(">...");
-    // ctx.initialize(data);
-    // }, []);
-    return (
-        <Form {...ctx.form}>
-            <Tabs value={ctx.tab}>
-                <TabsList className="hidden">
-                    <TabsTrigger value="user" />
-                    <TabsTrigger value="project" />
-                    <TabsTrigger value="unit" />
-                    <TabsTrigger value="tasks" />
-                    <TabsTrigger value="general" />
-                </TabsList>
-                <TabsContent value="user">
-                    <SelectUserField />
-                </TabsContent>
-                <TabsContent value="tasks">
-                    <TaskDetailsTab />
-                </TabsContent>
-                <TabsContent value="general">
-                    <GeneralInfoTab />
-                </TabsContent>
-            </Tabs>
-        </Form>
-    );
+  // useEffect(() => {
+  // console.log(">...");
+  // ctx.initialize(data);
+  // }, []);
+  return (
+    <Form {...ctx.form}>
+      <Tabs value={ctx.tab}>
+        <TabsList className="hidden">
+          <TabsTrigger value="user" />
+          <TabsTrigger value="project" />
+          <TabsTrigger value="unit" />
+          <TabsTrigger value="tasks" />
+          <TabsTrigger value="general" />
+        </TabsList>
+        <TabsContent value="user">
+          <SelectUserField />
+        </TabsContent>
+        <TabsContent value="tasks">
+          <TaskDetailsTab />
+        </TabsContent>
+        <TabsContent value="general">
+          <GeneralInfoTab />
+        </TabsContent>
+      </Tabs>
+    </Form>
+  );
 }
 export const SubmitJobModalContent = ModalContent;
 function ModalFooter({ data }: SubmitJobModalProps) {
-    const ctx = useJobSubmitCtx();
-    return (
-        <div className="space-x-4 items-center flex">
-            <Btn isLoading={ctx.isLoading} onClick={ctx.nextTab}>
-                Submit
-            </Btn>
-        </div>
-    );
+  const ctx = useJobSubmitCtx();
+  return (
+    <div className="space-x-4 items-center flex">
+      <Btn isLoading={ctx.isLoading} onClick={ctx.nextTab}>
+        Submit
+      </Btn>
+    </div>
+  );
 }
 export const SubmitJobModalFooter = ModalFooter;

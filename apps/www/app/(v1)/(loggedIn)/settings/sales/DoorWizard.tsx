@@ -175,7 +175,7 @@ export default function DoorWizardSettings({
                             );
                           }}
                         </Draggable>
-                      )
+                      ),
                   )}
                 {provided.placeholder}
               </ul>

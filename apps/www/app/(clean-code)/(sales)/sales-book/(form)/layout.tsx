@@ -2,11 +2,11 @@ import { CustomerProfileTaxUpdatePrompt } from "@/components/forms/sales-form/cu
 import { SalesFormFeatureSwitch } from "@/components/sales-form-feature-switch";
 
 export default function Layout({ children }) {
-    return (
-        <>
-            <SalesFormFeatureSwitch />
-            <CustomerProfileTaxUpdatePrompt />
-            {children}
-        </>
-    );
+  return (
+    <>
+      <SalesFormFeatureSwitch />
+      <CustomerProfileTaxUpdatePrompt />
+      {children}
+    </>
+  );
 }

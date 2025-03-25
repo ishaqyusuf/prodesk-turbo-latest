@@ -11,27 +11,27 @@ import PageAction from "./_components/page-actions";
 import { getCustomerProfiles } from "./_components/actions";
 
 export const metadata: Metadata = {
-    title: "customer profiles",
+  title: "customer profiles",
 };
 export default async function CustomerProfilesPage({ searchParams }) {
-    const response = getCustomerProfiles(searchParams);
-    return (
-        <AuthGuard can={["editSalesCustomers"]}>
-            <CustomersLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Customers" link={"/customers"} />
-                    <BreadLink isLast title="Customer Profiles" />
-                </Breadcrumbs>
-                <PageHeader
-                    title="Customer Profiles"
-                    // newDialog="customerProfile"
-                    Action={PageAction}
-                />
-                <CustomerProfileTableShell
-                    searchParams={searchParams}
-                    promise={response}
-                />
-            </CustomersLayout>
-        </AuthGuard>
-    );
+  const response = getCustomerProfiles(searchParams);
+  return (
+    <AuthGuard can={["editSalesCustomers"]}>
+      <CustomersLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Customers" link={"/customers"} />
+          <BreadLink isLast title="Customer Profiles" />
+        </Breadcrumbs>
+        <PageHeader
+          title="Customer Profiles"
+          // newDialog="customerProfile"
+          Action={PageAction}
+        />
+        <CustomerProfileTableShell
+          searchParams={searchParams}
+          promise={response}
+        />
+      </CustomersLayout>
+    </AuthGuard>
+  );
 }

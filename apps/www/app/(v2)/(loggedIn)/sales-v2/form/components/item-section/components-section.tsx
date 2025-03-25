@@ -1,13 +1,13 @@
 import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import {
-    useDykeCtx,
-    useDykeForm,
-    useDykeItemCtx,
+  useDykeCtx,
+  useDykeForm,
+  useDykeItemCtx,
 } from "../../_hooks/form-context";
 import { DykeStep } from "../../../type";
 import ShelfItemIndex from "../step-items-list/item-section/shelf-item";
@@ -24,90 +24,88 @@ import { Badge } from "@/components/ui/badge";
 import Money from "@/components/_v1/money";
 
 export interface DykeItemStepSectionProps {
-    stepForm: DykeStep;
-    stepIndex: number;
+  stepForm: DykeStep;
+  stepIndex: number;
 }
 export function DykeInvoiceItemStepSection({
-    stepForm,
-    stepIndex,
+  stepForm,
+  stepIndex,
 }: DykeItemStepSectionProps) {
-    const form = useDykeForm();
-    const item = useDykeItemCtx();
-    const [stepValue, stepCost] = form.watch([
-        `itemArray.${item.rowIndex}.item.formStepArray.${stepIndex}.item.value`,
-        `itemArray.${item.rowIndex}.item.formStepArray.${stepIndex}.item.price`,
-    ] as any);
-    const ctx = useDykeCtx();
-    const stepActionNodeId = `${item.rowIndex}-${stepIndex}`;
+  const form = useDykeForm();
+  const item = useDykeItemCtx();
+  const [stepValue, stepCost] = form.watch([
+    `itemArray.${item.rowIndex}.item.formStepArray.${stepIndex}.item.value`,
+    `itemArray.${item.rowIndex}.item.formStepArray.${stepIndex}.item.price`,
+  ] as any);
+  const ctx = useDykeCtx();
+  const stepActionNodeId = `${item.rowIndex}-${stepIndex}`;
 
-    return (
-        <Collapsible
-            id={stepForm.step.title}
-            data-value={stepForm.item?.value}
-            className={cn(
-                stepForm?.item?.meta?.hidden && "hidden",
-                !item.expanded &&
-                    ![
-                        "Item Type",
-                        "House Package Tool",
-                        "Line Item",
-                        "Shelf Items",
-                    ].includes(stepForm.step?.title as any) &&
-                    "hidden"
+  return (
+    <Collapsible
+      id={stepForm.step.title}
+      data-value={stepForm.item?.value}
+      className={cn(
+        stepForm?.item?.meta?.hidden && "hidden",
+        !item.expanded &&
+          ![
+            "Item Type",
+            "House Package Tool",
+            "Line Item",
+            "Shelf Items",
+          ].includes(stepForm.step?.title as any) &&
+          "hidden",
+      )}
+      open={stepIndex == item.openedStepIndex}
+      // onOpenChange={() => item.openBlock(stepIndex)}
+    >
+      <CollapsibleTrigger asChild>
+        <div className="flex bg-accent">
+          <button
+            className="flex  w-full p-1 px-4 border space-x-2"
+            onClick={(e) => {
+              e.preventDefault();
+              if (stepForm?.item?.meta?.hidden) return;
+              item.toggleStep(stepIndex);
+            }}
+          >
+            <span className="font-semibold">{stepForm?.step?.title}:</span>
+            <span>{stepValue}</span>
+            {stepCost && (
+              <Badge variant="destructive">
+                <Money value={stepCost} />
+              </Badge>
             )}
-            open={stepIndex == item.openedStepIndex}
-            // onOpenChange={() => item.openBlock(stepIndex)}
-        >
-            <CollapsibleTrigger asChild>
-                <div className="flex bg-accent">
-                    <button
-                        className="flex  w-full p-1 px-4 border space-x-2"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            if (stepForm?.item?.meta?.hidden) return;
-                            item.toggleStep(stepIndex);
-                        }}
-                    >
-                        <span className="font-semibold">
-                            {stepForm?.step?.title}:
-                        </span>
-                        <span>{stepValue}</span>
-                        {stepCost && (
-                            <Badge variant="destructive">
-                                <Money value={stepCost} />
-                            </Badge>
-                        )}
-                        <DevOnly>
-                            <span>
-                                {stepForm?.step?.id}-{stepForm?.step.uid}
-                            </span>
-                        </DevOnly>
-                    </button>
-                    <div className="" id={stepActionNodeId}></div>
-                </div>
-            </CollapsibleTrigger>
-            <CollapsibleContent className="p-8 border ">
-                {stepForm?.step?.title == "House Package Tool" ? (
-                    // <HousePackageTool />
-                    <>
-                        <MultiComponentRender Render={HousePackageTool} />
-                    </>
-                ) : stepForm?.step?.title == "Shelf Items" ? (
-                    <>
-                        <ShelfItemIndex />
-                    </>
-                ) : stepForm?.step?.title == "Line Item" ? (
-                    <>
-                        <MultiComponentRender line Render={LineItemSection} />
-                    </>
-                ) : (
-                    <StepProducts
-                        stepActionNodeId={stepActionNodeId}
-                        stepForm={stepForm}
-                        stepIndex={stepIndex}
-                    />
-                )}
-            </CollapsibleContent>
-        </Collapsible>
-    );
+            <DevOnly>
+              <span>
+                {stepForm?.step?.id}-{stepForm?.step.uid}
+              </span>
+            </DevOnly>
+          </button>
+          <div className="" id={stepActionNodeId}></div>
+        </div>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="p-8 border ">
+        {stepForm?.step?.title == "House Package Tool" ? (
+          // <HousePackageTool />
+          <>
+            <MultiComponentRender Render={HousePackageTool} />
+          </>
+        ) : stepForm?.step?.title == "Shelf Items" ? (
+          <>
+            <ShelfItemIndex />
+          </>
+        ) : stepForm?.step?.title == "Line Item" ? (
+          <>
+            <MultiComponentRender line Render={LineItemSection} />
+          </>
+        ) : (
+          <StepProducts
+            stepActionNodeId={stepActionNodeId}
+            stepForm={stepForm}
+            stepIndex={stepIndex}
+          />
+        )}
+      </CollapsibleContent>
+    </Collapsible>
+  );
 }

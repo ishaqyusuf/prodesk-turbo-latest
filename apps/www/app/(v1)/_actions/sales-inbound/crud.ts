@@ -10,4 +10,3 @@ import { nextId } from "@/lib/nextId";
 import dayjs from "dayjs";
 
 export interface InboundOrderQueryParamsProps extends BaseQuery {}
-

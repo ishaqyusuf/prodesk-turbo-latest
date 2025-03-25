@@ -11,27 +11,23 @@ import CommunityInstallCostModal from "@/components/_v1/modals/community-install
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Community Costs",
+  title: "Community Costs",
 };
 export default async function CommunityCostsPage({ searchParams }) {
-    const response = await getProjectsAction(queryParams(searchParams));
-    return (
-        <AuthGuard can={["editProject"]}>
-            <CommunitySettingsLayoutComponent>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Settings" />
-                    <BreadLink title="Community" />
-                    <BreadLink isLast title="Community Cost" />
-                </Breadcrumbs>
-                <PageHeader title="Community Costs" />
+  const response = await getProjectsAction(queryParams(searchParams));
+  return (
+    <AuthGuard can={["editProject"]}>
+      <CommunitySettingsLayoutComponent>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Settings" />
+          <BreadLink title="Community" />
+          <BreadLink isLast title="Community Cost" />
+        </Breadcrumbs>
+        <PageHeader title="Community Costs" />
 
-                <ProjectsTableShell
-                    cost
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <CommunityInstallCostModal />
-            </CommunitySettingsLayoutComponent>
-        </AuthGuard>
-    );
+        <ProjectsTableShell cost searchParams={searchParams} {...response} />
+        <CommunityInstallCostModal />
+      </CommunitySettingsLayoutComponent>
+    </AuthGuard>
+  );
 }

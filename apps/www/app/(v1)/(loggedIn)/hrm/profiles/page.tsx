@@ -12,27 +12,21 @@ import { queryParams } from "@/app/(v1)/_actions/action-utils";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Employee Profiles",
+  title: "Employee Profiles",
 };
 export default async function EmployeeProfilePage({ searchParams }) {
-    const response = await getProfiles(queryParams(searchParams));
-    return (
-        <AuthGuard can={["editEmployee"]}>
-            <HrmLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Hrm" />
-                    <BreadLink isLast title="Employee Profiles" />
-                </Breadcrumbs>
-                <PageHeader
-                    title="Employee Profiles"
-                    newDialog="employeeProfile"
-                />
-                <EmployeeProfileTableShell
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <EmployeeProfileModal />
-            </HrmLayout>
-        </AuthGuard>
-    );
+  const response = await getProfiles(queryParams(searchParams));
+  return (
+    <AuthGuard can={["editEmployee"]}>
+      <HrmLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Hrm" />
+          <BreadLink isLast title="Employee Profiles" />
+        </Breadcrumbs>
+        <PageHeader title="Employee Profiles" newDialog="employeeProfile" />
+        <EmployeeProfileTableShell searchParams={searchParams} {...response} />
+        <EmployeeProfileModal />
+      </HrmLayout>
+    </AuthGuard>
+  );
 }

@@ -7,11 +7,11 @@ import { Command, CommandInput, CommandList } from "@/components/ui/command";
 import { useState } from "react";
 
 export default function CommandInputPage({}) {
-    return (
-        <>
-            <Menu>
-                <SalesStat />
-            </Menu>
-        </>
-    );
+  return (
+    <>
+      <Menu>
+        <SalesStat />
+      </Menu>
+    </>
+  );
 }

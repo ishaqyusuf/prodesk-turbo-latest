@@ -8,64 +8,63 @@ import { ComboboxContent } from "@/components/ui/combobox";
 import useEffectLoader from "@/lib/use-effect-loader";
 import { generateRandomString } from "@/lib/utils";
 import React, {
-    createContext,
-    useContext,
-    useDeferredValue,
-    useEffect,
-    useMemo,
-    useState,
+  createContext,
+  useContext,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useState,
 } from "react";
 import { FieldPath } from "react-hook-form";
 import { useAsyncMemo } from "use-async-memo";
 
 export const ShelfContext = createContext<ReturnType<typeof useShelfContext>>(
-    null as any
+  null as any,
 );
 
 export const useShelf = () => useContext(ShelfContext);
 export function useShelfContext(itemStepUid) {
-    const { data: categories } = useEffectLoader(getShelfCateogriesAction);
-    const [itemUid, stepUid] = itemStepUid?.split("-");
-    const costCls = new CostingClass(
-        new SettingsClass(itemStepUid, itemUid, stepUid)
+  const { data: categories } = useEffectLoader(getShelfCateogriesAction);
+  const [itemUid, stepUid] = itemStepUid?.split("-");
+  const costCls = new CostingClass(
+    new SettingsClass(itemStepUid, itemUid, stepUid),
+  );
+  const zus = useFormDataStore();
+  const shelfItemUids = zus?.kvFormItem?.[itemUid]?.shelfItems?.lineUids || [];
+  const basePath = `kvFormItem.${itemUid}.shelfItems`;
+  function newProductLine(shelfUid, productUids = []) {
+    const puid = generateRandomString();
+    zus.dotUpdate(`${basePath}.lines.${shelfUid}.productUids` as any, [
+      ...productUids,
+      puid,
+    ]);
+    zus.dotUpdate(
+      `${basePath}.lines.${shelfUid}.products.${puid}` as any,
+      {} as any,
     );
-    const zus = useFormDataStore();
-    const shelfItemUids =
-        zus?.kvFormItem?.[itemUid]?.shelfItems?.lineUids || [];
-    const basePath = `kvFormItem.${itemUid}.shelfItems`;
-    function newProductLine(shelfUid, productUids = []) {
-        const puid = generateRandomString();
-        zus.dotUpdate(`${basePath}.lines.${shelfUid}.productUids` as any, [
-            ...productUids,
-            puid,
-        ]);
-        zus.dotUpdate(
-            `${basePath}.lines.${shelfUid}.products.${puid}` as any,
-            {} as any
-        );
-    }
-    function newSection() {
-        const uid = generateRandomString();
-        zus.dotUpdate(`kvFormItem.${itemUid}.shelfItems.lineUids`, [
-            ...shelfItemUids,
-            uid,
-        ]);
-        zus.dotUpdate(
-            `kvFormItem.${itemUid}.shelfItems.lines.${uid}.categoryIds`,
-            []
-        );
+  }
+  function newSection() {
+    const uid = generateRandomString();
+    zus.dotUpdate(`kvFormItem.${itemUid}.shelfItems.lineUids`, [
+      ...shelfItemUids,
+      uid,
+    ]);
+    zus.dotUpdate(
+      `kvFormItem.${itemUid}.shelfItems.lines.${uid}.categoryIds`,
+      [],
+    );
 
-        newProductLine(uid);
-    }
+    newProductLine(uid);
+  }
 
-    return {
-        itemStepUid,
-        newProductLine,
-        newSection,
-        itemUid,
-        stepUid,
-        categories,
-        shelfItemUids,
-        costCls,
-    };
+  return {
+    itemStepUid,
+    newProductLine,
+    newSection,
+    itemUid,
+    stepUid,
+    categories,
+    shelfItemUids,
+    costCls,
+  };
 }

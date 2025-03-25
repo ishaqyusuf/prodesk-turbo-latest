@@ -10,24 +10,24 @@ import { DataTable2 } from "@/components/_v1/data-table/data-table-2";
 type Prom = ServerPromiseType<typeof getBlogsAction>;
 
 interface Props {
-    promise: Prom["Promise"];
+  promise: Prom["Promise"];
 }
 export interface BlogCells {
-    item: Prom["Item"];
+  item: Prom["Item"];
 }
 export default function BlogsTable({ promise }: Props) {
-    const { data, pageCount } = React.use(promise);
-    const table = useDataTableColumn(data, (ctx) => [
-        ctx.Column("Title", TitleCell),
-    ]);
-    return (
-        <div>
-            <DataTable2
-                columns={table.columns}
-                data={data}
-                pageCount={pageCount}
-                searchParams={[{ id: "_q" as any, title: "Blogs" }]}
-            />
-        </div>
-    );
+  const { data, pageCount } = React.use(promise);
+  const table = useDataTableColumn(data, (ctx) => [
+    ctx.Column("Title", TitleCell),
+  ]);
+  return (
+    <div>
+      <DataTable2
+        columns={table.columns}
+        data={data}
+        pageCount={pageCount}
+        searchParams={[{ id: "_q" as any, title: "Blogs" }]}
+      />
+    </div>
+  );
 }

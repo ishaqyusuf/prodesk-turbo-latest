@@ -15,108 +15,108 @@ import { SaleSattBtn } from "../../_components/sale-stat-bootstrap/sale-stat-boo
 import { SalesPageType } from "../(tabbed)/delivery/page";
 
 interface Props {
-    response;
-    type: SalesPageType;
-    createType?: "order" | "quote";
-    evaluation?: boolean;
+  response;
+  type: SalesPageType;
+  createType?: "order" | "quote";
+  evaluation?: boolean;
 }
 
 export default function PageClient({
-    response,
-    type,
-    evaluation,
-    createType,
+  response,
+  type,
+  evaluation,
+  createType,
 }: Props) {
-    const { data, pageCount }: GetSalesAction = use(response);
+  const { data, pageCount }: GetSalesAction = use(response);
 
-    const isMobile = useMediaQuery(screens.xs);
-    function renderWebView(ctx) {
-        // console.log({ type });
+  const isMobile = useMediaQuery(screens.xs);
+  function renderWebView(ctx) {
+    // console.log({ type });
 
-        switch (type) {
-            case "orders":
-                if (evaluation)
-                    return [
-                        ctx.Column("Order #", SalesCells.Order),
-                        ctx.Column("Customer", SalesCells.Customer),
-                        ctx.Column("Address", SalesCells.Address),
-                        // ctx.Column("Rep", SalesCells.SalesRep),
-                        ctx.Column("Invoice", SalesCells.Invoice),
-                        // ctx.Column("Invoice Due", SalesCells.PaymentDueDate),
-                        ctx.Column("Dispatch", SalesCells.Dispatch),
-                        ctx.Column("Status", SalesCells.SalesStatus),
-                        ctx.ActionColumn(SalesCells.EvaluationSalesAction),
-                    ];
-                return [
-                    ctx.Column("Order #", SalesCells.Order),
-                    ctx.Column("Customer", SalesCells.Customer),
-                    ctx.Column("Address", SalesCells.Address),
-                    ctx.Column("Rep", SalesCells.SalesRep),
-                    ctx.Column("Invoice", SalesCells.Invoice),
-                    ctx.Column("Invoice Due", SalesCells.PaymentDueDate),
-                    ctx.Column("Dispatch", SalesCells.Dispatch),
-                    ctx.Column("Status", SalesCells.SalesStatus),
-                    ctx.ActionColumn(SalesCells.SalesAction),
-                ];
-            case "quotes":
-                return [
-                    ctx.Column("Quote #", SalesCells.Order),
-                    ctx.Column("Customer", SalesCells.Customer),
-                    ctx.Column("Address", SalesCells.Address),
-                    ctx.Column("Rep", SalesCells.SalesRep),
-                    ctx.Column("Invoice", SalesCells.Invoice),
-                    ctx.ActionColumn(SalesCells.SalesAction),
-                ];
-            case "delivery":
-                return [
-                    ctx.Column("Sales #", SalesCells.OrderDispatch),
-                    ctx.Column("Shipping Address", SalesCells.Customer),
-                    ctx.Column("Production", SalesCells.ProductionStatus),
-                    ctx.Column("Delivery", SalesCells.DeliveryStatus),
-                    ctx.ActionColumn(SalesCells.DeliveryAction),
-                ];
-            case "pickup":
-                return [
-                    ctx.Column("Sales #", SalesCells.OrderDispatch),
-                    ctx.Column("Customer", SalesCells.Customer),
-                    ctx.Column("Production", SalesCells.ProductionStatus),
-                    ctx.ActionColumn(SalesCells.DeliveryAction),
-                ];
-        }
-        return [];
+    switch (type) {
+      case "orders":
+        if (evaluation)
+          return [
+            ctx.Column("Order #", SalesCells.Order),
+            ctx.Column("Customer", SalesCells.Customer),
+            ctx.Column("Address", SalesCells.Address),
+            // ctx.Column("Rep", SalesCells.SalesRep),
+            ctx.Column("Invoice", SalesCells.Invoice),
+            // ctx.Column("Invoice Due", SalesCells.PaymentDueDate),
+            ctx.Column("Dispatch", SalesCells.Dispatch),
+            ctx.Column("Status", SalesCells.SalesStatus),
+            ctx.ActionColumn(SalesCells.EvaluationSalesAction),
+          ];
+        return [
+          ctx.Column("Order #", SalesCells.Order),
+          ctx.Column("Customer", SalesCells.Customer),
+          ctx.Column("Address", SalesCells.Address),
+          ctx.Column("Rep", SalesCells.SalesRep),
+          ctx.Column("Invoice", SalesCells.Invoice),
+          ctx.Column("Invoice Due", SalesCells.PaymentDueDate),
+          ctx.Column("Dispatch", SalesCells.Dispatch),
+          ctx.Column("Status", SalesCells.SalesStatus),
+          ctx.ActionColumn(SalesCells.SalesAction),
+        ];
+      case "quotes":
+        return [
+          ctx.Column("Quote #", SalesCells.Order),
+          ctx.Column("Customer", SalesCells.Customer),
+          ctx.Column("Address", SalesCells.Address),
+          ctx.Column("Rep", SalesCells.SalesRep),
+          ctx.Column("Invoice", SalesCells.Invoice),
+          ctx.ActionColumn(SalesCells.SalesAction),
+        ];
+      case "delivery":
+        return [
+          ctx.Column("Sales #", SalesCells.OrderDispatch),
+          ctx.Column("Shipping Address", SalesCells.Customer),
+          ctx.Column("Production", SalesCells.ProductionStatus),
+          ctx.Column("Delivery", SalesCells.DeliveryStatus),
+          ctx.ActionColumn(SalesCells.DeliveryAction),
+        ];
+      case "pickup":
+        return [
+          ctx.Column("Sales #", SalesCells.OrderDispatch),
+          ctx.Column("Customer", SalesCells.Customer),
+          ctx.Column("Production", SalesCells.ProductionStatus),
+          ctx.ActionColumn(SalesCells.DeliveryAction),
+        ];
     }
-    const _table = useDataTableColumn2(
-        data as any,
-        {
-            pageCount,
-            cellVariants: {
-                size: "sm",
-            },
-            filterCells: [
-                "_status",
-                "_q",
-                "_payment",
-                "_customerId",
-                "_date",
-                "_salesRepId",
-            ],
-        },
-        (ctx) => renderWebView(ctx)
-    );
-    return (
-        <>
-            <SaleSattBtn />
+    return [];
+  }
+  const _table = useDataTableColumn2(
+    data as any,
+    {
+      pageCount,
+      cellVariants: {
+        size: "sm",
+      },
+      filterCells: [
+        "_status",
+        "_q",
+        "_payment",
+        "_customerId",
+        "_date",
+        "_salesRepId",
+      ],
+    },
+    (ctx) => renderWebView(ctx),
+  );
+  return (
+    <>
+      <SaleSattBtn />
 
-            <section className="content">
-                <DataTable {..._table.props}>
-                    <TableToolbar>
-                        <TableToolbar.Search />
-                        <TableToolbar.Filter
-                            options={salesData.filters.production}
-                            id="_status"
-                            title="Status"
-                        />
-                        {/* <TableToolbar.Filter
+      <section className="content">
+        <DataTable {..._table.props}>
+          <TableToolbar>
+            <TableToolbar.Search />
+            <TableToolbar.Filter
+              options={salesData.filters.production}
+              id="_status"
+              title="Status"
+            />
+            {/* <TableToolbar.Filter
                             options={salesData.filters.invoice}
                             id="_payment"
                             title="Invoice"
@@ -128,33 +128,33 @@ export default function PageClient({
                             labelKey="name"
                             valueKey="id"
                         /> */}
-                        <TableToolbar.Filter
-                            id="_customerId"
-                            title="Customer"
-                            optionFn={getStaticCustomers}
-                            labelKey="name"
-                            valueKey="id"
-                        />
-                        {createType && (
-                            <>
-                                <TableToolbar.ActionBtn
-                                    icon="add"
-                                    label="Old"
-                                    variant="outline"
-                                    href={`/sales/edit/${createType}/new`}
-                                />
-                                <TableToolbar.ActionBtn
-                                    icon="add"
-                                    label="New"
-                                    href={`/sales-v2/form/${createType}`}
-                                />
-                            </>
-                        )}
-                    </TableToolbar>
-                    <DataTable.Table />
-                    <DataTable.Footer />
-                </DataTable>
-            </section>
-        </>
-    );
+            <TableToolbar.Filter
+              id="_customerId"
+              title="Customer"
+              optionFn={getStaticCustomers}
+              labelKey="name"
+              valueKey="id"
+            />
+            {createType && (
+              <>
+                <TableToolbar.ActionBtn
+                  icon="add"
+                  label="Old"
+                  variant="outline"
+                  href={`/sales/edit/${createType}/new`}
+                />
+                <TableToolbar.ActionBtn
+                  icon="add"
+                  label="New"
+                  href={`/sales-v2/form/${createType}`}
+                />
+              </>
+            )}
+          </TableToolbar>
+          <DataTable.Table />
+          <DataTable.Footer />
+        </DataTable>
+      </section>
+    </>
+  );
 }

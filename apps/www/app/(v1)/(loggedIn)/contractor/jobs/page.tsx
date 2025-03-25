@@ -12,25 +12,21 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import JobTableShell from "./job-table-shell";
 
 export const metadata: Metadata = {
-    title: "Jobs",
+  title: "Jobs",
 };
 export default async function ContractorJobsPage({ searchParams }) {
-    const response = await getJobs(queryParams(searchParams));
+  const response = await getJobs(queryParams(searchParams));
 
-    return (
-        <TabbedLayout tabKey="Job">
-            <Breadcrumbs>
-                <BreadLink isFirst title="Hrm" />
-                <BreadLink isLast title="Jobs" />
-            </Breadcrumbs>
-            <PageHeader title="Jobs" Action={SubmitJobBtn} />
-            <AuthGuard can={["viewJobPayment"]}>
-                <JobTableShell
-                    adminMode
-                    searchParams={searchParams}
-                    {...response}
-                />
-            </AuthGuard>
-        </TabbedLayout>
-    );
+  return (
+    <TabbedLayout tabKey="Job">
+      <Breadcrumbs>
+        <BreadLink isFirst title="Hrm" />
+        <BreadLink isLast title="Jobs" />
+      </Breadcrumbs>
+      <PageHeader title="Jobs" Action={SubmitJobBtn} />
+      <AuthGuard can={["viewJobPayment"]}>
+        <JobTableShell adminMode searchParams={searchParams} {...response} />
+      </AuthGuard>
+    </TabbedLayout>
+  );
 }

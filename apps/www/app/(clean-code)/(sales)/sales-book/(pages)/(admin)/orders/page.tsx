@@ -15,29 +15,29 @@ import { prisma } from "@/db";
 import TablePage from "@/components/tables/table-page";
 
 export async function generateMetadata({}) {
-    return constructMetadata({
-        title: `Sales List - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `Sales List - gndprodesk.com`,
+  });
 }
 export default async function SalesBookPage({ searchParams }) {
-    // // const del = await prisma.salesStat.deleteMany({});
-    // // console.log(del);
+  // // const del = await prisma.salesStat.deleteMany({});
+  // // console.log(del);
 
-    // const search = searchParamsCache.parse(searchParams);
-    // const queryClient = getQueryClient();
-    // const props = composeFilter("orders", await getSalesPageQueryDataDta());
-    // const { queryKey, filterFields } = props;
-    // await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
-    return (
-        <FPage can={["viewOrders"]} title="Orders">
-            <Portal nodeId={"navRightSlot"}>
-                <NewFeatureBtn href="/sales/orders">Old Site</NewFeatureBtn>
-            </Portal>
-            <TablePage
-                PageClient={OrdersPageClient}
-                searchParams={searchParams}
-                filterKey="orders"
-            />
-        </FPage>
-    );
+  // const search = searchParamsCache.parse(searchParams);
+  // const queryClient = getQueryClient();
+  // const props = composeFilter("orders", await getSalesPageQueryDataDta());
+  // const { queryKey, filterFields } = props;
+  // await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
+  return (
+    <FPage can={["viewOrders"]} title="Orders">
+      <Portal nodeId={"navRightSlot"}>
+        <NewFeatureBtn href="/sales/orders">Old Site</NewFeatureBtn>
+      </Portal>
+      <TablePage
+        PageClient={OrdersPageClient}
+        searchParams={searchParams}
+        filterKey="orders"
+      />
+    </FPage>
+  );
 }

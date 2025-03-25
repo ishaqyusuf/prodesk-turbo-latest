@@ -11,28 +11,25 @@ import CustomerServiceModal from "@/components/_v1/modals/customer-service-modal
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Customer Services",
+  title: "Customer Services",
 };
 interface Props {}
 export default async function OrdersPage({ searchParams }) {
-    const response = await getCustomerServices(queryParams(searchParams));
+  const response = await getCustomerServices(queryParams(searchParams));
 
-    return (
-        <AuthGuard can={["viewCustomerService"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Customer Services" />
-                </Breadcrumbs>
-                <PageHeader
-                    title="Customer Services"
-                    newDialog="customerServices"
-                />
-                <CustomerServiceTableShell<IProject>
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <CustomerServiceModal />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewCustomerService"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Customer Services" />
+        </Breadcrumbs>
+        <PageHeader title="Customer Services" newDialog="customerServices" />
+        <CustomerServiceTableShell<IProject>
+          searchParams={searchParams}
+          {...response}
+        />
+        <CustomerServiceModal />
+      </div>
+    </AuthGuard>
+  );
 }

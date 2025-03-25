@@ -23,56 +23,56 @@ import UserAccountUpdateRequiredModal from "@/components/modals/user-account-upd
 import { trashSoftDeletesAction } from "@/actions/trash-soft-deletes";
 
 export async function generateMetadata({}) {
-    return constructMetadata({
-        title: `GND Millwork - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `GND Millwork - gndprodesk.com`,
+  });
 }
 // const inter = Inter({ subsets: ["latin"] });
 export default async function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    const prodDB = env.DATABASE_URL?.includes("pscale");
-    // trashSoftDeletesAction();
-    return (
-        <html lang="en">
-            {/* <Suspense> */}
-            <ReactQueryProvider>
-                <SpeedInsights />
-                <body>
-                    <Toaster />
-                    <div className="print:hidden">
-                        <AppProvider>
-                            <Suspense>
-                                <QueryTabProvider>
-                                    {children}
-                                    <UserAccountUpdateRequiredModal />
-                                    <PageAnalytics />
-                                </QueryTabProvider>
-                            </Suspense>
-                        </AppProvider>
-                        <div
-                            className={cn(
-                                __isProd
-                                    ? "fixed z-[9999] bottom-0 left-0 opacity-0 w-5 h-5 overflow-hidden"
-                                    : "fixed bottom-0 right-0 mb-2"
-                            )}
-                        >
-                            <Upgrader />
-                        </div>
+  const prodDB = env.DATABASE_URL?.includes("pscale");
+  // trashSoftDeletesAction();
+  return (
+    <html lang="en">
+      {/* <Suspense> */}
+      <ReactQueryProvider>
+        <SpeedInsights />
+        <body>
+          <Toaster />
+          <div className="print:hidden">
+            <AppProvider>
+              <Suspense>
+                <QueryTabProvider>
+                  {children}
+                  <UserAccountUpdateRequiredModal />
+                  <PageAnalytics />
+                </QueryTabProvider>
+              </Suspense>
+            </AppProvider>
+            <div
+              className={cn(
+                __isProd
+                  ? "fixed z-[9999] bottom-0 left-0 opacity-0 w-5 h-5 overflow-hidden"
+                  : "fixed bottom-0 right-0 mb-2",
+              )}
+            >
+              <Upgrader />
+            </div>
 
-                        <Analytics />
-                        <TailwindIndicator />
-                        {prodDB && !__isProd && (
-                            <div className="fixed bg-red-500 text-sm left-0 flex justify-center right-0  text-white top-0 z-[999]">
-                                Production Database
-                            </div>
-                        )}
-                    </div>
-                </body>
-            </ReactQueryProvider>
-            {/* </Suspense> */}
-        </html>
-    );
+            <Analytics />
+            <TailwindIndicator />
+            {prodDB && !__isProd && (
+              <div className="fixed bg-red-500 text-sm left-0 flex justify-center right-0  text-white top-0 z-[999]">
+                Production Database
+              </div>
+            )}
+          </div>
+        </body>
+      </ReactQueryProvider>
+      {/* </Suspense> */}
+    </html>
+  );
 }

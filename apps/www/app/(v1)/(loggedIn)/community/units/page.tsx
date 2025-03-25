@@ -13,38 +13,34 @@ import HomesTableShell from "./homes-table-shell";
 import AddBtn from "./add-button";
 
 export const metadata: Metadata = {
-    title: "All Units",
+  title: "All Units",
 };
 interface Props {}
 export default async function CommunityUnitsPage({ searchParams, params }) {
-    const response = await getHomesAction(
-        queryParams({ ...searchParams, _projectSlug: params.slug })
-    );
-    await _addLotBlocks();
-    // console.log(response.data[0]?.search);
-    // metadata.title = `${project.title} | Homes`;
+  const response = await getHomesAction(
+    queryParams({ ...searchParams, _projectSlug: params.slug }),
+  );
+  await _addLotBlocks();
+  // console.log(response.data[0]?.search);
+  // metadata.title = `${project.title} | Homes`;
 
-    return (
-        <AuthGuard can={["viewProject"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Community" />
-                    <BreadLink link="/community/projects" title="Projects" />
-                    <BreadLink
-                        link="/community/units"
-                        title="All Units"
-                        isLast
-                    />
-                </Breadcrumbs>
-                <PageHeader title={"Units"} subtitle={``} Action={AddBtn} />
-                <HomesTableShell<ExtendedHome>
-                    projectView={false}
-                    data={response.data as any}
-                    searchParams={searchParams}
-                    pageInfo={response.pageInfo}
-                />
-                <ActivateProductionModal />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewProject"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Community" />
+          <BreadLink link="/community/projects" title="Projects" />
+          <BreadLink link="/community/units" title="All Units" isLast />
+        </Breadcrumbs>
+        <PageHeader title={"Units"} subtitle={``} Action={AddBtn} />
+        <HomesTableShell<ExtendedHome>
+          projectView={false}
+          data={response.data as any}
+          searchParams={searchParams}
+          pageInfo={response.pageInfo}
+        />
+        <ActivateProductionModal />
+      </div>
+    </AuthGuard>
+  );
 }

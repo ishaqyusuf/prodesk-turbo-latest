@@ -11,27 +11,27 @@ import PageAction from "../_components/page-action";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Delivery",
+  title: "Delivery",
 };
 
 export default async function DeliveryPage({ searchParams, params }) {
-    const type = params.type as DeliveryOption;
-    const promise = getDispatchSales({
-        ...searchParams,
-        type,
-    });
-    return (
-        <AuthGuard can={["editDelivery"]}>
-            <PageShell>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink link="/sales/orders" title="Orders" />
-                    <BreadLink isLast title={type} />
-                </Breadcrumbs>
-                <SalesTab />
-                <PageHeader Action={PageAction} title={type} />
-                <DispatchTableShell promise={promise} type={type} />
-            </PageShell>
-        </AuthGuard>
-    );
+  const type = params.type as DeliveryOption;
+  const promise = getDispatchSales({
+    ...searchParams,
+    type,
+  });
+  return (
+    <AuthGuard can={["editDelivery"]}>
+      <PageShell>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink link="/sales/orders" title="Orders" />
+          <BreadLink isLast title={type} />
+        </Breadcrumbs>
+        <SalesTab />
+        <PageHeader Action={PageAction} title={type} />
+        <DispatchTableShell promise={promise} type={type} />
+      </PageShell>
+    </AuthGuard>
+  );
 }

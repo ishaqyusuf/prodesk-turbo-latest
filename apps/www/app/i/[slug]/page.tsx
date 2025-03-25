@@ -8,49 +8,49 @@ import QueryString from "qs";
 import { useEffect, useRef } from "react";
 
 export default function Page({}) {
-    const searchParams = useSearchParams();
-    const params = useParams();
+  const searchParams = useSearchParams();
+  const params = useParams();
 
-    const hasRun = useRef(false);
+  const hasRun = useRef(false);
 
-    useEffect(() => {
-        if (hasRun.current) return; // prevent second run
-        hasRun.current = true; // mark as run
+  useEffect(() => {
+    if (hasRun.current) return; // prevent second run
+    hasRun.current = true; // mark as run
 
-        async function download() {
-            // const pdf = await salesPdf(query);
-            const query = {
-                slugs: params.slug,
-                mode: searchParams.get("mode"),
-                preview: false,
-                ...(params || {}),
-            } as SalesPrintProps["searchParams"];
+    async function download() {
+      // const pdf = await salesPdf(query);
+      const query = {
+        slugs: params.slug,
+        mode: searchParams.get("mode"),
+        preview: false,
+        ...(params || {}),
+      } as SalesPrintProps["searchParams"];
 
-            const pdf = await fetch(
-                `${
-                    env.NEXT_PUBLIC_NODE_ENV == "production"
-                        ? ""
-                        : "https://gnd-prodesk.vercel.app"
-                }/api/pdf/sales?${QueryString.stringify(query)}`
-            ).then((res) => res.json());
-            console.log(pdf);
-            const link = document.createElement("a");
-            // link.href = pdf.url;
-            const downloadUrl = pdf.url.replace(
-                "/fl_attachment/",
-                `/fl_attachment:${query.slugs}/`
-            ); //+ `/${query.slugs}.pdf`;
+      const pdf = await fetch(
+        `${
+          env.NEXT_PUBLIC_NODE_ENV == "production"
+            ? ""
+            : "https://gnd-prodesk.vercel.app"
+        }/api/pdf/sales?${QueryString.stringify(query)}`,
+      ).then((res) => res.json());
+      console.log(pdf);
+      const link = document.createElement("a");
+      // link.href = pdf.url;
+      const downloadUrl = pdf.url.replace(
+        "/fl_attachment/",
+        `/fl_attachment:${query.slugs}/`,
+      ); //+ `/${query.slugs}.pdf`;
 
-            link.href = downloadUrl;
-            link.download = `${query.slugs}.pdf`;
-            link.click();
-            setTimeout(() => {
-                window.close();
-            }, 1000);
-        }
+      link.href = downloadUrl;
+      link.download = `${query.slugs}.pdf`;
+      link.click();
+      setTimeout(() => {
+        window.close();
+      }, 1000);
+    }
 
-        download();
-    }, []); // empty dependency array
+    download();
+  }, []); // empty dependency array
 
-    return null;
+  return null;
 }

@@ -5,11 +5,11 @@ import { getSales, SalesQueryParams } from "@/data-access/sales";
 import { ISalesType } from "@/types/sales";
 
 export async function getDealerSales(
-    query: SalesQueryParams,
-    type: ISalesType = "order"
+  query: SalesQueryParams,
+  type: ISalesType = "order",
 ) {
-    const dealerId = await userId();
-    query.dealerId = dealerId;
-    query.type = type;
-    return await getSales(query);
+  const dealerId = await userId();
+  query.dealerId = dealerId;
+  query.type = type;
+  return await getSales(query);
 }

@@ -11,18 +11,18 @@ import JanSalesStat from "./january-sales-stats";
 import FixCustomerTaxProfile from "./fix-customer-tax-profiles";
 
 export default function BackwardCompat({}) {
-    return (
-        <DevOnly>
-            <Portal nodeId={"navRightSlot"}>
-                <Menu Icon={Icons.X}>
-                    <SalesStat />
-                    <HtpDoors />
-                    <DoorPriceHarvest />
-                    <Customers />
-                    <JanSalesStat />
-                    <FixCustomerTaxProfile />
-                </Menu>
-            </Portal>
-        </DevOnly>
-    );
+  return (
+    <DevOnly>
+      <Portal nodeId={"navRightSlot"}>
+        <Menu Icon={Icons.X}>
+          <SalesStat />
+          <HtpDoors />
+          <DoorPriceHarvest />
+          <Customers />
+          <JanSalesStat />
+          <FixCustomerTaxProfile />
+        </Menu>
+      </Portal>
+    </DevOnly>
+  );
 }

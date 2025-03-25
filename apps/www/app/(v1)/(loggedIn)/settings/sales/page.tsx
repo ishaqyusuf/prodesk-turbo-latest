@@ -6,22 +6,22 @@ import SalesSettings from "./SalesSettings";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata = {
-    title: "Sales Settings",
-    description: "",
+  title: "Sales Settings",
+  description: "",
 };
 export default async function SalesSettingsPage({ searchParams }) {
-    const resp = await getSettingAction<ISalesSetting>("sales-settings");
+  const resp = await getSettingAction<ISalesSetting>("sales-settings");
 
-    if (!resp) return null;
-    return (
-        <AuthGuard can={["editOrders"]}>
-            <div>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Settings" />
-                    <BreadLink isLast title="Sales" />
-                </Breadcrumbs>
-                <SalesSettings data={resp} />
-            </div>
-        </AuthGuard>
-    );
+  if (!resp) return null;
+  return (
+    <AuthGuard can={["editOrders"]}>
+      <div>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Settings" />
+          <BreadLink isLast title="Sales" />
+        </Breadcrumbs>
+        <SalesSettings data={resp} />
+      </div>
+    </AuthGuard>
+  );
 }

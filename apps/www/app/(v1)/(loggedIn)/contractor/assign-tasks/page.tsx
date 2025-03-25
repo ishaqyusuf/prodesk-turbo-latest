@@ -10,33 +10,33 @@ import CommunityTaskTableShell from "@/components/_v1/shells/community-tasks-tab
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Assign Tasks",
+  title: "Assign Tasks",
 };
 
 export default async function AssignTasksPage({ searchParams }) {
-    const response = await _getCommunityJobTasks(
-        queryParams({
-            ...searchParams,
-        })
-    );
+  const response = await _getCommunityJobTasks(
+    queryParams({
+      ...searchParams,
+    }),
+  );
 
-    return (
-        <AuthGuard can={["viewAssignTasks"]}>
-            <div className="space-y-4 px-8">
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Contractor" />
-                    {/* <BreadLink link="/contractor/" title="Projects" /> */}
-                    <BreadLink title="Assign Tasks" isLast />
-                </Breadcrumbs>
-                <PageHeader title={"Assign Task"} subtitle={``} />
-                <CommunityTaskTableShell
-                    searchParams={searchParams}
-                    data={response.data as any}
-                    pageInfo={response.pageInfo}
-                />
-                <AssignTaskModal />
-                <VerifyTaskJobsBeforeAssign />
-            </div>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["viewAssignTasks"]}>
+      <div className="space-y-4 px-8">
+        <Breadcrumbs>
+          <BreadLink isFirst title="Contractor" />
+          {/* <BreadLink link="/contractor/" title="Projects" /> */}
+          <BreadLink title="Assign Tasks" isLast />
+        </Breadcrumbs>
+        <PageHeader title={"Assign Task"} subtitle={``} />
+        <CommunityTaskTableShell
+          searchParams={searchParams}
+          data={response.data as any}
+          pageInfo={response.pageInfo}
+        />
+        <AssignTaskModal />
+        <VerifyTaskJobsBeforeAssign />
+      </div>
+    </AuthGuard>
+  );
 }

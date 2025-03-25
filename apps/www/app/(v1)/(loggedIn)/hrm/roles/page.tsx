@@ -14,19 +14,19 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import RolesTableShell from "./roles-table-shell";
 
 export const metadata: Metadata = {
-    title: "Roles",
+  title: "Roles",
 };
 export default async function EmployeeRolesPage({ searchParams }) {
-    const response = await _getRoles(queryParams(searchParams));
-    return (
-        <AuthGuard can={["viewRole"]}>
-            <HrmLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Hrm" />
-                    <BreadLink isLast title="Roles" />
-                </Breadcrumbs>
-                <RolesTableShell searchParams={searchParams} {...response} />
-            </HrmLayout>
-        </AuthGuard>
-    );
+  const response = await _getRoles(queryParams(searchParams));
+  return (
+    <AuthGuard can={["viewRole"]}>
+      <HrmLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Hrm" />
+          <BreadLink isLast title="Roles" />
+        </Breadcrumbs>
+        <RolesTableShell searchParams={searchParams} {...response} />
+      </HrmLayout>
+    </AuthGuard>
+  );
 }

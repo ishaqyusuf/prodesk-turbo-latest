@@ -20,13 +20,13 @@ export async function dateUpdate() {
   Object.entries(data).map(([k, ids]: any) => {
     if (ids.length == 1)
       sql.push(
-        `UPDATE WorkOrders SET scheduleDate = '${k}' WHERE id =${ids[0]};`
+        `UPDATE WorkOrders SET scheduleDate = '${k}' WHERE id =${ids[0]};`,
       );
     else
       sql.push(
         `UPDATE WorkOrders SET scheduleDate = '${k}' WHERE id IN (${ids.join(
-          ","
-        )});`
+          ",",
+        )});`,
       );
   });
   return sql.join("\n");
@@ -64,6 +64,6 @@ export async function upgradeWorkOrder() {
         where: { id: a.id },
         data: update,
       });
-    })
+    }),
   );
 }

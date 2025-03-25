@@ -6,27 +6,27 @@ import Modal from "@/components/common/modal";
 import { useForm } from "react-hook-form";
 
 export function QueryTabAction({}) {
-    const t = useQueryTabStore();
-    if (t?.pageInfo?.links?.length < 2) return null;
-    return (
-        <Button
-            onClick={() => {
-                _modal.openModal(<QueryTabModal />);
-            }}
-            variant="outline"
-        >
-            <Icons.settings className="mr-2 size-4" />
-            <span>Tab</span>
-        </Button>
-    );
+  const t = useQueryTabStore();
+  if (t?.pageInfo?.links?.length < 2) return null;
+  return (
+    <Button
+      onClick={() => {
+        _modal.openModal(<QueryTabModal />);
+      }}
+      variant="outline"
+    >
+      <Icons.settings className="mr-2 size-4" />
+      <span>Tab</span>
+    </Button>
+  );
 }
 function QueryTabModal({}) {
-    const store = useQueryTabStore();
-    const form = useForm({
-        defaultValues: {
-            tabs: store.pageInfo?.links,
-        },
-    });
+  const store = useQueryTabStore();
+  const form = useForm({
+    defaultValues: {
+      tabs: store.pageInfo?.links,
+    },
+  });
 
-    return <Modal.Content></Modal.Content>;
+  return <Modal.Content></Modal.Content>;
 }

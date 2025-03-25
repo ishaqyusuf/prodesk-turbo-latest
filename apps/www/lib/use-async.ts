@@ -1,5 +1,5 @@
 export async function _useAsync<T>(
-  promise: any
+  promise: any,
 ): Promise<[T, undefined | any]> {
   try {
     const data = await promise;

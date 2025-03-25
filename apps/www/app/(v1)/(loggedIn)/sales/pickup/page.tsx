@@ -11,25 +11,25 @@ import { _getSalesPickup } from "@/app/(v1)/(loggedIn)/sales/_actions/_sales-pic
 import UpgradeBtn from "./components/upgrade-btn";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 export const metadata: Metadata = {
-    title: "Order Pickup",
+  title: "Order Pickup",
 };
 interface Props {}
 export default async function SalesPickupPage({ searchParams }) {
-    const response = await _getSalesPickup(queryParams(searchParams));
-    return (
-        <AuthGuard can={["viewPickup"]}>
-            <SalesTabLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Pickup" />
-                </Breadcrumbs>
-                <PageHeader title="Sales Pickup" />
-                {/* <UpgradeBtn /> */}
-                <PickupTableShell<ISalesOrder>
-                    searchParams={searchParams}
-                    {...response}
-                />
-            </SalesTabLayout>
-        </AuthGuard>
-    );
+  const response = await _getSalesPickup(queryParams(searchParams));
+  return (
+    <AuthGuard can={["viewPickup"]}>
+      <SalesTabLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Pickup" />
+        </Breadcrumbs>
+        <PageHeader title="Sales Pickup" />
+        {/* <UpgradeBtn /> */}
+        <PickupTableShell<ISalesOrder>
+          searchParams={searchParams}
+          {...response}
+        />
+      </SalesTabLayout>
+    </AuthGuard>
+  );
 }

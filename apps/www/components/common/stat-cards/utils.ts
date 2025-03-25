@@ -1,7 +1,7 @@
 export interface StatCardProps {
-    label?;
-    value?;
+  label?;
+  value?;
 }
 export function createStatCard(cards: StatCardProps[]) {
-    return cards;
+  return cards;
 }

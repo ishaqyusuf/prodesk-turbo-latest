@@ -6,17 +6,17 @@ import StatusBadge from "../status-badge";
 import { Badge } from "../../ui/badge";
 
 export default function JobType({ job }: { job: IJobs }) {
-    const [type, setType] = useState(
-        {
-            installation: "install",
-            punchout: "punchout",
-            "Deco-Shutter": "deco",
-        }[job.type]
-    );
+  const [type, setType] = useState(
+    {
+      installation: "install",
+      punchout: "punchout",
+      "Deco-Shutter": "deco",
+    }[job.type],
+  );
 
-    return (
-        <Badge className="px-1 leading-none" variant={"outline"}>
-            {type}
-        </Badge>
-    );
+  return (
+    <Badge className="px-1 leading-none" variant={"outline"}>
+      {type}
+    </Badge>
+  );
 }

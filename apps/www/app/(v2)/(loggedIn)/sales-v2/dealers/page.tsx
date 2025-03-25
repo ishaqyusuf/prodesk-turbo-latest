@@ -4,12 +4,12 @@ import { getDealersAction } from "./action";
 import PageTabsServer from "./page-tabs-server";
 
 export default async function DealersPage({ searchParams }) {
-    const resp = getDealersAction(searchParams);
+  const resp = getDealersAction(searchParams);
 
-    return (
-        <FPage title="Dealers">
-            <PageTabsServer />
-            <PageClient response={resp} />
-        </FPage>
-    );
+  return (
+    <FPage title="Dealers">
+      <PageTabsServer />
+      <PageClient response={resp} />
+    </FPage>
+  );
 }

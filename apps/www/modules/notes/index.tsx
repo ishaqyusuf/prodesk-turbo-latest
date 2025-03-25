@@ -23,37 +23,37 @@ import { NoteForm } from "./note-form";
 import { NoteLine } from "./note-line";
 
 export interface NoteProps {
-    tagFilters: TagFilters[];
-    subject: string;
-    headline?: string;
-    typeFilters?: NoteTagTypes[];
-    statusFilters?: NoteTagStatus[];
-    admin?: boolean;
+  tagFilters: TagFilters[];
+  subject: string;
+  headline?: string;
+  typeFilters?: NoteTagTypes[];
+  statusFilters?: NoteTagStatus[];
+  admin?: boolean;
 }
 export default function Note(props: NoteProps) {
-    const ctx = useNoteContext(props);
-    const { notes } = ctx;
+  const ctx = useNoteContext(props);
+  const { notes } = ctx;
 
-    return (
-        <NoteProvider value={ctx}>
-            <div className="">
-                {!notes?.length ? (
-                    <div className="py-2 flex justify-center items-center gap-4">
-                        {/* <div>No Note</div> */}
-                        <NoteForm />
-                    </div>
-                ) : (
-                    <>
-                        <div className="py-2 flex justify-end items-center gap-4">
-                            {/* <div>No Note</div> */}
-                            <NoteForm />
-                        </div>
-                        {notes?.map((note) => (
-                            <NoteLine key={note.id} note={note} />
-                        ))}
-                    </>
-                )}
+  return (
+    <NoteProvider value={ctx}>
+      <div className="">
+        {!notes?.length ? (
+          <div className="py-2 flex justify-center items-center gap-4">
+            {/* <div>No Note</div> */}
+            <NoteForm />
+          </div>
+        ) : (
+          <>
+            <div className="py-2 flex justify-end items-center gap-4">
+              {/* <div>No Note</div> */}
+              <NoteForm />
             </div>
-        </NoteProvider>
-    );
+            {notes?.map((note) => (
+              <NoteLine key={note.id} note={note} />
+            ))}
+          </>
+        )}
+      </div>
+    </NoteProvider>
+  );
 }

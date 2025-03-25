@@ -4,13 +4,13 @@ import BlogsTable from "./blogs-table";
 import { getBlogsAction } from "./_actions/get-blogs-action";
 
 export default function BlogsPage({ searchParams }) {
-    const promise = getBlogsAction(searchParams);
+  const promise = getBlogsAction(searchParams);
 
-    return (
-        <div>
-            <Shell className="">
-                <BlogsTable promise={promise} />
-            </Shell>
-        </div>
-    );
+  return (
+    <div>
+      <Shell className="">
+        <BlogsTable promise={promise} />
+      </Shell>
+    </div>
+  );
 }

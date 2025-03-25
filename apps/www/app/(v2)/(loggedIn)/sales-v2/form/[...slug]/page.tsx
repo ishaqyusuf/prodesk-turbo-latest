@@ -10,40 +10,38 @@ import MigrateStepDuplicateUid from "./_debug/migrate-steps-duplicate-uid";
 import { groupBy } from "lodash";
 
 export async function generateMetadata({ params, searchParams }) {
-    const [type, slug] = params.slug;
-    const title = `${slug ? "Edit " : "New "} ${type} ${
-        slug ? `| ${slug}` : ""
-    }`;
-    return {
-        title,
-    };
+  const [type, slug] = params.slug;
+  const title = `${slug ? "Edit " : "New "} ${type} ${slug ? `| ${slug}` : ""}`;
+  return {
+    title,
+  };
 }
 export default async function SalesForm({ params, searchParams }) {
-    const [type, slug] = params.slug;
-    let copy = searchParams.copy;
+  const [type, slug] = params.slug;
+  let copy = searchParams.copy;
 
-    const form = searchParams.errorId
-        ? await getErrorData(searchParams.errorId)
-        : copy
-        ? await copyDykeSales(copy, type)
-        : await getDykeFormAction(type, slug, searchParams);
-    if (!form) throw Error("Errorr...");
-    return (
-        <AuthGuard can={["editOrders"]}>
-            <div className="sm:px-8 px-4">
-                <Breadcrumbs>
-                    <BreadLink title={"Sales"} isFirst link={"/sales/orders"} />
-                    {slug && (
-                        <BreadLink
-                            title={slug}
-                            link={`/sales-v2/overview/${type}/${slug}`}
-                        />
-                    )}
-                    <BreadLink title={slug ? "Edit" : "New"} isLast />
-                    {/* <BreadLink title={orderId ? "Edit" : "New"} isLast /> */}
-                </Breadcrumbs>
-                <SalesFormComponent defaultValues={form} />
-            </div>
-        </AuthGuard>
-    );
+  const form = searchParams.errorId
+    ? await getErrorData(searchParams.errorId)
+    : copy
+      ? await copyDykeSales(copy, type)
+      : await getDykeFormAction(type, slug, searchParams);
+  if (!form) throw Error("Errorr...");
+  return (
+    <AuthGuard can={["editOrders"]}>
+      <div className="sm:px-8 px-4">
+        <Breadcrumbs>
+          <BreadLink title={"Sales"} isFirst link={"/sales/orders"} />
+          {slug && (
+            <BreadLink
+              title={slug}
+              link={`/sales-v2/overview/${type}/${slug}`}
+            />
+          )}
+          <BreadLink title={slug ? "Edit" : "New"} isLast />
+          {/* <BreadLink title={orderId ? "Edit" : "New"} isLast /> */}
+        </Breadcrumbs>
+        <SalesFormComponent defaultValues={form} />
+      </div>
+    </AuthGuard>
+  );
 }

@@ -6,20 +6,20 @@ import { composeSalesItems } from "../../(loggedIn)/sales-v2/_utils/compose-sale
 import { composePrint } from "./compose-print";
 
 export async function getSalesPrintData(
-    slug,
-    query: SalesPrintProps["searchParams"]
+  slug,
+  query: SalesPrintProps["searchParams"],
 ) {
-    const resp = {};
+  const resp = {};
 
-    const order = await viewSale(null, slug, query.deletedAt);
+  const order = await viewSale(null, slug, query.deletedAt);
 
-    const salesitems = composeSalesItems(order);
+  const salesitems = composeSalesItems(order);
 
-    return composePrint(
-        {
-            order,
-            ...salesitems,
-        },
-        query
-    );
+  return composePrint(
+    {
+      order,
+      ...salesitems,
+    },
+    query,
+  );
 }

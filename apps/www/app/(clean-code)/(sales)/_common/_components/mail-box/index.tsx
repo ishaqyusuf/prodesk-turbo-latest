@@ -6,26 +6,26 @@ import MailboxHeader from "./header";
 import MailboxInbox from "./inbox";
 
 interface Props {
-    type: MailData["type"];
-    id: Number;
+  type: MailData["type"];
+  id: Number;
 }
 
 export default function MailBox(props: Props) {
-    const ctx = useMailboxContext(props.id, props.type);
-    return (
-        <MailboxProvider value={ctx}>
-            <div className="">
-                {ctx?.id ? (
-                    <>
-                        <MailboxHeader />
-                        <MailboxInbox />
-                        <EmailForm />
-                        <MailboxFooter />
-                    </>
-                ) : (
-                    <div className=""></div>
-                )}
-            </div>
-        </MailboxProvider>
-    );
+  const ctx = useMailboxContext(props.id, props.type);
+  return (
+    <MailboxProvider value={ctx}>
+      <div className="">
+        {ctx?.id ? (
+          <>
+            <MailboxHeader />
+            <MailboxInbox />
+            <EmailForm />
+            <MailboxFooter />
+          </>
+        ) : (
+          <div className=""></div>
+        )}
+      </div>
+    </MailboxProvider>
+  );
 }

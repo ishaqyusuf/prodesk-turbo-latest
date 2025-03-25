@@ -7,9 +7,9 @@ import BaseModal from "@/components/_v1/modals/base-modal";
 // const;
 // export function openDeliveryModeModal() {}
 export function DeliveryModeModal({}) {
-    return (
-        <>
-            <span></span>
-        </>
-    );
+  return (
+    <>
+      <span></span>
+    </>
+  );
 }

@@ -12,29 +12,26 @@ import EmployeeModal from "@/components/_v1/modals/employee-modal";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Documents",
+  title: "Documents",
 };
 export default async function DocumentsPage({ searchParams }) {
-    const response = await getEmployees(
-        queryParams(searchParams, {
-            role: "1099 Contractor",
-        })
-    );
+  const response = await getEmployees(
+    queryParams(searchParams, {
+      role: "1099 Contractor",
+    }),
+  );
 
-    return (
-        <HrmLayout>
-            <AuthGuard can={["editEmployee"]}>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Community" />
-                    <BreadLink isLast title="Employees" />
-                </Breadcrumbs>
-                <PageHeader title="Employees" newDialog="employee" />
-                <EmployeesTableShell
-                    searchParams={searchParams}
-                    {...response}
-                />
-                <EmployeeModal />
-            </AuthGuard>
-        </HrmLayout>
-    );
+  return (
+    <HrmLayout>
+      <AuthGuard can={["editEmployee"]}>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Community" />
+          <BreadLink isLast title="Employees" />
+        </Breadcrumbs>
+        <PageHeader title="Employees" newDialog="employee" />
+        <EmployeesTableShell searchParams={searchParams} {...response} />
+        <EmployeeModal />
+      </AuthGuard>
+    </HrmLayout>
+  );
 }

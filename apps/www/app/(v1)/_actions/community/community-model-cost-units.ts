@@ -3,24 +3,24 @@
 import { prisma } from "@/db";
 
 export async function _getCommunityModelCostUnits({ pivotId, communityId }) {
-    const community = await prisma.communityModels.findUnique({
-        where: {
-            id: communityId
-        },
+  const community = await prisma.communityModels.findUnique({
+    where: {
+      id: communityId,
+    },
+    include: {
+      homes: {
         include: {
-            homes: {
-                include: {
-                    tasks: {
-                        where: {
-                            taskUid: {
-                                not: null
-                            }
-                        }
-                    }
-                }
+          tasks: {
+            where: {
+              taskUid: {
+                not: null,
+              },
             },
-            project: true
-        }
-    });
-    return community as any;
+          },
+        },
+      },
+      project: true,
+    },
+  });
+  return community as any;
 }

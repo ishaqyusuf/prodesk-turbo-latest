@@ -51,7 +51,7 @@ export function OrderPrintFooter({ order }: Props) {
             title: "Total",
             value: `${formatCurrency.format(order?.grandTotal || 0)}`,
           },
-        ].filter(Boolean)
+        ].filter(Boolean),
       );
     }
   }, [po?.isClient, order]);

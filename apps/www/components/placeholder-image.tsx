@@ -6,39 +6,39 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Icons } from "@/components/_v1/icons";
 
 interface PlaceholderImageProps
-    extends React.ComponentPropsWithoutRef<typeof AspectRatio> {
-    isSkeleton?: boolean;
-    asChild?: boolean;
+  extends React.ComponentPropsWithoutRef<typeof AspectRatio> {
+  isSkeleton?: boolean;
+  asChild?: boolean;
 }
 
 export function PlaceholderImage({
-    isSkeleton = false,
-    asChild = false,
-    className,
-    ...props
+  isSkeleton = false,
+  asChild = false,
+  className,
+  ...props
 }: PlaceholderImageProps) {
-    const Comp = asChild ? Slot : AspectRatio;
+  const Comp = asChild ? Slot : AspectRatio;
 
-    return (
-        <Comp
-            ratio={16 / 9}
-            {...props}
-            className={cn("overflow-hidden rounded-lg", className)}
-        >
-            <Skeleton
-                aria-label="Placeholder"
-                role="img"
-                aria-roledescription="placeholder"
-                className={cn(
-                    "flex size-full items-center justify-center",
-                    isSkeleton ? "animate-pulse" : "animate-none"
-                )}
-            >
-                <Icons.placeholder
-                    className="size-9 text-muted-foreground"
-                    aria-hidden="true"
-                />
-            </Skeleton>
-        </Comp>
-    );
+  return (
+    <Comp
+      ratio={16 / 9}
+      {...props}
+      className={cn("overflow-hidden rounded-lg", className)}
+    >
+      <Skeleton
+        aria-label="Placeholder"
+        role="img"
+        aria-roledescription="placeholder"
+        className={cn(
+          "flex size-full items-center justify-center",
+          isSkeleton ? "animate-pulse" : "animate-none",
+        )}
+      >
+        <Icons.placeholder
+          className="size-9 text-muted-foreground"
+          aria-hidden="true"
+        />
+      </Skeleton>
+    </Comp>
+  );
 }

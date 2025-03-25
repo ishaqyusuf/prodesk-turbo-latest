@@ -10,21 +10,21 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import BuildersTableShell from "./builders-table-shell";
 
 export const metadata: Metadata = {
-    title: "Builders",
+  title: "Builders",
 };
 export default async function BuildersPage({ searchParams }) {
-    const response = await getBuildersAction(queryParams(searchParams));
-    return (
-        <AuthGuard can={["viewBuilders"]}>
-            <CommunitySettingsLayoutComponent>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Settings" />
-                    <BreadLink title="Community" />
-                    <BreadLink isLast title="Builders" />
-                </Breadcrumbs>
+  const response = await getBuildersAction(queryParams(searchParams));
+  return (
+    <AuthGuard can={["viewBuilders"]}>
+      <CommunitySettingsLayoutComponent>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Settings" />
+          <BreadLink title="Community" />
+          <BreadLink isLast title="Builders" />
+        </Breadcrumbs>
 
-                <BuildersTableShell searchParams={searchParams} {...response} />
-            </CommunitySettingsLayoutComponent>
-        </AuthGuard>
-    );
+        <BuildersTableShell searchParams={searchParams} {...response} />
+      </CommunitySettingsLayoutComponent>
+    </AuthGuard>
+  );
 }

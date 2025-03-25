@@ -6,9 +6,9 @@ import { ICostChart } from "@/types/community";
 import { InstallCostSettings } from "@/types/settings";
 
 export async function _punchoutCosts() {
-    const cost: InstallCostSettings = await getSettingAction(
-        "install-price-chart"
-    );
+  const cost: InstallCostSettings = await getSettingAction(
+    "install-price-chart",
+  );
 
-    return cost.meta.list.filter((l) => l.punchout);
+  return cost.meta.list.filter((l) => l.punchout);
 }

@@ -11,33 +11,28 @@ import NewFeatureBtn from "@/components/common/new-feature-btn";
 import ProductionsPageClient from "../../_components/productions-page-client";
 
 export async function generateMetadata({}) {
-    return constructMetadata({
-        title: `Sales Production - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `Sales Production - gndprodesk.com`,
+  });
 }
 export default async function SalesBookPage({ searchParams }) {
-    // const del = await prisma.salesStat.deleteMany({});
-    // console.log(del);
+  // const del = await prisma.salesStat.deleteMany({});
+  // console.log(del);
 
-    const search = searchParamsCache.parse(searchParams);
-    const queryClient = getQueryClient();
-    const props = composeFilter(
-        "sales-productions"
-        // await getSalesPageQueryDataDta()
-    );
-    const { queryKey, filterFields } = props;
-    await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
-    return (
-        <FPage can={["viewOrders"]} className="" title="Productions">
-            <Portal nodeId={"navRightSlot"}>
-                <NewFeatureBtn href="/sales-v2/productions">
-                    Old Site
-                </NewFeatureBtn>
-            </Portal>
-            <ProductionsPageClient
-                queryKey={queryKey}
-                filterFields={filterFields}
-            />
-        </FPage>
-    );
+  const search = searchParamsCache.parse(searchParams);
+  const queryClient = getQueryClient();
+  const props = composeFilter(
+    "sales-productions",
+    // await getSalesPageQueryDataDta()
+  );
+  const { queryKey, filterFields } = props;
+  await queryClient.prefetchInfiniteQuery(dataOptions(search, queryKey));
+  return (
+    <FPage can={["viewOrders"]} className="" title="Productions">
+      <Portal nodeId={"navRightSlot"}>
+        <NewFeatureBtn href="/sales-v2/productions">Old Site</NewFeatureBtn>
+      </Portal>
+      <ProductionsPageClient queryKey={queryKey} filterFields={filterFields} />
+    </FPage>
+  );
 }

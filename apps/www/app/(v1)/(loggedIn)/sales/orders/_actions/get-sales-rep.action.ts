@@ -5,26 +5,26 @@ import { prisma } from "@/db";
 import { unstable_noStore } from "next/cache";
 
 export async function _getSalesRep() {
-    unstable_noStore();
-    const users = await prisma.users.findMany({
-        where: {
-            roles: {
-                some: {
-                    roleId: {
-                        gt: 0,
-                    },
-                },
-            },
-            reppedProductions: {
-                some: {
-                    id: { gt: 0 },
-                },
-            },
+  unstable_noStore();
+  const users = await prisma.users.findMany({
+    where: {
+      roles: {
+        some: {
+          roleId: {
+            gt: 0,
+          },
         },
-        select: {
-            id: true,
-            name: true,
+      },
+      reppedProductions: {
+        some: {
+          id: { gt: 0 },
         },
-    });
-    return users;
+      },
+    },
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+  return users;
 }

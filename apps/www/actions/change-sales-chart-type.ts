@@ -8,15 +8,15 @@ import { addYears } from "date-fns";
 import { revalidateTag } from "next/cache";
 
 export const changeSalesChartTypeAction = actionClient
-    .schema(changeSalesChartTypeSchema)
-    .metadata({
-        name: "change-sales-chart-type",
-    })
-    .action(async ({ parsedInput: value }) => {
-        cookies().set({
-            name: Cookies.SalesChartType,
-            value,
-            expires: addYears(new Date(), 1),
-        });
-        revalidateTag(`sales_`);
+  .schema(changeSalesChartTypeSchema)
+  .metadata({
+    name: "change-sales-chart-type",
+  })
+  .action(async ({ parsedInput: value }) => {
+    cookies().set({
+      name: Cookies.SalesChartType,
+      value,
+      expires: addYears(new Date(), 1),
     });
+    revalidateTag(`sales_`);
+  });

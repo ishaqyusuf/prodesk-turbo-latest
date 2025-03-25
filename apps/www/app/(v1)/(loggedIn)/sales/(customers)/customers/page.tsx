@@ -11,25 +11,22 @@ import CustomersTableShell from "./_components/customers-table-shell";
 import { getCustomersAction } from "../_actions/sales-customers";
 
 export const metadata: Metadata = {
-    title: "Customers",
+  title: "Customers",
 };
 interface Props {}
 export default async function CustomersPage({ searchParams }) {
-    const response = getCustomersAction(queryParams(searchParams));
+  const response = getCustomersAction(queryParams(searchParams));
 
-    return (
-        <AuthGuard can={["viewSalesCustomers"]}>
-            <CustomersLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Customers" />
-                </Breadcrumbs>
+  return (
+    <AuthGuard can={["viewSalesCustomers"]}>
+      <CustomersLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Customers" />
+        </Breadcrumbs>
 
-                <CustomersTableShell
-                    searchParams={searchParams}
-                    promise={response}
-                />
-            </CustomersLayout>
-        </AuthGuard>
-    );
+        <CustomersTableShell searchParams={searchParams} promise={response} />
+      </CustomersLayout>
+    </AuthGuard>
+  );
 }

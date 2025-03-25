@@ -5,7 +5,7 @@ import { prisma } from "@/db";
 export async function getUnitTemplateLink(
   projectId,
   defaultTemplatId,
-  modelName
+  modelName,
 ) {
   const community = await prisma.communityModels.findFirst({
     where: {

@@ -5,15 +5,14 @@ import { SalesEmailMenuItem } from "@/components/sales-email-menu-item";
 import { useMemo } from "react";
 
 export function SalesFormEmailMenu({}) {
-    const zus = useFormDataStore();
+  const zus = useFormDataStore();
 
-    return (
-        <SalesEmailMenuItem
-            salesId={zus?.metaData?.id}
-            salesType={zus.metaData.type}
-        />
-    );
+  return (
+    <SalesEmailMenuItem
+      salesId={zus?.metaData?.id}
+      salesType={zus.metaData.type}
+    />
+  );
 
-    return null;
+  return null;
 }
-

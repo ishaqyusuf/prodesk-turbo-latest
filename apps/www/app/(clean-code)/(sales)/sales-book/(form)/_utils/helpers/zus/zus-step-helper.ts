@@ -4,26 +4,26 @@ import { toast } from "sonner";
 import { StepHelperClass } from "./step-component-class";
 
 interface LoadStepComponentsProps {
-    stepUid: string;
-    zus: ZusSales;
+  stepUid: string;
+  zus: ZusSales;
 }
 
 export async function zusDeleteComponents({
-    stepUid,
-    zus,
-    productUid,
-    selection,
+  stepUid,
+  zus,
+  productUid,
+  selection,
 }: LoadStepComponentsProps & { productUid: string[]; selection?: boolean }) {
-    let uids = productUid?.filter(Boolean);
-    const [uid, _stepUid] = stepUid?.split("-");
+  let uids = productUid?.filter(Boolean);
+  const [uid, _stepUid] = stepUid?.split("-");
 
-    if (uids.length) {
-        await deleteStepComponentsUseCase(uids);
-        toast.message("Deleted.");
-    }
-    // const stepComponents = zus.kvStepComponentList[_stepUid];
-    // zus.dotUpdate(
-    //     `kvStepComponentList.${_stepUid}`,
-    //     stepComponents?.filter((c) => uids.every((u) => u != c.uid))
-    // );
+  if (uids.length) {
+    await deleteStepComponentsUseCase(uids);
+    toast.message("Deleted.");
+  }
+  // const stepComponents = zus.kvStepComponentList[_stepUid];
+  // zus.dotUpdate(
+  //     `kvStepComponentList.${_stepUid}`,
+  //     stepComponents?.filter((c) => uids.every((u) => u != c.uid))
+  // );
 }

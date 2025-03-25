@@ -4,11 +4,11 @@ export default function useQueryParams<T = {}>() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const queryParams = (searchParams as unknown) as Partial<T>;
+  const queryParams = searchParams as unknown as Partial<T>;
 
   function setQueryParams(params: Partial<T>, clear = false) {
     const urlSearchParams = new URLSearchParams(
-      clear ? undefined : searchParams.toString()
+      clear ? undefined : searchParams.toString(),
     );
     Object.entries(params).forEach(([key, value]) => {
       urlSearchParams.set(key, String(value));

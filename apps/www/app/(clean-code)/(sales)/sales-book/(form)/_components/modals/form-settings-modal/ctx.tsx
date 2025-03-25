@@ -5,47 +5,47 @@ import { toast } from "sonner";
 import { saveSalesSettingUseCase } from "@/app/(clean-code)/(sales)/_common/use-case/sales-book-form-use-case";
 
 export function useSettingsContext() {
-    const zus = useFormDataStore();
-    const salesSetting = zus?.setting;
+  const zus = useFormDataStore();
+  const salesSetting = zus?.setting;
 
-    const form = useForm({
-        defaultValues: {
-            data: salesSetting,
-        },
+  const form = useForm({
+    defaultValues: {
+      data: salesSetting,
+    },
+  });
+  const arr = useFieldArray({
+    control: form.control,
+    name: "data.sectionKeys",
+    keyName: "_id",
+  });
+  function createSection(uid) {
+    form.setValue(`data.setting.data.route.${uid}`, {
+      routeSequence: [{ uid: "" }],
+      externalRouteSequence: [],
+      config: {
+        noHandle: false,
+        hasSwing: false,
+        addonQty: false,
+      },
     });
-    const arr = useFieldArray({
-        control: form.control,
-        name: "data.sectionKeys",
-        keyName: "_id",
+    arr.append({
+      uid,
     });
-    function createSection(uid) {
-        form.setValue(`data.setting.data.route.${uid}`, {
-            routeSequence: [{ uid: "" }],
-            externalRouteSequence: [],
-            config: {
-                noHandle: false,
-                hasSwing: false,
-                addonQty: false,
-            },
-        });
-        arr.append({
-            uid,
-        });
-    }
-    return {
-        createSection,
-        arr,
-        form,
-        salesSetting,
-        zus,
-        steps: salesSetting.steps,
-        async save() {
-            const data = form.getValues();
-            const meta = data.data.setting.data;
-            const resp = await saveSalesSettingUseCase(meta);
-            toast.success("Saved");
-        },
-    };
+  }
+  return {
+    createSection,
+    arr,
+    form,
+    salesSetting,
+    zus,
+    steps: salesSetting.steps,
+    async save() {
+      const data = form.getValues();
+      const meta = data.data.setting.data;
+      const resp = await saveSalesSettingUseCase(meta);
+      toast.success("Saved");
+    },
+  };
 }
 type Type = ReturnType<typeof useSettingsContext>;
 export const Context = createContext<Type>(null as any);

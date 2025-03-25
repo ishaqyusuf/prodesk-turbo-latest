@@ -6,27 +6,27 @@ import { constructMetadata } from "@/lib/(clean-code)/construct-metadata";
 import { fixUndefinedOrderIdAction } from "@/actions/--fix/fix-undefined-order-id";
 
 export async function generateMetadata({ params }) {
-    return constructMetadata({
-        title: `Edit Quote | ${params.slug} - gndprodesk.com`,
-    });
+  return constructMetadata({
+    title: `Edit Quote | ${params.slug} - gndprodesk.com`,
+  });
 }
 export default async function EditQuotePage({ params, searchParams }) {
-    let slug = params.slug;
-    await fixUndefinedOrderIdAction(slug, "quote");
+  let slug = params.slug;
+  await fixUndefinedOrderIdAction(slug, "quote");
 
-    // console.log(s);
-    const data = await getSalesBookFormUseCase({
-        type: "quote",
-        slug: params.slug,
-        ...searchParams,
-    });
+  // console.log(s);
+  const data = await getSalesBookFormUseCase({
+    type: "quote",
+    slug: params.slug,
+    ...searchParams,
+  });
 
-    return (
-        <FPage
-            className=""
-            title={`Edit Quote | ${data.order.orderId?.toUpperCase()}`}
-        >
-            <FormClient data={data} />
-        </FPage>
-    );
+  return (
+    <FPage
+      className=""
+      title={`Edit Quote | ${data.order.orderId?.toUpperCase()}`}
+    >
+      <FormClient data={data} />
+    </FPage>
+  );
 }

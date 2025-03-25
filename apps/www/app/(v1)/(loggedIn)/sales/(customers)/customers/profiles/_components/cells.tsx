@@ -3,9 +3,9 @@
 import { TableCol } from "@/components/common/data-table/table-cells";
 import { ICustomerProfile } from "./type";
 import {
-    DeleteRowAction,
-    EditRowAction,
-    RowActionCell,
+  DeleteRowAction,
+  EditRowAction,
+  RowActionCell,
 } from "@/components/_v1/data-table/data-table-row-actions";
 import { SecondaryCellContent } from "@/components/_v1/columns/base-columns";
 import { Badge } from "@/components/ui/badge";
@@ -19,69 +19,65 @@ import { useModal } from "@/components/common/modal/provider";
 import CustomerProfileModal from "./employee-profile-modal";
 
 interface Props {
-    item: ICustomerProfile;
+  item: ICustomerProfile;
 }
 function ProfileName({ item }: Props) {
-    return (
-        <TableCol>
-            <TableCol.Primary>{item.title}</TableCol.Primary>
-        </TableCol>
-    );
+  return (
+    <TableCol>
+      <TableCol.Primary>{item.title}</TableCol.Primary>
+    </TableCol>
+  );
 }
 function Options({ item }: Props) {
-    const [isLoading, startTransition] = useTransition();
+  const [isLoading, startTransition] = useTransition();
 
-    async function makeDefault() {
-        startTransition(async () => {
-            await makeDefaultCustomerProfile(item.id);
-            toast.success("Profile set successfully.");
-            //  route.refresh();
-            _revalidate("customerProfiles");
-        });
-    }
-    const modal = useModal();
-    return (
-        <RowActionCell>
-            <SecondaryCellContent>
-                {item.defaultProfile ? (
-                    <Badge>Default</Badge>
-                ) : (
-                    <Btn
-                        isLoading={isLoading}
-                        onClick={makeDefault}
-                        variant="secondary"
-                        className="flex h-8"
-                    >
-                        <span className="whitespace-nowrap">
-                            {"Set Default"}
-                        </span>
-                    </Btn>
-                )}
-            </SecondaryCellContent>
-            <DeleteRowAction row={item} action={deleteCustomerProfile} />
-            <EditRowAction
-                onClick={() => {
-                    modal.openModal(
-                        <CustomerProfileModal defaultValues={{ ...item }} />
-                    );
-                }}
-            />
-        </RowActionCell>
-    );
+  async function makeDefault() {
+    startTransition(async () => {
+      await makeDefaultCustomerProfile(item.id);
+      toast.success("Profile set successfully.");
+      //  route.refresh();
+      _revalidate("customerProfiles");
+    });
+  }
+  const modal = useModal();
+  return (
+    <RowActionCell>
+      <SecondaryCellContent>
+        {item.defaultProfile ? (
+          <Badge>Default</Badge>
+        ) : (
+          <Btn
+            isLoading={isLoading}
+            onClick={makeDefault}
+            variant="secondary"
+            className="flex h-8"
+          >
+            <span className="whitespace-nowrap">{"Set Default"}</span>
+          </Btn>
+        )}
+      </SecondaryCellContent>
+      <DeleteRowAction row={item} action={deleteCustomerProfile} />
+      <EditRowAction
+        onClick={() => {
+          modal.openModal(<CustomerProfileModal defaultValues={{ ...item }} />);
+        }}
+      />
+    </RowActionCell>
+  );
 }
 function SalesMargin({ item }: Props) {
-    return <>{item.coefficient}%</>;
+  return <>{item.coefficient}%</>;
 }
 function NetTerms({ item }: Props) {
-    return <>{item.meta?.net}</>;
+  return <>{item.meta?.net}</>;
 }
 function Quote({ item }: Props) {
-    return <>{item.meta?.goodUntil} days</>;
+  return <>{item.meta?.goodUntil} days</>;
 }
 export let Cells = {
-    ProfileName,
-    Options,
-    SalesMargin,
-    Quote,
-    NetTerms,
+  ProfileName,
+  Options,
+  SalesMargin,
+  Quote,
+  NetTerms,
 };

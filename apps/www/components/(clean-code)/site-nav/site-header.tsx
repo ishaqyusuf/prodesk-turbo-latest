@@ -1,3 +1,3 @@
 export function SiteHeader({}) {
-    return <div></div>;
+  return <div></div>;
 }

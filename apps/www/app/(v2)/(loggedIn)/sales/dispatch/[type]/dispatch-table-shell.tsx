@@ -10,40 +10,36 @@ import { DispatchColumns } from "../_components/dispatch-cells";
 
 export type DispatchProm = ServerPromiseType<typeof getDispatchSales>;
 interface Props {
-    type: DeliveryOption;
-    promise: DispatchProm["Promise"];
+  type: DeliveryOption;
+  promise: DispatchProm["Promise"];
 }
 
 export default function DispatchTableShell({ promise, type }: Props) {
-    const { data, pageCount } = React.use(promise);
-    const isPickup = type == "pickup";
+  const { data, pageCount } = React.use(promise);
+  const isPickup = type == "pickup";
 
-    const table = useDataTableColumn(
-        data,
-        (ctx) => [
-            ctx.Column("Order", DispatchColumns.Order),
-            ctx.Column("Approved By", DispatchColumns.ApprovedBy),
-            ctx.Column(
-                isPickup ? "Pickup By" : "Delivered To",
-                DispatchColumns.Recipient
-            ),
-        ],
-        true,
-        {
-            sn: true,
-            // snIdFn(item) {
-            //     return item.order.orderId;
-            // },
-            filterCells: ["_q", "_date"],
-        }
-    );
-    return (
-        <>
-            <DataTable2
-                columns={table.columns}
-                data={data}
-                pageCount={pageCount}
-            />
-        </>
-    );
+  const table = useDataTableColumn(
+    data,
+    (ctx) => [
+      ctx.Column("Order", DispatchColumns.Order),
+      ctx.Column("Approved By", DispatchColumns.ApprovedBy),
+      ctx.Column(
+        isPickup ? "Pickup By" : "Delivered To",
+        DispatchColumns.Recipient,
+      ),
+    ],
+    true,
+    {
+      sn: true,
+      // snIdFn(item) {
+      //     return item.order.orderId;
+      // },
+      filterCells: ["_q", "_date"],
+    },
+  );
+  return (
+    <>
+      <DataTable2 columns={table.columns} data={data} pageCount={pageCount} />
+    </>
+  );
 }

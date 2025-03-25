@@ -9,22 +9,22 @@ import { Shell } from "@/components/shell";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export const metadata: Metadata = {
-    title: "Door Components | GND",
+  title: "Door Components | GND",
 };
 export default async function ProductsPage({ searchParams }) {
-    const response = await getDykeProducts(queryParams(searchParams));
+  const response = await getDykeProducts(queryParams(searchParams));
 
-    return (
-        <AuthGuard can={["editOrders"]}>
-            <DykeTabLayout>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Products" />
-                </Breadcrumbs>
-                <Shell className="">
-                    <ProductsTable searchParams={searchParams} {...response} />
-                </Shell>
-            </DykeTabLayout>
-        </AuthGuard>
-    );
+  return (
+    <AuthGuard can={["editOrders"]}>
+      <DykeTabLayout>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Products" />
+        </Breadcrumbs>
+        <Shell className="">
+          <ProductsTable searchParams={searchParams} {...response} />
+        </Shell>
+      </DykeTabLayout>
+    </AuthGuard>
+  );
 }

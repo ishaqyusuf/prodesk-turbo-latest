@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 
 export default function useStaticDataLoader(
-    fn,
-    { onSuccess = null, onError = null }: any
+  fn,
+  { onSuccess = null, onError = null }: any,
 ) {
-    const [items, setItems] = useState(fn ? [] : null);
+  const [items, setItems] = useState(fn ? [] : null);
 
-    useEffect(() => {
-        if (fn) {
-            fn().then((data) => {
-                console.log(data);
+  useEffect(() => {
+    if (fn) {
+      fn().then((data) => {
+        console.log(data);
 
-                setItems(data);
-                onSuccess && onSuccess(data);
-            });
-        }
-    }, []);
+        setItems(data);
+        onSuccess && onSuccess(data);
+      });
+    }
+  }, []);
 
-    return {
-        fn,
-        items,
-    };
+  return {
+    fn,
+    items,
+  };
 }

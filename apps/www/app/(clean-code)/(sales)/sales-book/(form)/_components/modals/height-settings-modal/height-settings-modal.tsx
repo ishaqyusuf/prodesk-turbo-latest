@@ -3,13 +3,13 @@ import { LegacyDykeFormStepType } from "@/app/(clean-code)/(sales)/sales-book/(f
 import { useHeightSettingCtx } from "./ctx";
 
 interface Props {
-    ctx: LegacyDykeFormStepType;
+  ctx: LegacyDykeFormStepType;
 }
 export default function HeightSettingsModal({ ctx }: Props) {
-    const context = useHeightSettingCtx(ctx);
-    return (
-        <Modal.Content>
-            <Modal.Header title="Door Height Settings" />
-        </Modal.Content>
-    );
+  const context = useHeightSettingCtx(ctx);
+  return (
+    <Modal.Content>
+      <Modal.Header title="Door Height Settings" />
+    </Modal.Content>
+  );
 }

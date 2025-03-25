@@ -9,21 +9,21 @@ import { queryParams } from "@/app/(v1)/_actions/action-utils";
 import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 
 export default async function SalesAccountingPage(props) {
-    const response = await getsalesPayments(queryParams(props.searchParams));
-    return (
-        <AuthGuard can={["editOrderPayment"]}>
-            <PageShell>
-                <Breadcrumbs>
-                    <BreadLink isFirst title="Sales" />
-                    <BreadLink isLast title="Commissions" />
-                </Breadcrumbs>
-                <AccountingTab />
-                <PageHeader title="Sales Payments" />
-                <SalesPaymentTableShell
-                    searchParams={props.searchParams}
-                    {...response}
-                />
-            </PageShell>
-        </AuthGuard>
-    );
+  const response = await getsalesPayments(queryParams(props.searchParams));
+  return (
+    <AuthGuard can={["editOrderPayment"]}>
+      <PageShell>
+        <Breadcrumbs>
+          <BreadLink isFirst title="Sales" />
+          <BreadLink isLast title="Commissions" />
+        </Breadcrumbs>
+        <AccountingTab />
+        <PageHeader title="Sales Payments" />
+        <SalesPaymentTableShell
+          searchParams={props.searchParams}
+          {...response}
+        />
+      </PageShell>
+    </AuthGuard>
+  );
 }

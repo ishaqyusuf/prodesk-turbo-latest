@@ -11,53 +11,51 @@ import { IUserDoc } from "@/types/hrm";
 import Image from "next/image";
 
 interface Props {
-    contractor: ContractorOverview;
-    className?: string;
+  contractor: ContractorOverview;
+  className?: string;
 }
 export default function ContractorDocuments({ contractor, ...props }: Props) {
-    async function deleteImg(img: IUserDoc) {
-        await _deleteContractorDoc(img);
-    }
-    return (
-        <Card {...props}>
-            <CardHeader>
-                <CardTitle>
-                    <span>Documents</span>
-                </CardTitle>
-            </CardHeader>
-            <CardContent>
-                <Button onClick={() => openModal("uploadDoc", contractor)}>
-                    Upload
-                </Button>
-                <Table>
-                    <TableBody>
-                        {contractor.user.documents?.map((doc) => (
-                            <TableRow key={doc.id}>
-                                <TableCell>
-                                    <Image
-                                        className="border-2 rounded cursor-pointer"
-                                        onClick={() =>
-                                            openModal("img", {
-                                                src: doc.meta.url,
-                                            })
-                                        }
-                                        width={70}
-                                        height={50}
-                                        src={doc.meta.url}
-                                        alt={doc.description as any}
-                                    />
-                                </TableCell>
-                                <TableCell>
-                                    <p>{doc.description}</p>
-                                    <ConfirmBtn onClick={() => deleteImg(doc)}>
-                                        Delete
-                                    </ConfirmBtn>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </CardContent>
-        </Card>
-    );
+  async function deleteImg(img: IUserDoc) {
+    await _deleteContractorDoc(img);
+  }
+  return (
+    <Card {...props}>
+      <CardHeader>
+        <CardTitle>
+          <span>Documents</span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button onClick={() => openModal("uploadDoc", contractor)}>
+          Upload
+        </Button>
+        <Table>
+          <TableBody>
+            {contractor.user.documents?.map((doc) => (
+              <TableRow key={doc.id}>
+                <TableCell>
+                  <Image
+                    className="border-2 rounded cursor-pointer"
+                    onClick={() =>
+                      openModal("img", {
+                        src: doc.meta.url,
+                      })
+                    }
+                    width={70}
+                    height={50}
+                    src={doc.meta.url}
+                    alt={doc.description as any}
+                  />
+                </TableCell>
+                <TableCell>
+                  <p>{doc.description}</p>
+                  <ConfirmBtn onClick={() => deleteImg(doc)}>Delete</ConfirmBtn>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
 }

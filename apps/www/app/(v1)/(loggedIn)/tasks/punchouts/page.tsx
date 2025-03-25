@@ -13,21 +13,21 @@ import AuthGuard from "@/app/(v2)/(loggedIn)/_components/auth-guard";
 import JobTableShell from "../../contractor/jobs/job-table-shell";
 
 export const metadata: Metadata = {
-    title: "Installations",
+  title: "Installations",
 };
 export default async function PunchoutPage({ searchParams }) {
-    const response = await getMyJobs(
-        queryParams(searchParams, { type: "punchout" })
-    );
-    return (
-        <AuthGuard can={["viewTech"]}>
-            <div className="space-y-4 flex flex-col">
-                <Breadcrumbs>
-                    <BreadLink isLast title="Jobs" />
-                </Breadcrumbs>
-                <PageHeader title="Jobs" Action={SubmitJobBtn} />
-                <JobTableShell searchParams={searchParams} {...response} />
-            </div>
-        </AuthGuard>
-    );
+  const response = await getMyJobs(
+    queryParams(searchParams, { type: "punchout" }),
+  );
+  return (
+    <AuthGuard can={["viewTech"]}>
+      <div className="space-y-4 flex flex-col">
+        <Breadcrumbs>
+          <BreadLink isLast title="Jobs" />
+        </Breadcrumbs>
+        <PageHeader title="Jobs" Action={SubmitJobBtn} />
+        <JobTableShell searchParams={searchParams} {...response} />
+      </div>
+    </AuthGuard>
+  );
 }
