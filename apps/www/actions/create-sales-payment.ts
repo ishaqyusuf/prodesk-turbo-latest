@@ -1,3 +1,4 @@
+"use server";
 import { z } from "zod";
 import { actionClient } from "./safe-action";
 import { createPaymentSchema } from "./schema";
