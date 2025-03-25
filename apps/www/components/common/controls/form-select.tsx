@@ -29,6 +29,8 @@ import {
     CommandItem,
 } from "@/components/ui/command";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useDataSkeleton } from "@/hooks/use-data-skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export interface FormSelectProps<T> {
     label?;
@@ -50,7 +52,7 @@ export interface FormSelectProps<T> {
 export default function FormSelect<
     TFieldValues extends FieldValues = FieldValues,
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-    TOptionType = any
+    TOptionType = any,
 >({
     label,
     prefix,
@@ -71,6 +73,7 @@ export default function FormSelect<
 }: Partial<ControllerProps<TFieldValues, TName>> &
     FormSelectProps<TOptionType>) {
     const [list, setList] = useState<any>(options || []);
+    const load = useDataSkeleton();
     // useEffect(() => {
     //     setList(options || []);
     //     // console.log(options?.length);
@@ -95,95 +98,115 @@ export default function FormSelect<
         return typeof option == "string"
             ? option
             : titleKey == "label"
-            ? option[titleKey] || option["text"]
-            : option[titleKey];
+              ? option[titleKey] || option["text"]
+              : option[titleKey];
     }
     return (
         <FormField
             {...(props as any)}
             render={({ field }) => (
                 <FormItem className={cn(className, "mx-1")}>
-                    {label && <FormLabel>{label}</FormLabel>}
+                    {label && (
+                        <FormLabel
+                            className={cn(
+                                props.disabled && "text-muted-foreground",
+                            )}
+                        >
+                            {label}
+                        </FormLabel>
+                    )}
                     <FormControl>
-                        {type == "combo" ? (
-                            <ControlledCombox
-                                size={size}
-                                field={field}
-                                placeholder={placeholder}
-                                onSelect={(s) => {
-                                    let value = itemValue(s);
-                                    if (transformValue)
-                                        value = transformValue(value);
-
-                                    field?.onChange(value);
-                                    onSelect && onSelect(value);
-                                    // onSelect;
-                                }}
-                                options={list}
-                                itemValue={itemValue}
-                                itemText={itemText}
-                            />
+                        {load?.loading ? (
+                            <>
+                                <Skeleton className="w-full h-8" />
+                            </>
                         ) : (
-                            <Select
-                                disabled={props.disabled}
-                                onValueChange={field.onChange}
-                                {...(listMode
-                                    ? {
-                                          defaultValue: field.value,
-                                      }
-                                    : {
-                                          value: field.value,
-                                      })}
-                            >
-                                <SelectTrigger
-                                    className={cn(size == "sm" && "h-8")}
-                                >
-                                    <div className="inline-flex gap-1">
-                                        {prefix && (
-                                            <span className="text-muted-foreground">
-                                                {prefix}
-                                                {": "}
-                                            </span>
-                                        )}
-                                        <SelectValue
-                                            className="whitespace-nowrap"
-                                            placeholder={placeholder}
-                                        ></SelectValue>
-                                    </div>
-                                </SelectTrigger>
-                                <SelectContent className="">
-                                    <ScrollArea className="max-h-[40vh] overflow-auto">
-                                        {(loader ? list : options)?.map(
-                                            (option, index) =>
-                                                SelItem ? (
-                                                    <SelItem
-                                                        option={option}
-                                                        key={index}
-                                                    />
-                                                ) : (
-                                                    <SelectItem
-                                                        key={index}
-                                                        value={itemValue(
-                                                            option
-                                                        )}
-                                                    >
-                                                        {Item ? (
-                                                            <Item
+                            <>
+                                {type == "combo" ? (
+                                    <ControlledCombox
+                                        size={size}
+                                        field={field}
+                                        placeholder={placeholder}
+                                        onSelect={(s) => {
+                                            let value = itemValue(s);
+                                            if (transformValue)
+                                                value = transformValue(value);
+
+                                            field?.onChange(value);
+                                            onSelect && onSelect(value);
+                                            // onSelect;
+                                        }}
+                                        options={list}
+                                        itemValue={itemValue}
+                                        itemText={itemText}
+                                    />
+                                ) : (
+                                    <Select
+                                        disabled={props.disabled}
+                                        onValueChange={field.onChange}
+                                        {...(listMode
+                                            ? {
+                                                  defaultValue: field.value,
+                                              }
+                                            : {
+                                                  value: field.value,
+                                              })}
+                                    >
+                                        <SelectTrigger
+                                            className={cn(
+                                                size == "sm" && "h-8",
+                                            )}
+                                        >
+                                            <div className="inline-flex gap-1">
+                                                {prefix && (
+                                                    <span className="text-muted-foreground">
+                                                        {prefix}
+                                                        {": "}
+                                                    </span>
+                                                )}
+                                                <SelectValue
+                                                    className="whitespace-nowrap"
+                                                    placeholder={placeholder}
+                                                ></SelectValue>
+                                            </div>
+                                        </SelectTrigger>
+                                        <SelectContent className="">
+                                            <ScrollArea className="max-h-[40vh] overflow-auto">
+                                                {(loader ? list : options)?.map(
+                                                    (option, index) =>
+                                                        SelItem ? (
+                                                            <SelItem
                                                                 option={option}
+                                                                key={index}
                                                             />
                                                         ) : (
-                                                            <>
-                                                                {itemText(
-                                                                    option
+                                                            <SelectItem
+                                                                key={index}
+                                                                value={itemValue(
+                                                                    option,
                                                                 )}
-                                                            </>
-                                                        )}
-                                                    </SelectItem>
-                                                )
-                                        )}
-                                    </ScrollArea>
-                                </SelectContent>
-                            </Select>
+                                                            >
+                                                                {Item ? (
+                                                                    <Item
+                                                                        option={
+                                                                            option
+                                                                        }
+                                                                    />
+                                                                ) : (
+                                                                    <>
+                                                                        {itemText(
+                                                                            option,
+                                                                        )}
+                                                                    </>
+                                                                )}
+                                                            </SelectItem>
+                                                        ),
+                                                )}
+                                            </ScrollArea>
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            </>
                         )}
                     </FormControl>
                 </FormItem>
@@ -214,15 +237,15 @@ export function ControlledCombox({
                         className={cn(
                             size == "sm" && "h-8",
                             "w-full justify-between",
-                            !field?.value && "text-muted-foreground"
+                            !field?.value && "text-muted-foreground",
                         )}
                     >
                         <span className="">
                             {field?.value
                                 ? itemText(
                                       options?.find(
-                                          (o) => itemValue?.(o) == field?.value
-                                      )
+                                          (o) => itemValue?.(o) == field?.value,
+                                      ),
                                   )
                                 : placeholder}
                         </span>
@@ -257,7 +280,7 @@ export function ControlledCombox({
                                         "ml-auto h-4 w-4",
                                         itemValue(opt) === field?.value
                                             ? "opacity-100"
-                                            : "opacity-0"
+                                            : "opacity-0",
                                     )}
                                 />
                             </CommandItem>

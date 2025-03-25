@@ -32,17 +32,19 @@ export async function createTerminalPaymentAction(props: Props) {
                     },
                 },
                 status: "PENDING" as SquarePaymentStatus,
-                paymentTerminal: {
-                    connectOrCreate: {
-                        where: {
-                            terminalId: props.deviceId,
-                        },
-                        create: {
-                            terminalId: props.deviceId,
-                            terminalName: props.deviceName,
-                        },
-                    },
-                },
+                paymentTerminal: props.deviceName
+                    ? {
+                          connectOrCreate: {
+                              where: {
+                                  terminalId: props.deviceId,
+                              },
+                              create: {
+                                  terminalId: props.deviceId,
+                                  terminalName: props.deviceName,
+                              },
+                          },
+                      }
+                    : undefined,
             },
         });
         return {
@@ -57,14 +59,14 @@ interface CheckTerminalPaymentStatusActionProps {
     checkoutId;
 }
 export async function checkTerminalPaymentStatusAction(
-    props: CheckTerminalPaymentStatusActionProps
+    props: CheckTerminalPaymentStatusActionProps,
 ) {
     const { status, tip } = await getTerminalPaymentStatus(props.checkoutId);
     return { status, tip };
 }
 export async function cancelTerminalCheckoutAction(
     checkoutId,
-    squarePaymentId
+    squarePaymentId,
 ) {
     return await errorHandler(async () => {
         if (checkoutId) {

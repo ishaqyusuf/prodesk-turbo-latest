@@ -17,13 +17,13 @@ import { _modal } from "@/components/common/modal/provider";
 import { isProdClient } from "@/lib/is-prod";
 import { revalidateTable } from "@/components/(clean-code)/data-table/use-infinity-data-table";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createPaymentSchema } from "@/actions/schema";
+import { createPaymentSchemaOld } from "@/actions/schema";
 
 export type UsePayForm = ReturnType<typeof usePayForm>;
 export const usePayForm = () => {
     const tx = txStore();
     const form = useForm({
-        resolver: zodResolver(createPaymentSchema),
+        resolver: zodResolver(createPaymentSchemaOld),
         defaultValues: {
             terminal: null as CreateTerminalPaymentAction["resp"],
             paymentMethod: tx.paymentMethod,
@@ -47,7 +47,10 @@ export const usePayForm = () => {
             getPaymentTerminalsUseCase()
                 .then((terminals) => {
                     tx.dotUpdate("terminals", terminals.devices);
-                    form.setValue("deviceId", terminals.lastUsed?.value);
+                    form.setValue("deviceId", terminals.lastUsed?.value, {
+                        shouldDirty: true,
+                        shouldValidate: true,
+                    });
                 })
                 .catch((e) => {
                     toast.error(e.message);
@@ -62,7 +65,7 @@ export const usePayForm = () => {
         setWaitSeconds(null);
         const data = form.getValues();
         const deviceName = tx.terminals?.find(
-            (t) => t.value == data.deviceId
+            (t) => t.value == data.deviceId,
         )?.label;
         const amount = +data.amount;
 
@@ -96,7 +99,7 @@ export const usePayForm = () => {
     async function paymentReceived() {
         const { resp, error } = await paymentReceivedAction(
             terminal?.squarePaymentId,
-            terminal?.squareCheckout?.id
+            terminal?.squareCheckout?.id,
         );
         if (resp || !isProdClient) {
             await pay();
@@ -107,7 +110,7 @@ export const usePayForm = () => {
     async function cancelTerminalPayment() {
         const { resp, error } = await cancelTerminalCheckoutAction(
             terminal?.squareCheckout?.id,
-            terminal?.squarePaymentId
+            terminal?.squarePaymentId,
         );
         console.log(error, resp, terminal);
 
@@ -126,7 +129,7 @@ export const usePayForm = () => {
                         const response = await checkTerminalPaymentStatusAction(
                             {
                                 checkoutId: terminal.squareCheckout?.id,
-                            }
+                            },
                         );
                         // form.setValue('terminal.status',response.status)
                         switch (response.status) {
@@ -146,14 +149,14 @@ export const usePayForm = () => {
                         }
                     }
                 },
-                waitSeconds > 5 ? 2000 : waitSeconds > 10 ? 3000 : 1500
+                waitSeconds > 5 ? 2000 : waitSeconds > 10 ? 3000 : 1500,
             );
         });
     }
     async function pay() {
         const data = form.getValues();
         const selections = profile?.salesInfo?.orders?.filter(
-            (o) => tx.selections?.[o.orderId]
+            (o) => tx.selections?.[o.orderId],
         );
         const r = await createTransactionUseCase({
             accountNo: tx.phoneNo,

@@ -14,6 +14,8 @@ import { useMemo } from "react";
 import { ItemClass } from "../_utils/helpers/zus/item-class";
 import { Menu } from "@/components/(clean-code)/menu";
 import { swap } from "@/lib/utils";
+import { restoreMissingComponentData } from "@/actions/restore-missing-component-data";
+import { toast } from "sonner";
 
 interface Props {
     uid?: string;
@@ -61,6 +63,19 @@ function ItemSectionHeader({ uid }) {
     const placeholder = `Item ${cls.itemIndex + 1}`;
     const formItem = cls.formItem;
     const itemSequence = zus.sequence.formItem;
+    const restoreMissing = async () => {
+        try {
+            await restoreMissingComponentData(
+                cls.formItem.id,
+                cls.formItem.groupItem.hptId,
+            );
+            toast.success(
+                "Restore completed. Refresh and Save to get updated invoice.",
+            );
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
     return (
         <div className="flex border items-center gap-4 p-2 px-4">
             <CollapsibleTrigger asChild className="flex-1">
@@ -91,6 +106,9 @@ function ItemSectionHeader({ uid }) {
                 {formItem.collapsed ? "Expand" : "Collapse"}
             </Button>
             <Menu>
+                <Menu.Item onClick={restoreMissing} icon="copy">
+                    Component Doors Restore
+                </Menu.Item>
                 <Menu.Item icon="copy">Make Copy</Menu.Item>
                 <Menu.Item
                     disabled={itemSequence?.length <= 1}

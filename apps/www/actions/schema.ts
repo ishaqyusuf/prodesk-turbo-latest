@@ -1,3 +1,4 @@
+import { paymentMethods } from "@/utils/constants";
 import { z } from "zod";
 
 export const changeSalesChartTypeSchema = z.enum(["sales"]);
@@ -40,7 +41,7 @@ export const createCustomerSchema = z
             });
         }
     });
-export const createPaymentSchema = z
+export const createPaymentSchemaOld = z
     .object({
         paymentMethod: z.enum([
             "link",
@@ -55,6 +56,41 @@ export const createPaymentSchema = z
         checkNo: z.string().optional(),
         deviceId: z.string().optional(),
         enableTip: z.boolean().optional(),
+    })
+    .superRefine((data, ctx) => {
+        if (data.paymentMethod === "check" && !data.checkNo) {
+            ctx.addIssue({
+                path: ["checkNo"],
+                message: "Check No is required",
+                code: "custom",
+            });
+        }
+        if (data.paymentMethod === "terminal" && !data.deviceId) {
+            ctx.addIssue({
+                path: ["deviceId"],
+                message: "Device Id is required",
+                code: "custom",
+            });
+        } else {
+        }
+    });
+export const createPaymentSchema = z
+    .object({
+        salesIds: z.array(z.number()),
+        accountNo: z.string().optional(),
+        paymentMethod: z.enum(paymentMethods),
+        amount: z.number(),
+        checkNo: z.string().optional(),
+        deviceId: z.string().optional(),
+        deviceName: z.string().optional(),
+        enableTip: z.boolean().optional(),
+        terminalPaymentSession: z
+            .object({
+                status: z.string(),
+                squarePaymentId: z.string().optional(),
+                squareCheckoutId: z.string().optional(),
+            })
+            .optional(),
     })
     .superRefine((data, ctx) => {
         if (data.paymentMethod === "check" && !data.checkNo) {

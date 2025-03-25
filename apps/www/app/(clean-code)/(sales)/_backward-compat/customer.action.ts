@@ -3,6 +3,12 @@
 import { prisma } from "@/db";
 
 export async function uniqueables() {
+    const tables = Object.keys(prisma);
+    return tables
+        .filter((a) => !a.startsWith("$"))
+        .sort((a, b) => a.localeCompare(b))
+        .map((t) => `"${t}"`)
+        .join(", ");
     const customers = await prisma.customers.findMany({
         where: {},
         select: {
@@ -21,7 +27,7 @@ export async function uniqueables() {
                     phoneNo2: ff.phoneNo2 || ff.phoneNo,
                 },
             });
-        })
+        }),
     );
     return fakePhones;
 
@@ -52,7 +58,7 @@ export async function updateUniques(data) {
             } catch (error) {
                 console.log(d);
             }
-        })
+        }),
     );
 }
 export async function harvestCustomers() {
@@ -78,7 +84,7 @@ export async function harvestCustomers() {
     }, new Map());
     const phoneWIthNames = {};
     const filteredGroups = Array.from(grouped.entries()).filter(
-        ([phone, group]) => group.length > 1
+        ([phone, group]) => group.length > 1,
     );
     filteredGroups.map(([phone, group]) => {
         phoneWIthNames[phone] = group.map((g) => g.name);
@@ -111,6 +117,6 @@ export async function customerSynchronize(data) {
 
                 // Execute all updates for the current group
                 return Promise.all(updates);
-            })
+            }),
     );
 }

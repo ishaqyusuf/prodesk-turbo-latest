@@ -86,7 +86,7 @@ export default function PayForm({}) {
                                                                     option.status ==
                                                                         "PAIRED"
                                                                         ? "text-green-500"
-                                                                        : "text-red-600"
+                                                                        : "text-red-600",
                                                                 )}
                                                             />
                                                             <span>
@@ -104,6 +104,7 @@ export default function PayForm({}) {
                                 </div>
                             </Form>
                         )}
+
                         <div className="flex justify-end gap-4 items-center">
                             {pm != "terminal" || (
                                 <>
