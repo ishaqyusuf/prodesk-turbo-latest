@@ -1,52 +1,19 @@
 {
+    "extends": "@gnd/tsconfig/midday-nextjs.json",
     "compilerOptions": {
-        /** Base Options */
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "target": "es2017",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        // "moduleDetection": "force",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-
-        /** Keep TSC performant in monorepos */
-        "incremental": true,
-
-        /** Strictness */
-        "strict": false,
-        "noUncheckedIndexedAccess": true,
-        "checkJs": true,
-
-        /** Transpile using Bundler (not tsc) */
-        "module": "esnext",
-        // "module": "Preserve",
-        "moduleResolution": "node",
-        // "moduleResolution": "Bundler",
-        "noEmit": true,
-
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "preserve",
         "baseUrl": ".",
-        "noImplicitAny": false,
-        "plugins": [
-            {
-                "name": "next"
-            }
-        ],
         "paths": {
             "@/*": ["./*"]
-        }
+        },
+        "strict": true
     },
     "include": [
-        ".eslintrc.cjs",
         "next-env.d.ts",
+        "next.config.js",
         "**/*.ts",
         "**/*.tsx",
-        "**/*.cjs",
-        "**/*.mjs",
         ".next/types/**/*.ts",
-        "trigger.config.ts"
+        "tailwind.config.ts"
     ],
     "exclude": ["node_modules"]
 }
