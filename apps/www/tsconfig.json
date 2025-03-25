@@ -1,21 +1,32 @@
 {
     "compilerOptions": {
+        /** Base Options */
+        "esModuleInterop": true,
+        "skipLibCheck": true,
         "target": "es2017",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
-        "checkJs": true,
-        "skipLibCheck": true,
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
+        // "moduleDetection": "force",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "jsx": "preserve",
+
+        /** Keep TSC performant in monorepos */
         "incremental": true,
+
+        /** Strictness */
+        "strict": false,
         "noUncheckedIndexedAccess": true,
+        "checkJs": true,
+
+        /** Transpile using Bundler (not tsc) */
+        "module": "esnext",
+        // "module": "Preserve",
+        "moduleResolution": "node",
+        // "moduleResolution": "Bundler",
+        "noEmit": true,
+
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "preserve",
         "baseUrl": ".",
         "noImplicitAny": false,
         "plugins": [
