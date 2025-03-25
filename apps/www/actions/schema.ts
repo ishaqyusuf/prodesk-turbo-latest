@@ -1,3 +1,4 @@
+import { paymentMethods } from "@/utils/constants";
 import { z } from "zod";
 
 export const changeSalesChartTypeSchema = z.enum(["sales"]);
@@ -42,19 +43,21 @@ export const createCustomerSchema = z
     });
 export const createPaymentSchema = z
     .object({
-        paymentMethod: z.enum([
-            "link",
-            "terminal",
-            "check",
-            "cash",
-            "zelle",
-            "credit-card",
-            "wire",
-        ]),
+        salesIds: z.array(z.number()),
+        accountNo: z.string().optional(),
+        paymentMethod: z.enum(paymentMethods),
         amount: z.number(),
         checkNo: z.string().optional(),
         deviceId: z.string().optional(),
+        deviceName: z.string().optional(),
         enableTip: z.boolean().optional(),
+        terminalPaymentSession: z
+            .object({
+                status: z.string(),
+                squarePaymentId: z.string().optional(),
+                squareCheckoutId: z.string().optional(),
+            })
+            .optional(),
     })
     .superRefine((data, ctx) => {
         if (data.paymentMethod === "check" && !data.checkNo) {

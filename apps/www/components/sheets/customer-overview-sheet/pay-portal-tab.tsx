@@ -16,26 +16,26 @@ import {
 } from "@/hooks/use-data-skeleton";
 import { formatMoney } from "@/lib/use-number";
 import { cn, sum } from "@/lib/utils";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Dot } from "lucide-react";
 import { CustomSheetContentPortal } from "../custom-sheet-content";
 import { SheetFooter } from "@/components/ui/sheet";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createPaymentSchema } from "@/actions/schema";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Form } from "@/components/ui/form";
 import FormSelect from "@/components/common/controls/form-select";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
+import { SelectItem } from "@/components/ui/select";
 import { salesPaymentMethods } from "@/utils/constants";
 import { Menu } from "@/components/(clean-code)/menu";
+import FormInput from "@/components/common/controls/form-input";
+import { env } from "process";
+import { z } from "zod";
+import { SubmitButton } from "@/components/submit-button";
+import { createSalesPaymentAction } from "@/actions/create-sales-payment";
+import { useAction } from "next-safe-action/hooks";
+import { getTerminalPaymentStatusAction } from "@/actions/get-terminal-payment-status";
+import { cancelTerminaPaymentAction } from "@/actions/cancel-terminal-payment-action";
 
 export function PayPortalTab({}) {
     const query = useCustomerOverviewQuery();
@@ -55,19 +55,112 @@ export function PayPortalTab({}) {
         );
         form.setValue("amount", amountDue);
     }, [selections, data]);
-    const form = useForm({
+    const form = useForm<z.infer<typeof createPaymentSchema>>({
         resolver: zodResolver(createPaymentSchema),
         defaultValues: {
             // terminal: null as CreateTerminalPaymentAction["resp"],
             paymentMethod: undefined,
+            accountNo: query?.params?.accountNo,
+            salesIds: query?.params?.["pay-selections"],
             amount: undefined,
+            // squarePaymentId: undefined,
             // paymentMethod: tx.paymentMethod,
             // amount: tx.totalPay,
             checkNo: undefined,
             deviceId: undefined,
             enableTip: undefined,
+            terminalPaymentSession: undefined,
         },
     });
+
+    const [waitSeconds, setWaitSeconds] = useState(null);
+
+    async function terminalPaymentSuccessful() {
+        makePayment.execute({
+            ...form.getValues(),
+            // squarePaymentId,
+        });
+    }
+    useEffect(() => {
+        form.setValue("salesIds", query.params?.["pay-selections"]);
+    }, [query.params?.["pay-selections"]]);
+    const pm = form.watch("paymentMethod");
+    const terminalPaymentSession = form.watch("terminalPaymentSession");
+    // useEffect(() => {
+    //     if (terminalPaymentSession?.status == "PENDING") {
+    //         // terminalPaymentSuccessful();
+    //     }
+    // }, [terminalPaymentSession, waitSeconds]);
+    const makePayment = useAction(createSalesPaymentAction, {
+        onSuccess: (args) => {
+            if (args.data.terminalPaymentSession) {
+                setWaitSeconds(0);
+                form.setValue(
+                    "terminalPaymentSession",
+                    args.data.terminalPaymentSession,
+                );
+            } else {
+            }
+
+            // query.setParams({
+            //     "pay-selections": [],
+            // });
+            // skel.reload();
+        },
+    });
+    const cancelTerminalPayment = useAction(cancelTerminaPaymentAction, {
+        onSuccess: (args) => {
+            setWaitSeconds(null);
+            form.setValue("terminalPaymentSession", null);
+        },
+    });
+    function checkTerminalStatus() {
+        setTimeout(
+            () => {
+                checkTerminalPaymentStatus.execute({
+                    checkoutId: terminalPaymentSession.squareCheckoutId,
+                });
+            },
+            waitSeconds > 5 ? 2000 : waitSeconds > 10 ? 3000 : 1500,
+        );
+    }
+    const checkTerminalPaymentStatus = useAction(
+        getTerminalPaymentStatusAction,
+        {
+            onSuccess: (args) => {
+                if (args.data.status == "COMPLETED") {
+                    setWaitSeconds(null);
+                }
+                switch (args.data.status) {
+                    case "COMPLETED":
+                        //   form.setValue("terminal.tip", response.tip);
+                        form.setValue(
+                            "terminalPaymentSession.status",
+                            "COMPLETED",
+                        );
+                        terminalPaymentSuccessful();
+                        //   await paymentReceived();
+                        break;
+                    case "CANCELED":
+                    case "CANCEL_REQUESTED":
+                        form.setValue(
+                            "terminalPaymentSession.status",
+                            "CANCELED",
+                        );
+                        cancelTerminalPayment.execute({
+                            checkoutId: terminalPaymentSession.squareCheckoutId,
+                        });
+                        //   await cancelTerminalPayment();
+
+                        break;
+                    default:
+                        setWaitSeconds((waitSeconds || 0) + 1);
+                        checkTerminalStatus();
+                        break;
+                }
+            },
+        },
+    );
     return (
         <div className="">
             <DataSkeletonProvider value={skel}>
@@ -165,49 +258,84 @@ export function PayPortalTab({}) {
                 <CustomSheetContentPortal>
                     <SheetFooter>
                         <Form {...form}>
-                            <div className="grid w-full grid-cols-2 gap-4">
-                                <Menu>
-                                    <Menu.Item>Item 1</Menu.Item>
-                                    <Menu.Item>Item 2</Menu.Item>
-                                    <Menu.Item>Item 3</Menu.Item>
-                                </Menu>
-                                <Select>
-                                    <SelectTrigger className="w-[180px]">
-                                        <SelectValue placeholder="Select a fruit" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            <SelectLabel>Fruits</SelectLabel>
-                                            <SelectItem value="apple">
-                                                Apple
-                                            </SelectItem>
-                                            <SelectItem value="banana">
-                                                Banana
-                                            </SelectItem>
-                                            <SelectItem value="blueberry">
-                                                Blueberry
-                                            </SelectItem>
-                                            <SelectItem value="grapes">
-                                                Grapes
-                                            </SelectItem>
-                                            <SelectItem value="pineapple">
-                                                Pineapple
-                                            </SelectItem>
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                                <DataSkeleton>
-                                    <FormSelect
-                                        size="sm"
-                                        control={form.control}
-                                        name="paymentMethod"
-                                        options={salesPaymentMethods}
-                                        titleKey="label"
-                                        valueKey="value"
-                                        label="Payment Method"
-                                    />
-                                </DataSkeleton>
-                            </div>
+                            <form
+                                onSubmit={form.handleSubmit(
+                                    makePayment.execute,
+                                )}
+                                className="grid w-full grid-cols-2 gap-2"
+                            >
+                                <FormSelect
+                                    size="sm"
+                                    control={form.control}
+                                    name="paymentMethod"
+                                    options={salesPaymentMethods}
+                                    titleKey="label"
+                                    valueKey="value"
+                                    label="Payment Method"
+                                />
+                                <FormInput
+                                    control={form.control}
+                                    name="amount"
+                                    type="number"
+                                    size="sm"
+                                    label={"Amounts"}
+                                    prefix="$"
+                                    // disabled
+                                    // disabled={tx.inProgress}
+                                />
+                                <FormInput
+                                    control={form.control}
+                                    name="checkNo"
+                                    size="sm"
+                                    label={"Check No."}
+                                    disabled={pm != "check"}
+                                    // disabled={tx.inProgress}
+                                />
+                                <FormSelect
+                                    options={data?.terminals || []}
+                                    control={form.control}
+                                    size="sm"
+                                    // disabled={tx.inProgress}
+                                    name="deviceId"
+                                    disabled={pm != "terminal"}
+                                    SelectItem={({ option }) => (
+                                        <SelectItem
+                                            value={option.value}
+                                            disabled={
+                                                env.NEXT_PUBLIC_NODE_ENV ==
+                                                "production"
+                                                    ? option.status != "PAIRED"
+                                                    : false
+                                            }
+                                            className=""
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <Dot
+                                                    className={cn(
+                                                        option.status ==
+                                                            "PAIRED"
+                                                            ? "text-green-500"
+                                                            : "text-red-600",
+                                                    )}
+                                                />
+                                                <span>{option.label}</span>
+                                            </div>
+                                        </SelectItem>
+                                    )}
+                                    label="Terminal"
+                                />
+                                <div className="flex col-span-2 justify-end">
+                                    <SubmitButton
+                                        isSubmitting={makePayment.isExecuting}
+                                        disabled={
+                                            makePayment.isExecuting ||
+                                            !form.formState.isValid
+                                        }
+                                    >
+                                        Pay
+                                    </SubmitButton>
+                                </div>
+                            </form>
                         </Form>
                     </SheetFooter>
                 </CustomSheetContentPortal>

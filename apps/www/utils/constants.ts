@@ -49,6 +49,15 @@ export type PaymentMethods =
     | "zelle"
     | "credit-card"
     | "wire";
+export const paymentMethods = [
+    "link",
+    "terminal",
+    "check",
+    "cash",
+    "zelle",
+    "credit-card",
+    "wire",
+] as const;
 export const salesPaymentMethods: {
     label?: string;
     value?: PaymentMethods;
@@ -60,4 +69,4 @@ export const salesPaymentMethods: {
     { label: "Credit Card", value: "credit-card" },
     { label: "Zelle", value: "zelle" },
     { label: "Cash", value: "cash" },
-];
+] as const;
