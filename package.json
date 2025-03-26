@@ -2,8 +2,8 @@
   "name": "gnd",
   "private": true,
   "workspaces": [
-    "packages/*",
     "apps/*",
+    "packages/*",
     "tooling/*",
     "packages/email/*"
   ],
