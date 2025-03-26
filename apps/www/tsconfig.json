@@ -20,7 +20,7 @@
 
         /** Transpile using Bundler (not tsc) */
         // "module": "esnext",
-        "module": "ESNext",
+        "module": "esnext",
         // "module": "Preserve",
         "moduleResolution": "node",
         // "moduleResolution": "Bundler",

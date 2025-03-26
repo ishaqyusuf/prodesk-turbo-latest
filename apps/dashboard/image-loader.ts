@@ -5,7 +5,6 @@ interface ImageLoaderParams {
 }
 
 const CDN_URL = "https://midday.ai";
-
 export default function imageLoader({
   src,
   width,
