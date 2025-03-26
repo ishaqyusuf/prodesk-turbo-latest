@@ -1,10 +1,10 @@
 import "@/styles/globals.css";
 import { cn } from "@gnd/ui/cn";
-import "@midday/ui/globals.css";
-import { Provider as Analytics } from "@gnd/events/client";
-import { Toaster } from "@gnd/ui/toaster";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import "@gnd/ui/globals.css";
+// import { Provider as Analytics } from "@gnd/events/client";
+// import { Toaster } from "@gnd/ui/toaster";
+// import { GeistMono } from "geist/font/mono";
+// import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import type { ReactElement } from "react";
 import { Providers } from "./providers";
@@ -79,13 +79,13 @@ export default function Layout({
     <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
-          `${GeistSans.variable} ${GeistMono.variable}`,
+          // `${GeistSans.variable} ${GeistMono.variable}`,
           "whitespace-pre-line overscroll-none antialiased"
         )}
       >
         <Providers locale={locale}>{children}</Providers>
-        <Toaster />
-        <Analytics />
+        {/* <Toaster /> */}
+        {/* <Analytics /> */}
       </body>
     </html>
   );
