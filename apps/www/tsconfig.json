@@ -22,8 +22,8 @@
         // "module": "esnext",
         "module": "ESNext",
         // "module": "Preserve",
-        // "moduleResolution": "node",
-        "moduleResolution": "Bundler",
+        "moduleResolution": "node",
+        // "moduleResolution": "Bundler",
         "noEmit": true,
 
         "forceConsistentCasingInFileNames": true,
